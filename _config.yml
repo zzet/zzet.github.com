@@ -1,0 +1,25 @@
+name: Andrew Kumanyaev
+title: Andrew Kumanyaev
+subtitle: Blog to share knowledge
+author: Andrew Kumanyaev
+description: Personal blog
+self_introduction: Personal blog
+simple_search: http://google.com/search
+subscribe_rss: http://feeds.feedburner.com/zzet_bsk
+
+markdown: redcarpet
+pygments: true
+titlecase: true       # Converts page and post titles to titlecase
+
+# Enable pagination
+paginate: 10
+paginate_path: "blog/page:num"
+root:         /
+
+# ----------------------- #
+#    Jekyll & Plugins     #
+# ----------------------- #
+
+# Social links
+github_user: zzet
+twitter_user: zzetorg
