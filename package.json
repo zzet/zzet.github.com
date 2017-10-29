@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jarrekk/Jalpc.git"
+    "url": "git+https://github.com/zzet/zzet.github.com.git"
   },
-  "author": "Kun Jia",
+  "author": "Andrew Kumanyaev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jarrekk/Jalpc/issues"
+    "url": "https://github.com/zzet/zzet.github.com/issues"
   },
-  "homepage": "https://github.com/jarrekk/Jalpc#readme",
+  "homepage": "https://github.com/zzet/zzet.github.com#readme",
   "dependencies": {
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.6",

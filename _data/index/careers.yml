@@ -1,29 +1,113 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
 - name:
-    detail: Company A
-    i18n: company_a
+    detail: FindHotel
+    i18n: find_hotel
   desc:
-    detail: I worked at Company A ...
-    i18n: company_a_desc
+    detail: ...
+    i18n: find_hotel_desc
   date:
-    detail: Apr. 2016
-    i18n: company_a_date
+    detail: May 2017 - ...
+    i18n: find_hotel_date
   job:
-    detail: CTO
-    i18n: company_a_job
+    detail: Software Engineer
+    i18n: find_hotel_job
   icon: fa-plus-square
 
 - name:
-    detail: Company B
-    i18n: company_b
+    detail: Daitel
+    i18n: daitel
   desc:
-    detail: I worked at Company B ...
-    i18n: company_b_desc
+    detail: ...
+    i18n: daitel_desc
   date:
-    detail: Jun. 2015
-    i18n: company_b_date
+    detail: Sep. 2016 - May 2017
+    i18n: daitel_date
   job:
-    detail: Full Stack Developer
-    i18n: company_b_job
+    detail: CTO
+    i18n: daitel_job
+  icon: fa-plus-square
+
+- name:
+    detail: MyDreams
+    i18n: mydreams
+  desc:
+    detail: ...
+    i18n: mydreams_desc
+  date:
+    detail: Nov. 2015 - Sep. 2016
+    i18n: mydreams_date
+  job:
+    detail: Tech Leader
+    i18n: mydreams_job
+  icon: fa-plus-square
+
+- name:
+    detail: ITUniversum LLC
+    i18n: ituniversum
+  desc:
+    detail: ...
+    i18n: ituniversum_desc
+  date:
+    detail: Sep. 2015 - Aug. 2016
+    i18n: ituniversum_date
+  job:
+    detail: Software Engineer
+    i18n: ituniversum_job
+  icon: fa-plus-square
+
+- name:
+    detail: Coub
+    i18n: coub
+  desc:
+    detail: ...
+    i18n: coub_desc
+  date:
+    detail: Oct. 2014 - Sep. 2015
+    i18n: coub_date
+  job:
+    detail: Ruby on Rails developer (backend)
+    i18n: coub_job
+  icon: fa-plus-square
+
+- name:
+    detail: Undev
+    i18n: undev
+  desc:
+    detail: ...
+    i18n: undev_desc
+  date:
+    detail: Apr. 2012 - Sep. 2014
+    i18n: undev_date
+  job:
+    detail: Ruby on Rails developer (Full-stack)
+    i18n: undev_job
+  icon: fa-plus-square
+
+- name:
+    detail: It-Keeper (Skynet)
+    i18n: itkeeper
+  desc:
+    detail: ...
+    i18n: itkeeper_desc
+  date:
+    detail: Apr. 2011 - Apr. 2012
+    i18n: itkeeper_date
+  job:
+    detail: Full-stack PHP developer
+    i18n: itkeeper_job
+  icon: fa-plus-square
+
+- name:
+    detail: Ulstu
+    i18n: ulstu
+  desc:
+    detail: ...
+    i18n: ulstu_desc
+  date:
+    detail: Nov. 2007 - Apr. 2011
+    i18n: ulstu_date
+  job:
+    detail: Engineer
+    i18n: ulstu_job
   icon: fa-plus-square
