@@ -20,34 +20,59 @@
   },
   "projects":{
     "my_projects": "Мои проекты",
-    "jalpc": "This project is my project. I use javescript to get repo's information all my repos have only one request.",
-    "cpython": "This project is other's project. I use another request to get repo's information.",
-    "familycode": "This is another project."
+    "persey": "Persey - ruby gem для управления конфигурацией проекта",
+    "ansible-rbenv-role": "Ansible роль для установки rbenv и ruby",
+    "pact":"Инструмент интеграции популярных мессенджеров в бизнес процессы (whatsapp, instagram, viber, fb, vk, telegram)",
+    "restapitutorial": "Перевод сайта RestApiTutorial.com"
   },
   "career":{
     "my_career": "Карьера",
-    "nextcode": "Nextcode",
-    "nextcode_des": "Now I am in Nextcode and develop website with Python code for genetic analysis.",
-    "nextcode_date": "Apr. 2016",
-    "nextcode_job": "Python Developer",
-    "netease": "Netease Game",
-    "netease_des": "In Netease game, I learned game service system and use Python code for ops.",
-    "netease_date": "Jun. 2015",
-    "netease_job": "Dev Ops",
-    "ucloud": "Ucloud",
-    "ucloud_des": "In ucloud, I started to deal with servers and Linux system and use shell scripts to manage massive server.",
-    "ucloud_date": "Sep. 2013",
-    "ucloud_job": "Dev Ops",
-    "college": "Graduation",
-    "college_des": "At July 2013,I graduated from college and started my IT technology tour.",
-    "college_date": "Jul. 2013",
-    "college_job": "Student"
+
+    "find_hotel": "FindHotel",
+    "find_hotel_desc": "Now I am in FindHotel on Software Engineer role in Growth Squard.",
+    "find_hotel_date": "Май 2017",
+    "find_hotel_job": "Инженер",
+
+    "daitel": "Daitel",
+    "daitel_desc": "Реализовал проект с нуля до рабочей версии.",
+    "daitel_date": "Сентябрь 2016 - Май 2017",
+    "daitel_job": "СТО",
+
+    "mydreams": "MyDreams",
+    "mydreams_desc": "Работал техническим лидером и эвангелистом в компании. Разрабытывал архитектуру и принимал ключевые решения касательно технической части проекта.",
+    "mydreams_date": "Ноябрь 2015 - Сентябрь 2016",
+    "mydreams_job": "Технический лидер",
+
+    "ituniversum": "ITUniversum LLC",
+    "ituniversum_desc": "Работу можно разделить на 2 этапа: 1) Реализация инструмента миграции старой версии продакшена в новую версию без остановки обоих версий (в режиме реального времени) (RoR 2 -> RoR 4). Второй этап - разработка дополнительных сервисов для новой версии продакшена после успешной миграции.",
+    "ituniversum_date": "Сентябрь 2015 - Август 2016",
+    "ituniversum_job": "Инженер",
+
+    "coub": "Coub",
+    "coub_desc": "Разрабатывал бекенд в Coub. Основное направление - оптимизация и реализация высоконагруженных сервисов.",
+    "coub_date": "Октябрь 2014 - Сентябрь 2015",
+    "coub_job": "Ruby on Rails backend developer",
+
+    "undev": "Undev",
+    "undev_desc": "Компания является настоящим прорывом в моей карьере. Начал работу junior ruby разработчиком. За время работы в компании принял участие в разработке большого количества сервисов, активно участовал в разработке Gitlab и других опенсорс проектов",
+    "undev_date": "Апрель 2012 - Сентябрь 2014",
+    "undev_job": "Ruby on Rails full stack developer",
+
+    "itkeeper": "IT-Keeper (ex Skynet)",
+    "itkeeper_desc": "Компания была по сути обычной веб студией. В ней, на основве различных CMS делали сайты клиентам. Попутно администрировал сервера, на которых размещались сайты клиентов.",
+    "itkeeper_date": "Апрель 2011 - Апрель 2012",
+    "itkeeper_job": "PHP full stack developer",
+
+    "ulstu": "Ульяновский государственный технический университет",
+    "ulstu_desc": "Начал работу студентом. Сначала была поддержка сайта Центра трансфера технологий. Дальше разрабатывал сервисы и сайты в отделе научных исследований при ректорате.",
+    "ulstu_date": "Ноябрь 2007 - Апрель 2011",
+    "ulstu_job": "Программист"
   },
   "blog":{
-    "my_blog": "My Blog"
+    "my_blog": "Блог"
   },
   "link":{
-    "link": "Link",
+    "link": "Ссылки",
     "view": "views"
   }
 

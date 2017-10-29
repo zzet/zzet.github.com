@@ -5,14 +5,14 @@
   i18n: persey
   gh_user: zzet
   repo: persey
-  img: /static/assets/img/landing/jekyll.png
+  # img: /static/assets/img/landing/jekyll.png
   desc: Persey help you easily manage the configuration, depending on the environment.
 
 - name: ansible-rbenv-role
   i18n: ansible-rbenv-role
   gh_user: zzet
   repo: ansible-rbenv-role
-  img: /static/assets/img/landing/jekyll.png
+  # img: /static/assets/img/landing/jekyll.png
   desc: Ansible role for rbenv
 
 - name: RestApiTutorial.Ru
@@ -20,11 +20,11 @@
   gh_user: zzet
   url: http://www.restapitutorial.ru
   repo: RestApiTutorial.ru
-  img: /static/assets/img/landing/python.png
+  # img: /static/assets/img/landing/python.png
   desc:
 
 - name: Pact
   i18n: pact
   url: https://pact.im
-  img: /static/assets/img/landing/google.png
+  # img: /static/assets/img/landing/google.png
   desc: Integration popular messagers into business
