@@ -1,0 +1,15 @@
+{
+  "name": "hotel-card-widget",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "hotel_card_widget_bg.wasm",
+    "hotel_card_widget.js",
+    "hotel_card_widget.d.ts"
+  ],
+  "main": "hotel_card_widget.js",
+  "types": "hotel_card_widget.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
