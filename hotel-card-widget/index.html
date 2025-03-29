@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hotel Card Widget</title>
+  </head>
+  <body>
+    <div id="hotel-card-container"></div>
+    <script type="module">
+      import init, { HotelCardWidget } from "./pkg/hotel_card_widget.js";
+
+      async function main() {
+        await init();
+        const widget = new HotelCardWidget("PR8WL0xfJNbbk4I33lDfsPsf");
+        widget.render("hotel-card-container");
+      }
+
+      main();
+    </script>
+  </body>
+</html>
