@@ -1,0 +1,15 @@
+baseURL = "https://zzet.org/"
+languageCode = "en"
+defaultContentLanguage = "en"
+
+theme = ["congo"]
+
+enableRobotsTXT = true
+
+pagination.pagerSize = 25
+
+summaryLength = 0
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-VGXR3BQCTQ'

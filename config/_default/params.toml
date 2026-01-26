@@ -1,0 +1,22 @@
+# colorScheme = "ocean"
+
+# Whether site search is enabled. Set to true to enable search functionality.
+# Note that the search feature depends on the outputs.home setting in the site configuration being set correctly.
+# enableSearch = true
+
+robots = "all"
+
+homepage.layout = "profile"
+# Whether or not to display the recent articles list on the homepage.
+# homepage.showRecent = true 
+
+article.showDate = true
+article.showDateUpdated = true
+article.showBreadcrumbs = true
+article.showEdit = true
+article.editURL = "https://github.com/zzet.github.com/content"
+article.sharingLinks = ["facebook", "x-twitter", "mastodon", "reddit", "linkedin", "email", "threads", "telegram"]
+
+list.showBreadcrumbs = true
+list.showTaxonomies = true
+list.showSummary = true

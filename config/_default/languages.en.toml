@@ -1,0 +1,18 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+
+title = "Andrey Kumanyaev"
+
+[params.author]
+name = "Andrey Kumanyaev"
+image = "img/kdauthor.jpeg"
+headline = "No Limit to Perfection"
+bio = "Senior Engineering Manager @ Vio.com | Leading Product Group (multiple teams) & Building High-Performance Teams & Scaling High-Load Platforms | Golang, ML, AWS, passionate about Rust"
+links = [
+    # { twitter = "https://twitter.com/zzetorg" },
+    { github = "https://github.com/zzet" },
+    { x-twitter = "https://x.com/zzetorg" }, 
+    { reddit = "https://www.reddit.com/user/zzet/" },
+    { linkedin = "https://www.linkedin.com/in/andrey-kumanyaev/" }
+]

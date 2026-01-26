@@ -1,0 +1,18 @@
+languageCode = "ru"
+languageName = "Русский"
+weight = 1
+
+title = "Андрей Куманяев"
+
+[params.author]
+name = "Андрей Куманяев"
+image = "img/author.jpeg"
+headline = "Нет предела совершенству"
+bio = ""
+links = [
+    { twitter = "https://twitter.com/username" },
+    { github = "https://github.com/zzet" },
+    { x = "https://x.com/zzetorg" }, 
+    { reddit = "https://www.reddit.com/user/zzet/" },
+    { linkedin = "https://www.linkedin.com/in/andrey-kumanyaev/" }
+]
