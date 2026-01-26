@@ -1,17 +1,1 @@
----
-layout: null
-title : Sitemap
----
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% for post in site.posts %}
-    <url>
-        <loc>{{site.url}}{{ post.url }}</loc>
-    </url>
-{% endfor %}
-{% for page in site.pages %}
-    <url>
-        <loc>{{site.url}}{{ page.url }}</loc>
-    </url>
-{% endfor %}
-</urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://zzet.org/en/sitemap.xml</loc><lastmod>2014-09-29T00:00:00+00:00</lastmod></sitemap><sitemap><loc>https://zzet.org/ru/sitemap.xml</loc><lastmod>2017-10-29T00:00:00+00:00</lastmod></sitemap></sitemapindex>
