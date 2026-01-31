@@ -2,11 +2,10 @@
 date: 2026-02-01
 title: "RFC - what did it mean in the Keep through the time"
 layout: "page"
-draft: true
 showDate: true
 showEdit: true
 showReadingTime: true
-showTableOfContents: true
+showTableOfContents: false
 ---
 
 | **Decoding of the Abbreviation** | **The Translation for the Royal Court** |

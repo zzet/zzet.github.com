@@ -2,7 +2,6 @@
 date: 2026-02-01
 title: "The Code Citadel - The Fall of the Keep"
 layout: "page"
-# draft: true
 showDate: true
 showEdit: true
 showReadingTime: true
@@ -231,7 +230,7 @@ Deployments become "Big Bang" events, planned months in advance, performed at mi
 
 The residents are angry. The knights are still rioting. They require explanation from the **Castellan** (The DevOps/Ops Team) and the Architect.
 
-The **Castellan** (The DevOps/Ops Team) can't accept a failure on their own, and they're demanding more coordination and require careful decision-making. Their requirements became so ridiculous that it was impossible to oversee. One of the bright examples was the transformation of the `RFC` meaning, which is no longer aligned with the traditional `Request For Comment`. The list of meanings transformed slowly, but progressed to the way more radical, like `Request For Commitment`, even up to `Really Final Call` or `Receipt For Culpability`. Check [the log of meanings]({{< ref "posts/the-code-citadel/1-the-fall-of-the-keep/rfcs-meanings/" >}})  to get a full picture of this dramatic transformation.
+The **Castellan** (The DevOps/Ops Team) can't accept a failure on their own, and they're demanding more coordination and require careful decision-making. Their requirements became so ridiculous that it was impossible to oversee. One of the bright examples was the transformation of the `RFC` meaning, which is no longer aligned with the traditional `Request For Comment`. The list of meanings transformed slowly, but progressed to the way more radical, like `Request For Commitment`, even up to `Really Final Call` or `Receipt For Culpability`. Check [the log of meanings]({{< relref "/posts/the-code-citadel/rfcs-meanings.md" >}}) to get a full picture of this dramatic transformation.
 
 {{< lead >}}The Castle, once a symbol of strength, has become a prison.{{< /lead >}}
 
