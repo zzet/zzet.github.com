@@ -1,5 +1,5 @@
 ---
-date: 2026-02-01
+date: 2026-01-31
 title: "RFC - what did it mean in the Keep through the time"
 layout: "page"
 showDate: true

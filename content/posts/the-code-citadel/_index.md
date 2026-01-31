@@ -1,5 +1,5 @@
 ---
-date: 2026-01-30
+date: 2026-01-31
 title: "The Code Citadel - The Architectural Codex"
 layout: "page"
 showDate: true
