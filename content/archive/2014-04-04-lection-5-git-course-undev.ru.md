@@ -2,13 +2,6 @@
 layout: post
 title: "Git. Просто Git. Лекция 5. Git изнутри."
 date: 2014-03-28
-
-uglyURLs: true
-aliases:
-- /learn-git/lection-5
-- /learn-git/lection-5.html
-- /git/learning/undev/coursify/2014/03/28/lection-5-git-course-undev
-- /git/learning/undev/coursify/2014/03/28/lection-5-git-course-undev.html
 ---
 
 # Git изнутри #

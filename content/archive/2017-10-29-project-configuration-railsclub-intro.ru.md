@@ -6,11 +6,6 @@ desc: "Intro into project configuration thread"
 keywords: "ruby,ruby on rails,configuration,monilith,microservice"
 tags: [configuration,conference,railsclub 2017]
 icon: icon-microscope
-
-uglyURLs: true
-aliases:
-- /2017/10/29/project-configuration-railsclub-intro
-- /2017/10/29/project-configuration-railsclub-intro.html
 ---
 
 Данная статья является изначально была транскриптом к докладу на конференции Railsclub 2017. По итогам конференции в текст были внесены незначительные исправления.

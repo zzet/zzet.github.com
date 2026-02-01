@@ -1,9 +1,9 @@
 ---
-layout: redirect
+type: redirect
+target: /ru/archive/2014-04-04-lection-5-git-course-undev/
+
 title: "Git. Просто Git. Лекция 5. Git изнутри."
 date: 2014-03-28
-
-target: https://zzet.org/ru/archive/2014-04-04-lection-5-git-course-undev/
 
 uglyURLs: true
 aliases:
