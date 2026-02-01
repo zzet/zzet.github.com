@@ -198,7 +198,7 @@ Velocity slowed to a crawl.
 
 {{< figure src="The_Siege_of_Traffic.jpg" alt="The Walls: The Simplicity of Defense" >}}
 
-But then came gunpowder anf the enemy army came: **The Traffic Spike**. 
+But then came gunpowder and the enemy army came: **The Traffic Spike**. 
 
 The Castle has only one Well (The Database). During the siege (Black Friday), every resident - from the soldier to the cook - needs water simultaneously. They crowd around the single shaft. Everybody lowers their bucket into the same shaft. The ropes get tangled. Arguments break out. 
 
@@ -219,7 +219,7 @@ Finally, the most paralyzing symptom of the Sprawl: **The Fear**.
 
 {{< figure src="The_Fear_of_the_Deploy.jpg" alt="The Walls: The Simplicity of Defense" >}}
 
-Because the Castle is one solid block of stone, with many dependencies and risk of wall (or towel) collapse, you cannot renovate the kitchen without closing the entire castle. 
+Because the Castle is one solid block of stone, with many dependencies and risk of wall (or tower) collapse, you cannot renovate the kitchen without closing the entire castle. 
 
 To deploy a small fix for the "Carriage Search," you must redeploy the entire application. 
 
@@ -230,7 +230,7 @@ Deployments become "Big Bang" events, planned months in advance, performed at mi
 
 The residents are angry. The knights are still rioting. They require explanation from the **Castellan** (The DevOps/Ops Team) and the Architect.
 
-The **Castellan** (The DevOps/Ops Team) can't accept a failure on their own, and they're demanding more coordination and require careful decision-making. Their requirements became so ridiculous that it was impossible to oversee. One of the bright examples was the transformation of the `RFC` meaning, which is no longer aligned with the traditional `Request For Comment`. The list of meanings transformed slowly, but progressed to the way more radical, like `Request For Commitment`, even up to `Really Final Call` or `Receipt For Culpability`. Check [the log of meanings]({{< relref "/posts/the-code-citadel/rfcs-meanings.md" >}}) to get a full picture of this dramatic transformation.
+The **Castellan**’s (The DevOps/Ops Team) anxiety poisoned even the language of the court. In the Golden Age, the architects circulated **RFCs** - noble Requests For Counsel - seeking wisdom from every mason and smith. But as the fear of failure grew, these scrolls were twisted. They first hardened into `Requests For Commitment`, demanding blood oaths of certainty in an uncertain world. Finally, in the darkest days of the siege, they became `Receipts For Culpability`: paper trails forged solely to identify which sorcerer to burn when the magic inevitably failed. 
 
 {{< lead >}}The Castle, once a symbol of strength, has become a prison.{{< /lead >}}
 
@@ -271,3 +271,6 @@ The Architect knows this decision is dangerous and comes with a heavy price. In 
 "The Castle was safe," the Architect writes in his chronicle. "But the Castle was a tomb. We choose the danger of the City for the promise of growth."
 
 <!-- *In the next chronicle, **Roads of Mud and Stone**, we will explore the terrifying logistics of the medieval road network, and why the King can no longer simply whisper for his wine.* -->
+
+### Bonus
+Check [the log of meanings]({{< relref "/posts/the-code-citadel/rfcs-meanings.md" >}}) to get a full picture of this dramatic transformation.
