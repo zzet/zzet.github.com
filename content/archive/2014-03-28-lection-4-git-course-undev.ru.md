@@ -2,6 +2,11 @@
 layout: post
 title: "Git. Просто Git. Лекция 4. Git на сервере."
 date: 2014-03-28
+aliases:
+- /learn-git/lection-4
+- /learn-git/lection-4.html
+- /git/learning/undev/coursify/2014/03/28/lection-4-git-course-undev
+- /git/learning/undev/coursify/2014/03/28/lection-4-git-course-undev.html
 ---
 
 # Git на сервере #
