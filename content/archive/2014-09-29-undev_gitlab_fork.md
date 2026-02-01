@@ -4,6 +4,7 @@ title: "About Undev Gitlab fork"
 date: 2014-09-29
 meta: true
 comments: true
+uglyURLs: true
 aliases:
 - /2014/09/29/undev_gitlab_fork
 - /2014/09/29/undev_gitlab_fork.html

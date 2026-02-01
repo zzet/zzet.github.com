@@ -2,6 +2,7 @@
 layout: post
 title: "Git. Просто Git. Лекция 3. Инструменты Git."
 date: 2014-02-09
+uglyURLs: true
 aliases:
 - /learn-git/lection-3
 - /learn-git/lection-3.html
