@@ -272,5 +272,4 @@ The Architect knows this decision is dangerous and comes with a heavy price. In 
 
 <!-- *In the next chronicle, **Roads of Mud and Stone**, we will explore the terrifying logistics of the medieval road network, and why the King can no longer simply whisper for his wine.* -->
 
-### Bonus
-Check [the log of meanings]({{< relref "/posts/the-code-citadel/rfcs-meanings.md" >}}) to get a full picture of this dramatic transformation.
+<!-- ### Bonus Check [the log of meanings]({{< relref "/posts/the-code-citadel/rfcs-meanings.md" >}}) to get a full picture of this dramatic transformation. -->
