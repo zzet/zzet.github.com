@@ -2,6 +2,7 @@
 layout: post
 title: "Unix shell initialization"
 date: 2014-01-27
+
 uglyURLs: true
 aliases:
 - /shell/learning/os/unix/2014/01/27/unix-shell-initialization

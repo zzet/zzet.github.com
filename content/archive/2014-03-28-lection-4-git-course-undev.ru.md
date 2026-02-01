@@ -2,6 +2,7 @@
 layout: post
 title: "Git. Просто Git. Лекция 4. Git на сервере."
 date: 2014-03-28
+
 uglyURLs: true
 aliases:
 - /learn-git/lection-4
