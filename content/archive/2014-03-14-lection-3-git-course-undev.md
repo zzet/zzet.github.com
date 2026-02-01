@@ -1,7 +1,9 @@
 ---
-layout: post
+layout: redirect
 title: "Git. Просто Git. Лекция 3. Инструменты Git."
 date: 2014-02-09
+
+target: https://zzet.org/ru/archive/2014-03-14-lection-3-git-course-undev/
 
 uglyURLs: true
 aliases:
