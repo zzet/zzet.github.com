@@ -6,6 +6,7 @@ uglyURLs: true
 aliases:
 - /shell/learning/os/unix/2014/01/27/unix-shell-initialization
 - /shell/learning/os/unix/2014/01/27/unix-shell-initialization.html
+- /en/shell/learning/os/unix/2014/01/27/unix-shell-initialization.html
 ---
 Файлы инициализации shell оболочки - это путь к сохранению единой
 конфигурации таких параметров, как:
