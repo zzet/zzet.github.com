@@ -230,7 +230,7 @@ Deployments become "Big Bang" events, planned months in advance, performed at mi
 
 The residents are angry. The knights are still rioting. They require explanation from the **Castellan** (The DevOps/Ops Team) and the Architect.
 
-The **Castellan**’s (The DevOps/Ops Team) anxiety poisoned even the language of the court. In the Golden Age, the architects circulated **RFCs** - noble Requests For Counsel - seeking wisdom from every mason and smith. But as the fear of failure grew, these scrolls were twisted. They first hardened into `Requests For Commitment`, demanding blood oaths of certainty in an uncertain world. Finally, in the darkest days of the siege, they became `Receipts For Culpability`: paper trails forged solely to identify which sorcerer to burn when the magic inevitably failed. 
+The **Castellan**’s (The DevOps/Ops Team) anxiety poisoned even the language of the court. In the Golden Age, the architects circulated **RFCs** - noble `Requests For Counsel` - seeking wisdom from every mason and smith. But as the fear of failure grew, these scrolls were twisted. They first hardened into `Requests For Commitment`, demanding blood oaths of certainty in an uncertain world. Finally, in the darkest days of the siege, they became `Receipts For Culpability`: paper trails forged solely to identify which sorcerer to burn when the magic inevitably failed. 
 
 {{< lead >}}The Castle, once a symbol of strength, has become a prison.{{< /lead >}}
 
