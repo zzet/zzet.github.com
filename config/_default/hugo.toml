@@ -13,3 +13,7 @@ summaryLength = 0
 [services]
   [services.googleAnalytics]
     id = 'G-VGXR3BQCTQ'
+
+sitemap.disable = false
+sitemsp.changeFreq = "monthly"
+sitemap.excludedKinds = ["taxonomy", "term", "redirect"]
