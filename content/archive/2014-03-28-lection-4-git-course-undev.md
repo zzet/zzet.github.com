@@ -11,6 +11,9 @@ aliases:
 - /learn-git/lection-4.html
 - /git/learning/undev/coursify/2014/03/28/lection-4-git-course-undev
 - /git/learning/undev/coursify/2014/03/28/lection-4-git-course-undev.html
+
+sitemap:
+    disable: true
 ---
 
 Смените язык внизу станицы для доступа к оригинальной статье или перейдите по [ссылке]({{% ref path="2014-03-28-lection-4-git-course-undev.ru.md" lang="ru" %}})
