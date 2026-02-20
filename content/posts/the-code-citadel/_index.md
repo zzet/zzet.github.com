@@ -9,7 +9,7 @@ showReadingTime: true
 showTableOfContents: false
 ---
 
-## Why This Story Exists
+## Why this story exists
 
 Over the years, I've had countless conversations with friends and colleagues about the journey from monolithic architectures to microservices. These discussions often circled around the same questions: Why did we leave the simplicity of the monolith? What did we gain? What did we lose? Was it worth it?
 
@@ -21,7 +21,7 @@ This is the story of the Royal Travel Service, and through it, the story of ever
 
 ---
  
-## The Articles
+## The articles
 
 1. [**The Fall of the Keep**]({{< relref "/posts/the-code-citadel/1-the-fall-of-the-keep/" >}}) - The rise and inevitable decline of the Monolithic Castle
 
@@ -35,7 +35,7 @@ This is the story of the Royal Travel Service, and through it, the story of ever
 
 ---
 
-## Who This Is For
+## Who this is for
 
 This series is for anyone who has:
 - Wondered why their monolith is called "legacy" when it works perfectly fine
@@ -48,7 +48,7 @@ It's also for anyone who is about to make this journey and wants to understand w
 
 ---
 
-## A Note on the Metaphor
+## A note on the Metaphor
 
 Medieval cities weren't perfect. They were dirty, dangerous, and disease-ridden. But they scaled in ways castles never could. They enabled trade, specialization, and growth. The same is true of microservices.
 
