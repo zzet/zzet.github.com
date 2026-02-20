@@ -7,10 +7,6 @@ showDate: true
 showEdit: true
 showReadingTime: true
 showTableOfContents: false
-
-cascade:
-    build:
-        list: false
 ---
 
 ## Why This Story Exists
