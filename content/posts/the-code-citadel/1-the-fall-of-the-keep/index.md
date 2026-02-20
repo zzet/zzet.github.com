@@ -31,13 +31,13 @@ While, it's an interesting story on how it was built, at the beginning of our st
 
 {{< figure src="Motte_and_Bailey.jpg" alt="Motte and Bailey" >}}
 
-In the landscape of medieval architecture, this was the MVP (Minimum Viable Product). It was a simple earthen mound (the Motte) topped with a wooden tower, surrounded by a defensive palisade (the Bailey). The construction was simple and functional, the only thing needed to perform the main function. In the Motte was the Counting House, with a single, sturdy room. Inside this room sat your entire architecture: a single **Master Clerk** (The Monolith) and his **Great Ledger** (The Database). It did work. It worked perfectly and efficiently. 
+In the landscape of medieval architecture, this was the MVP (Minimum Viable Product). It was a simple earthen mound (the Motte) topped with a wooden tower, surrounded by a defensive palisade (the Bailey). The construction was simple and functional, the only thing needed to perform the main function. In the Motte was the Counting House, with a single, sturdy room. Inside this room sat your entire architecture: a single **Master Clerk** named **Edmund** (The Monolith) and his **Great Ledger** (The Database). It did work. It worked perfectly and efficiently. 
 
 Take a look at one of example:
 
 A client - a wool merchant - enters and asks: "*What is the rate to ship ten bales of wool from London to Pisa, including tolls and the exchange rate of the Florin?*"
 
-The Master Clerk does not need to send a letter to a foreign office. He does not need to wait for a reply. He simply reaches across his desk, opens the *Pratica della mercatura* (the book of trade rates), looks up the London toll, flips the page to the Pisa exchange rate, and calculates the sum.
+Master Clerk Edmund does not need to send a letter to a foreign office. He does not need to wait for a reply. He simply reaches across his desk, opens the *Pratica della mercatura* (the book of trade rates), looks up the London toll, flips the page to the Pisa exchange rate, and calculates the sum.
 
 * **Zero Latency** - the data is within arm's reach (In-Memory/Local Disk). The communication between "Pricing" and "Inventory" happens inside the Clerk's head.
 * **Transactional Integrity** - he writes the deal in the Ledger. If his quill breaks halfway through, he stops. The transaction is either recorded or it isn't. There is no risk that the London office thinks the deal is done while the Pisa office thinks it failed.
@@ -65,7 +65,7 @@ It is easy, in the midst of our modern struggles with distributed complexity, to
 
 {{< figure src="Great_hall.jpg" alt="The Great Hall: The Luxury of Local Calls" >}}
 
-The heart of the Keep is the **Great Hall**. In your travel startup, this is the application runtime. 
+The heart of the Keep is the **Great Hall**. In the Royal Travel Service, this is the application runtime. 
 
 Imagine the King (The User) demands a complex itinerary: "*Find me a route from York to Rome, avoiding the French war zones, with stops at decent inns.*"
 
@@ -73,11 +73,11 @@ At the current scale, adding the new capabilities wasn't so difficult, so you've
 
 In a distributed system (Microservices), this request would be a nightmare. The "Route Service" would have to message the "War Zone Service," which would message the "Inn Service," all over a treacherous network. But in the Majestic Monolith, the Chamberlain (The Code) does not need to travel to a different village; he does not need to negotiate a trade treaty; he does not need to worry if the road is washed out. He pours the wine and simply walks across the Great Hall.
 
-* He asks the **Map Master** (Route Module) for the path.
+* He asks the **Map Master** (Route Module) for the path from York to Rome.
 * He asks the **War Scout** (Risk Module) for safety data.
-* He asks the **Innkeeper** (Hotel Module) for availability.
+* He asks the **Innkeeper** (Hotel Module) for availability at The Golden Lion in Florence and The Silver Stag in Lyon.
 
-They are all standing in the same room. They share the same memory. The answer is assembled in milliseconds end to end. 
+They are all standing in the same room. They share the same memory. Master Clerk Edmund can assemble the complete itinerary in milliseconds end to end. 
 
 This is the beauty of **Inter-Process Communication (IPC)**. In the Monolith, different modules live in the same memory space. Calling a function is as fast as a whisper across the table. There is no network overhead, no serialization of JSON, no handshake. The "[Fallacies of Distributed Computing](https://www.researchgate.net/publication/322500050_Fallacies_of_Distributed_Computing_Explained)" - that the network is reliable, or that latency is zero, and etc. - do not apply here, because there *is no network*. 
 
@@ -159,7 +159,7 @@ The ambition of a travel startup grew as well. Well, fairly to mention that the 
 
 However, the King and his requirements were not the only ones, and the company was searching for solutions to problems raised by many users. During the kingdom's rise, you expanded the range of services for many of the King's subjects and their expectations grew as well.
 
-The Keep began to fill up. More carriages and horses were needed. Inns quickly overflowed. Guests had varied preferences, and the kitchens were under increasing pressure. You needed more supplies, more storage capacity to meet the needs of both the fortress and the guests, and to stock the wagons with food. You were constantly forced to expand... The **Master Clerk** can no longer work alone; he has hired 300 assistants. They are all elbowing each other in the Great Hall. And thus began the era of **The Sprawl**.
+The Keep began to fill up. More carriages and horses were needed. Inns quickly overflowed. Guests had varied preferences, and the kitchens were under increasing pressure. You needed more supplies, more storage capacity to meet the needs of both the fortress and the guests, and to stock the wagons with food. You were constantly forced to expand... **Master Clerk Edmund** can no longer work alone; he has hired 300 assistants. They are all elbowing each other in the Great Hall. And thus began the era of **The Sprawl**.
 
 ### The Shantytown of Dependencies
 
@@ -200,12 +200,12 @@ Velocity slowed to a crawl.
 
 But then came gunpowder and the enemy army came: **The Traffic Spike**. 
 
-The Castle has only one Well (The Database). During the siege (Black Friday), every resident - from the soldier to the cook - needs water simultaneously. They crowd around the single shaft. Everybody lowers their bucket into the same shaft. The ropes get tangled. Arguments break out. 
+The Castle has only one Well (The Database). During the siege (the **Spring Festival**), every resident - from the soldier to the cook - needs water simultaneously. The Royal Travel Service, once handling 500 bookings per day comfortably, now faces **5,000 bookings per day**. **Master Clerk Edmund** and his 300 assistants crowd around the single shaft. Everybody lowers their bucket into the same shaft. The ropes get tangled. Arguments break out. 
 
 The **Castellan** (The DevOps/Ops Team) tries to solve this. He digs the well deeper (Faster CPU). 
 He is making the bucket bigger and bigger (vertical scaling / more RAM). But there is a physical limit to how big a bucket you can hoist. 
 
-Eventually, the Monolith simply cannot serve enough water. 
+Eventually, the Monolith simply cannot serve enough water. Edmund and his 300 assistants are overwhelmed. 
 
 Suddenly, the very distinctives that made the Castle legendary - its towering height and rigid, stone permanence - became its undoing. Against the explosive, rapid-fire traffic spikes, the castle was no longer a fortress; it was merely a large, static target.
 
@@ -270,6 +270,6 @@ The Architect knows this decision is dangerous and comes with a heavy price. In 
 
 "The Castle was safe," the Architect writes in his chronicle. "But the Castle was a tomb. We choose the danger of the City for the promise of growth."
 
-<!-- *In the next chronicle, **Roads of Mud and Stone**, we will explore the terrifying logistics of the medieval road network, and why the King can no longer simply whisper for his wine.* -->
+*In the next chronicle, [Roads of Mud and Stone]({{< relref "/posts/the-code-citadel/2-roads-of-mud-and-stone/" >}}), we will explore the terrifying logistics of the medieval road network, and why the King can no longer simply whisper for his wine.*
 
 <!-- ### Bonus Check [the log of meanings]({{< relref "/posts/the-code-citadel/rfcs-meanings.md" >}}) to get a full picture of this dramatic transformation. -->
