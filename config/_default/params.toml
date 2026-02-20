@@ -16,6 +16,7 @@ article.showBreadcrumbs = true
 article.showEdit = true
 article.editURL = "https://github.com/zzet.github.com/content"
 article.sharingLinks = ["facebook", "x-twitter", "mastodon", "reddit", "linkedin", "email", "threads", "telegram"]
+article.showComments = true
 
 list.showBreadcrumbs = true
 list.showTaxonomies = true
