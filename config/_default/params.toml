@@ -21,3 +21,6 @@ article.showComments = true
 list.showBreadcrumbs = true
 list.showTaxonomies = true
 list.showSummary = true
+
+# Disable fingerprinting to avoid SRI issues with Telegram
+enableFingerprinting = false

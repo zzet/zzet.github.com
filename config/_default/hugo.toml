@@ -19,3 +19,23 @@ summaryLength = 0
 sitemap.disable = false
 sitemsp.changeFreq = "monthly"
 sitemap.excludedKinds = ["taxonomy", "term", "redirect"]
+
+[security]
+  [security.funcs]
+    getenv = ["^HUGO_", "^CI$"]
+  [security.http]
+    methods = ["(?i)GET|POST"]
+    urls = [".*"]
+  [security.exec]
+    allow = ["^(dart-)?sass(-embedded)?$", "^go$", "^npx$", "^postcss$", "^tailwindcss$"]
+    osEnv = ["(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG|SYSTEMDRIVE)$"]
+
+[build]
+  noJSConfigInAssets = false
+  useResourceCacheWhen = "fallback"
+  writeStats = false
+  [build.buildStats]
+    disableClasses = false
+    disableIDs = false
+    disableTags = false
+    enable = false
