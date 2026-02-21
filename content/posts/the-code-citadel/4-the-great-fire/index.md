@@ -5,7 +5,7 @@ layout: "page"
 showDate: true
 showEdit: true
 showReadingTime: true
-showTableOfContents: true
+showTableOfContents: false
 ---
 
 *In the [previous chronicle]({{< relref "/posts/the-code-citadel/3-the-merchant-ledger/" >}}), we confronted the impossibility of perfect consistency across distributed ledgers. We learned that the Royal Truth of the Castle has been replaced by the Merchant's ambiguity - a world of Sagas and Compensating Transactions. Lady Catherine's bookings now succeed reliably through eventual consistency. The Royal Travel Service handles 50,000 bookings per day. But accepting eventual consistency is not enough. We must also prepare for the inevitable: catastrophic failure.*

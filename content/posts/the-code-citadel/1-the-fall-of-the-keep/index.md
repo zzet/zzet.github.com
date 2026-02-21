@@ -5,7 +5,7 @@ layout: "page"
 showDate: true
 showEdit: true
 showReadingTime: true
-showTableOfContents: true
+showTableOfContents: false
 ---
 
 {{< figure src="The_Castle-pinnacle.jpg" alt="Motte and Bailey">}}

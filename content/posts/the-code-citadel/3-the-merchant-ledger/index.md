@@ -5,7 +5,7 @@ layout: "page"
 showDate: true
 showEdit: true
 showReadingTime: true
-showTableOfContents: true
+showTableOfContents: false
 ---
 
 *In the [previous chronicle]({{< relref "/posts/the-code-citadel/2-roads-of-mud-and-stone/" >}}), we learned that the roads between our districts are treacherous - plagued by latency, packet loss, and the eternal choice between the blocking Courier and the asynchronous Pigeon. The Royal Travel Service learned to handle 5,000 bookings per day using circuit breakers and async messaging. But even with reliable communication, a deeper crisis awaits: the fragmentation of Truth itself. Lady Catherine's booking is about to fail in a new and terrifying way.*

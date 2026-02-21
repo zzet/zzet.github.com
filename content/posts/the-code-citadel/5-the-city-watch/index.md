@@ -5,7 +5,7 @@ layout: "page"
 showDate: true
 showEdit: true
 showReadingTime: true
-showTableOfContents: true
+showTableOfContents: false
 ---
 
 *In the [previous chronicle]({{< relref "/posts/the-code-citadel/4-the-great-fire/" >}}), we learned to build for catastrophe. We installed Circuit Breakers to contain fires, Bulkheads to quarantine plagues, and Timeouts to prevent eternal sieges. Marcus, the on-call engineer, watched the Image Resizing Service fail twice - first bringing down the entire platform for 47 minutes, then contained to just 5 minutes of degraded functionality. The Royal Travel Service now handles 100,000 bookings per day with 99.9% uptime. But resilience patterns only work if we can see the danger coming. In the distributed city, visibility is not a luxury - it is survival.*

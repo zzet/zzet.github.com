@@ -5,7 +5,7 @@ layout: "page"
 showDate: true
 showEdit: true
 showReadingTime: true
-showTableOfContents: true
+showTableOfContents: false
 ---
 
 *In the [previous chronicle]({{< relref "/posts/the-code-citadel/1-the-fall-of-the-keep/" >}}), we witnessed the Fall of the Keep - how the Majestic Monolith, once a symbol of strength and efficiency, became a prison of its own success. Master Clerk Edmund and his 300 assistants were overwhelmed by 5,000 bookings per day. The Architect made the radical decision to abandon the Castle and build a City, splitting the Royal Travel Service into specialized districts: Route Planning, Inn Booking, Pricing, and Payment. But this decision came with a terrible price: the loss of the instantaneous, reliable communication that defined the Keep.*
