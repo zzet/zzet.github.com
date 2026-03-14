@@ -1,8 +1,16 @@
 ---
-layout: post
-title: "Git. Просто Git. Лекция 3. Инструменты Git."
+title: "Git. Просто Git. Лекция 3. Инструменты Git"
+description: "Третья лекция курса по Git: выбор ревизий, SHA хеши, ссылки на коммиты, интерактивная подготовительная область, ветвление, слияние, инструменты отладки Git."
 date: 2014-02-09
+lastmod: 2026-03-13
+draft: false
+slug: "lection-3-git-course-undev"
+keywords: ["инструменты git", "git sha", "git ревизии", "git ветвление", "git слияние"]
+tags: ["git", "archive", "intermediate"]
+categories: ["archive"]
 ---
+
+> **Примечание (2026):** Это материалы курса по Git 2014 года. Информация актуальна, но некоторые инструменты эволюционировали. Современные руководства: «[Ветки в Git]({{< relref "vetki-v-git" >}})», «[git merge]({{< relref "git-merge" >}})», «[git reset]({{< relref "git-reset" >}})».
 
 # Инструменты Git #
 

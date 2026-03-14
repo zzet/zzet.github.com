@@ -1,8 +1,16 @@
 ---
-layout: post
-title: "Git. Просто Git. Лекция 2. Основы Git, Ветвление."
+title: "Git. Просто Git. Лекция 2. Основы Git и ветвление"
+description: "Вторая лекция курса по Git: основные команды git init, git add, git commit, git clone, git status, работа с ветками, основы ветвления."
 date: 2014-02-09
+lastmod: 2026-03-13
+draft: false
+slug: "lection-2-git-course-undev"
+keywords: ["основы git", "git init", "git add", "git commit", "ветвление git"]
+tags: ["git", "archive", "beginner"]
+categories: ["archive"]
 ---
+
+> **Примечание (2026):** Это материалы курса по Git 2014 года. Некоторые команды обновились: в Git 2.23+ появились `git switch` и `git restore`. Актуальные руководства: «[git add](/git/git-add/)», «[git commit](/git/git-commit/)», «[Ветки в Git](/git/vetki-v-git/)».
 
 # Основы Git #
 

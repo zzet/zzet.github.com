@@ -9,6 +9,11 @@
   weight = 20
 
 [[main]]
+  name = "Git"
+  pageRef = "git"
+  weight = 30
+
+[[main]]
   name = "GitHub"
   url = "https://github.com/zzet"
   weight = 40

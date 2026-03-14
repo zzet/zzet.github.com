@@ -1,8 +1,16 @@
 ---
-layout: post
-title: "Gitlab repository management book - review"
+title: "GitLab Repository Management — обзор книги"
+description: "Обзор книги GitLab Repository Management Джонатана Хети: установка GitLab, управление репозиториями, работа с командами и проектами."
 date: 2014-01-08
+lastmod: 2026-03-13
+draft: false
+slug: "gitlab-repository-management-book-review"
+keywords: ["gitlab книга", "gitlab repository management", "gitlab обзор"]
+tags: ["gitlab", "archive", "book-review"]
+categories: ["archive"]
 ---
+
+> **Примечание (2026):** Это обзор книги 2014 года. С тех пор GitLab значительно вырос. Для актуальной информации смотрите официальную документацию [GitLab](https://docs.gitlab.com).
 В декабре прошлого года ознакомился с творением [Jonathan M.
 Hethey](https://twitter.com/JonathanMH_com), а именно с книгой [Gitlab
 repository management](http://bit.ly/19TbMES). Вот об этой самой книге и
