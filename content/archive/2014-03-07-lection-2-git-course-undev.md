@@ -1,5 +1,6 @@
 ---
 type: redirect
+outputs: ["HTML"]
 target: /ru/archive/2014-03-07-lection-2-git-course-undev/
 
 title: "Git. Просто Git. Лекция 2. Основы Git, Ветвление."

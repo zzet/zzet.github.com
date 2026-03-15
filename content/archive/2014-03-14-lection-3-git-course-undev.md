@@ -1,5 +1,6 @@
 ---
 type: redirect
+outputs: ["HTML"]
 target: /ru/archive/2014-03-14-lection-3-git-course-undev/
 
 title: "Git. Просто Git. Лекция 3. Инструменты Git."

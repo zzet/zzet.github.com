@@ -4,6 +4,9 @@ layout: "page"
 showDate: false
 showEdit: false
 showReadingTime: false
+date: 2014-01-01
+sitemap:
+  priority: 0.3
 ---
 
 # Who am I?

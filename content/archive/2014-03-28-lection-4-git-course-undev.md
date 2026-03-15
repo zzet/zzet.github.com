@@ -1,5 +1,6 @@
 ---
 type: redirect
+outputs: ["HTML"]
 target: /ru/archive/2014-03-28-lection-4-git-course-undev/
 
 title: "Git. Просто Git. Лекция 4. Git на сервере."
