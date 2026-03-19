@@ -1,7 +1,7 @@
 ---
 type: redirect
 outputs: ["HTML"]
-target: /ru/archive/2014-04-04-lection-5-git-course-undev/
+target: /ru/archive/lection-5-git-course-undev/
 
 title: "Git. Просто Git. Лекция 5. Git изнутри."
 date: 2014-03-28
@@ -12,6 +12,7 @@ aliases:
 - /learn-git/lection-5.html
 - /git/learning/undev/coursify/2014/03/28/lection-5-git-course-undev
 - /git/learning/undev/coursify/2014/03/28/lection-5-git-course-undev.html
+- /ru/archive/2014-04-04-lection-5-git-course-undev/
 
 sitemap:
     disable: true
