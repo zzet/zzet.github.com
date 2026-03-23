@@ -13,8 +13,6 @@ summaryLength = 0
 [services]
   [services.googleAnalytics]
     id = 'G-VGXR3BQCTQ'
-  [services.disqus]
-    shortname = 'zzetorg'
 
 sitemap.disable = false
 sitemsp.changeFreq = "monthly"
