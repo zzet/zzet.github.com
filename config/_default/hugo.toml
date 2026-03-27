@@ -15,7 +15,7 @@ summaryLength = 0
     id = 'G-VGXR3BQCTQ'
 
 sitemap.disable = false
-sitemsp.changeFreq = "monthly"
+sitemap.changeFreq = "monthly"
 sitemap.excludedKinds = ["taxonomy", "term", "redirect"]
 
 [security]
