@@ -362,3 +362,10 @@ Subtree:
 ## Заключение
 
 Git субмодули позволяют включить один репозиторий в другой с чётким разделением истории. Добавление: `git submodule add <url> <path>`. Клонирование с субмодулями: `git clone --recurse-submodules`. Обновление: `git submodule update --remote`. Субмодули добавляют сложность — рассмотрите git subtree или менеджер пакетов как альтернативу.
+
+## По теме
+
+- [Удалить субмодуль]({{< relref "git-udalit-submodul" >}})
+- [git clone]({{< relref "git-clone" >}})
+- [Bare-репозиторий]({{< relref "git-init-bare" >}})
+- [Собственный git-сервер]({{< relref "sobstvennyj-git-server" >}})

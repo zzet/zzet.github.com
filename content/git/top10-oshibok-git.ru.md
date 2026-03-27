@@ -242,3 +242,9 @@ git reflog  # история всех операций HEAD
 ## Заключение
 
 Большинство Git ошибок можно исправить через `git reflog`, `git revert` или `git reset`. Ключевые правила: маленькие осмысленные коммиты, никогда не force push в main, используйте `.gitignore` с самого начала, rebase вместо merge для обновления feature веток. Подробнее об отмене изменений — [git revert]({{< relref "git-revert" >}}) и [git reflog]({{< relref "git-reflog" >}}).
+
+## По теме
+- [git branch не показывает ветки]({{< relref "git-branch-ne-pokazyvaet" >}})
+- [Поиск бага в истории: git bisect]({{< relref "git-bisect" >}})
+
+- [Ошибка: untracked files]({{< relref "oshibka-untracked-files" >}})

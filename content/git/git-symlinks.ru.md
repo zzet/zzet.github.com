@@ -284,3 +284,10 @@ Git хранит режим доступа (mode) вместе с объекто
 - Документируйте требования к конфигурации в README вашего проекта
 
 Если у вас в команде разные платформы, лучше обсудить, нужны ли вообще symlinks, или выбрать более надёжный подход.
+
+## По теме
+
+- [gitattributes]({{< relref "gitattributes" >}})
+- [git add]({{< relref "git-add" >}})
+- [.gitignore]({{< relref "gitignore" >}})
+- [Объекты Git]({{< relref "git-internals-objects" >}})

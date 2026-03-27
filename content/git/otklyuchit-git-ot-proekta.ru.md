@@ -236,3 +236,10 @@ git rev-parse --is-inside-work-tree 2>/dev/null
 ## Заключение
 
 Отключить Git от проекта просто: удалите папку `.git` командой `rm -rf .git`. Это безопасно для файлов проекта — они останутся. Если нужно только убрать конкретный файл из отслеживания, используйте `git rm --cached`. Для управления удалёнными репозиториями — `git remote remove origin`. После удаления `.git` можно инициализировать Git заново через `git init`.
+
+## По теме
+
+- [git init]({{< relref "git-init" >}})
+- [Что такое репозиторий]({{< relref "chto-takoe-repozitoriy" >}})
+- [git rm]({{< relref "git-rm" >}})
+- [Отключение от remote]({{< relref "git-remote-add" >}})

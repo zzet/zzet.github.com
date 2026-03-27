@@ -258,3 +258,12 @@ src/api/         @backend-team
 ## Заключение
 
 Хороший PR: маленький (< 400 строк), с понятным описанием, с тестами и самопроверкой. Хорошее ревью: конструктивное, своевременное (< 24ч), с приоритизацией комментариев. Культура уважительного code review — основа продуктивной команды. Автоматизируйте проверки через CI/CD, используйте CODEOWNERS и PR шаблоны.
+
+## По теме
+
+- [GitHub Flow]({{< relref "github-flow" >}})
+- [Gitflow]({{< relref "gitflow" >}})
+- [Форк репозитория]({{< relref "fork-repozitoriya" >}})
+- [Лучшие практики коммитов]({{< relref "luchshie-praktiki-kommitov" >}})
+- [Conventional Commits]({{< relref "conventional-commits" >}})
+- [Feature Branch Workflow]({{< relref "feature-branch-workflow" >}})

@@ -357,3 +357,11 @@ Forgejo легко масштабируется на сотни пользова
 - [Git init --bare: создание репозитория](/git/git-init-bare)
 - [GitLab: обзор функций](/git/gitlab-obzor)
 - [GitHub vs GitLab: сравнение платформ](/git/github-vs-gitlab)
+
+## По теме
+
+- [Собственный git-сервер]({{< relref "sobstvennyj-git-server" >}})
+- [Хостинги Git]({{< relref "git-hosting" >}})
+- [Git LFS]({{< relref "git-lfs" >}})
+- [Обзор GitLab]({{< relref "gitlab-obzor" >}})
+- [GitHub vs GitLab]({{< relref "github-vs-gitlab" >}})

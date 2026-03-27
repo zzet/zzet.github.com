@@ -264,3 +264,8 @@ git branch -d feature/add-examples
 GitHub — это не только хранилище кода. Это Pull Requests для code review, Issues для отслеживания задач, GitHub Actions для CI/CD и Pages для публикации сайтов. Изучайте эти возможности по мере необходимости.
 
 Следующий шаг — освоить `git push` для отправки изменений: «[git push: как отправить код в репозиторий]({{< relref "git-push" >}})».
+
+## По теме
+- [Форк репозитория]({{< relref "fork-repozitoriya" >}})
+
+- [Приватный репозиторий GitHub]({{< relref "github-private-repository" >}})

@@ -385,3 +385,11 @@ git fetch origin
 Если вы только начинаете работать с git, рекомендуем сначала прочитать про [основные команды git](/git/git-add-commit-push/) и [что такое коммит](/git/chto-takoe-kommit/). Для более глубокого погружения в diff смотрите [подробное руководство по git diff](/git/git-diff/). И если вы готовитесь к слиянию веток, пригодится [статья про git merge](/git/git-merge/).
 
 Удачи в разработке! 🚀
+
+## По теме
+
+- [git diff]({{< relref "git-diff" >}})
+- [git log]({{< relref "git-log" >}})
+- [Обзор GitLab]({{< relref "gitlab-obzor" >}})
+- [git merge]({{< relref "git-merge" >}})
+- [git show]({{< relref "git-show" >}})

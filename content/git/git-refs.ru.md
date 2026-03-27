@@ -347,3 +347,11 @@ git merge-base --is-ancestor abc1234 main && echo "yes" || echo "no"
 Понимание того, как устроены refs, помогает разобраться с более сложными Git-операциями. Когда вы видите странные ошибки, вы можете заглянуть в папку `.git/refs/` и увидеть, что там на самом деле. Это знание также полезно при написании скриптов и инструментов, которые работают с Git на низком уровне.
 
 Чтобы углубить своё понимание, прочитайте статьи о том, [как устроен Git изнутри](/git/kak-ustroen-git-iznutri), о файле [.git/HEAD](/git/git-head), о [тегах в Git](/git/git-tags), о [git хешах](/git/git-hash) и о [git reflog](/git/git-reflog). Каждая из этих статей раскрывает отдельный аспект архитектуры Git.
+
+## По теме
+
+- [HEAD в Git]({{< relref "git-head" >}})
+- [Как устроен Git изнутри]({{< relref "kak-ustroen-git-iznutri" >}})
+- [Git теги]({{< relref "git-tags" >}})
+- [Объекты Git]({{< relref "git-internals-objects" >}})
+- [git reflog]({{< relref "git-reflog" >}})

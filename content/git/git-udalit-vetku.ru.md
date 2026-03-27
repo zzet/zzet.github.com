@@ -427,3 +427,12 @@ git fetch --prune
 - Не паникуйте при случайном удалении — ветку можно восстановить через reflog
 
 Теперь у вас есть все знания для эффективного управления ветками в Git!
+
+## По теме
+
+- [Ветки в Git]({{< relref "vetki-v-git" >}})
+- [Создать ветку]({{< relref "kak-sozdat-vetku-git" >}})
+- [Удалённые ветки]({{< relref "udalennye-vetki-git" >}})
+- [Восстановить ветку]({{< relref "vosstanovit-vetku-git" >}})
+- [git reflog]({{< relref "git-reflog" >}})
+- [git branch не показывает]({{< relref "git-branch-ne-pokazyvaet" >}})

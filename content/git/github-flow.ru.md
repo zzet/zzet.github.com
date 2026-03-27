@@ -442,3 +442,8 @@ return <LegacyCheckout />;
 ## Заключение
 
 GitHub Flow: `main` всегда deployable, новая работа — в feature ветке от main, PR для review, merge после проверки. Идеально для web-сервисов с непрерывным деплоем. Проще Gitflow, но без version management. Для релизов с версиями — рассмотрите [Gitflow]({{< relref "gitflow" >}}). Для максимальной скорости с опытной командой — [Trunk-Based Development]({{< relref "trunk-based-development" >}}).
+
+## По теме
+- [Лучшие практики Pull Request]({{< relref "pull-request-best-practices" >}})
+
+- [Форк репозитория в GitHub]({{< relref "fork-repozitoriya" >}})

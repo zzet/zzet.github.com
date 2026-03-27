@@ -287,3 +287,11 @@ git push --mirror git@gitlab.com:user/project.git
 ## Заключение
 
 GitHub — лучший выбор для open source проектов, JavaScript экосистемы и команд, которым важны интеграции и маркетплейс. GitLab — для enterprise с требованиями к self-hosted, полного DevOps пайплайна и встроенной безопасности. Обе платформы продолжают развиваться и перенимать функции друг у друга.
+
+## По теме
+
+- [Обзор GitLab]({{< relref "gitlab-obzor" >}})
+- [Создать репозиторий на GitHub]({{< relref "kak-sozdat-repozitorij-github" >}})
+- [Хостинги Git]({{< relref "git-hosting" >}})
+- [GitLab CE vs EE]({{< relref "gitlab-ee-vs-ce" >}})
+- [Forgejo]({{< relref "forgejo" >}})

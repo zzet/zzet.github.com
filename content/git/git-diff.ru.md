@@ -228,3 +228,8 @@ git diff HEAD~3 HEAD -- src/config.js
 `git diff` — незаменимый инструмент для контроля качества изменений. Привыкните проверять `git diff --staged` перед каждым коммитом — это предотвратит случайные коммиты ненужного кода.
 
 Для просмотра истории коммитов — [git log]({{< relref "git-log" >}}). Для просмотра деталей конкретного коммита — [git show]({{< relref "git-show" >}}). Для работы с индексом — [git add]({{< relref "git-add" >}}).
+
+## По теме
+- [Git diff в VS Code (аналог IntelliJ)]({{< relref "vscode-diff-idea" >}})
+
+- [Сравнение коммитов в GitLab]({{< relref "gitlab-compare-commits" >}})

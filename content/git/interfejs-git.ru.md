@@ -245,3 +245,11 @@ git pull --rebase
 ## Заключение
 
 CLI — основной и наиболее мощный способ работы с Git. GUI клиенты (GitHub Desktop, GitKraken, SourceTree) удобны для визуализации истории и разрешения конфликтов. Встроенная поддержка в IDE (VS Code, JetBrains) закрывает большинство повседневных задач. Для начала — используйте инструмент, который снижает трение. Для глубокого понимания Git — освойте базовые команды CLI.
+
+## По теме
+
+- [Что такое Git]({{< relref "chto-takoe-git" >}})
+- [Введение в Git]({{< relref "vvedenie-v-git" >}})
+- [git init]({{< relref "git-init" >}})
+- [Настройка Git]({{< relref "nastrojka-git" >}})
+- [Основы Git]({{< relref "osnovy-git" >}})

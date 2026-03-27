@@ -230,3 +230,10 @@ git init --shared=group
 ## Заключение
 
 `git init` — для нового проекта или добавления Git к существующему проекту без Git. `git clone` — для копирования уже существующего репозитория, подключения к командному проекту или open source. В большинстве случаев работы в команде вы будете использовать `git clone`. `git init` нужен когда начинаете с чистого листа.
+
+## По теме
+
+- [git init]({{< relref "git-init" >}})
+- [git clone]({{< relref "git-clone" >}})
+- [Что такое репозиторий]({{< relref "chto-takoe-repozitoriy" >}})
+- [Создать локальный репозиторий]({{< relref "sozdat-lokalnyj-repozitorij" >}})

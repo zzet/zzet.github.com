@@ -222,3 +222,10 @@ VS Code может быть не менее удобен для работы с 
 ---
 
 Если вы уже работаете с git в VS Code и знаете удобные приёмы, которых нет в этой статье, делитесь в комментариях. А если хотите разобраться в других аспектах работы с git, смотрите наши статьи о [базовых командах git](/git/git-vscode) и [различиях интеграции git между VS Code и IntelliJ IDEA](/git/git-intellij-idea).
+
+## По теме
+
+- [Git в VS Code]({{< relref "git-vscode" >}})
+- [git diff]({{< relref "git-diff" >}})
+- [Git в IntelliJ IDEA]({{< relref "git-intellij-idea" >}})
+- [Как посмотреть изменения в Git]({{< relref "kak-posmotret-izmeneniya-git" >}})

@@ -206,3 +206,7 @@ git status --ignored
 ## Заключение
 
 `git status` — это базовая команда для понимания текущего состояния репозитория. Запускайте её перед каждым `git add` и `git commit`. Для детального просмотра изменений используйте [git diff]({{< relref "git-diff" >}}). Для истории коммитов — [git log]({{< relref "git-log" >}}).
+
+## По теме
+
+- [Ошибка untracked files]({{< relref "oshibka-untracked-files" >}})

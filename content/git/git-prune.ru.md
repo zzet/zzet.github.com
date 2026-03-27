@@ -215,3 +215,11 @@ git fetch origin --prune-tags
 ## Заключение
 
 `git prune` очищает недостижимые объекты из локального хранилища Git. В повседневной практике используйте `git gc` (включает prune) и `git fetch --prune` (синхронизирует удалённые ветки). Настройте `fetch.prune true` глобально, чтобы автоматически удалять устаревшие удалённые ветки при каждом `git fetch`.
+
+## По теме
+
+- [git reflog]({{< relref "git-reflog" >}})
+- [Объекты Git изнутри]({{< relref "git-internals-objects" >}})
+- [Удалённые ветки]({{< relref "udalennye-vetki-git" >}})
+- [git remote -v]({{< relref "git-remote-v" >}})
+- [git fetch]({{< relref "git-fetch" >}})

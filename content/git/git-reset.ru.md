@@ -267,3 +267,12 @@ git revert a1b2c3d
 - `git restore файл` — отменить изменения в файле
 
 И всегда имейте в виду `git reflog` — он поможет восстановиться из практически любой ситуации.
+
+## По теме
+
+- [git revert]({{< relref "git-revert" >}})
+- [git restore]({{< relref "git-restore" >}})
+- [Откат последнего коммита]({{< relref "git-undo-last-commit" >}})
+- [git rollback]({{< relref "git-rollback" >}})
+- [git reflog]({{< relref "git-reflog" >}})
+- [Удалить коммит]({{< relref "udalit-kommit-git" >}})

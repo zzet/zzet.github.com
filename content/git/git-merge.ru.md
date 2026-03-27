@@ -301,3 +301,13 @@ git merge origin/main
 `git merge` — фундаментальный инструмент для командной разработки. Понимание разницы между fast-forward и three-way merge, умение работать с конфликтами и знание опций `--no-ff` и `--squash` — всё это делает вас эффективнее при работе с Git.
 
 При слиянии всегда проверяйте результат через `git log --graph` — это позволяет видеть структуру истории и убеждаться, что всё слилось правильно.
+
+## По теме
+
+- [Конфликты при merge]({{< relref "konflikty-git-merge" >}})
+- [git merge vs rebase]({{< relref "git-merge-vs-rebase" >}})
+- [Отмена merge]({{< relref "git-merge-abort" >}})
+- [Сообщение merge-коммита]({{< relref "git-merge-commit-message" >}})
+- [Откат merge-коммита]({{< relref "git-revert-merge-commit" >}})
+- [git squash]({{< relref "git-squash" >}})
+- [Сравнение коммитов в GitLab]({{< relref "gitlab-compare-commits" >}})
