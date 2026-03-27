@@ -5,7 +5,7 @@ date: 2024-12-13
 lastmod: 2024-12-13
 draft: false
 slug: "fork-repozitoriya"
-keywords: ["gitlab fork", "gitlab fork repository", "fork репозитория github", "как сделать форк", "github fork", "что такое форк"]
+keywords: ["gitlab fork", "gitlab fork repository", "fork репозитория github", "как сделать форк", "github fork", "что такое форк", "как удалить форк на github", "удалить форк github", "gitlab отключить связь с форком", "sync fork github"]
 tags: ["git", "github", "gitlab", "intermediate"]
 categories: ["git"]
 aliases: []

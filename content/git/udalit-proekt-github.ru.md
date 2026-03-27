@@ -5,7 +5,7 @@ date: 2026-03-11
 lastmod: 2026-03-11
 draft: false
 slug: "udalit-proekt-github"
-keywords: ["как удалить проект из github", "удаление репозитория github", "удалить репозиторий", "удалить репозиторий github", "github delete repository", "как удалить github проект"]
+keywords: ["как удалить репозиторий на github", "как удалить проект из github", "удаление репозитория github", "удалить репозиторий github", "github delete repository", "как удалить github проект", "как удалить репозиторий с гитхаба", "delete repository github"]
 tags: ["git", "github", "beginner"]
 categories: ["git"]
 ---

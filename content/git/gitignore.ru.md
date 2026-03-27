@@ -5,7 +5,7 @@ date: 2026-02-05
 lastmod: 2026-02-05
 draft: false
 slug: "gitignore"
-keywords: ["gitignore", "git игнорировать файлы", "gitignore примеры", "как использовать gitignore", "шаблоны gitignore"]
+keywords: ["gitignore", "git игнорировать файлы", "gitignore примеры", "как использовать gitignore", "шаблоны gitignore", "как игнорировать файл в любой подпапке проекта", "gitignore двойная звёздочка", "gitignore рекурсивно игнорировать"]
 tags: ["git", "beginner", "gitignore"]
 categories: ["git"]
 aliases: []

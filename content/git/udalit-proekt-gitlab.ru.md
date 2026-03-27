@@ -5,7 +5,7 @@ date: 2026-03-11
 lastmod: 2026-03-11
 draft: false
 slug: "udalit-proekt-gitlab"
-keywords: ["удалить проект gitlab", "как удалить репозиторий gitlab", "gitlab delete project", "gitlab удалить репозиторий", "gitlab delete repository", "как удалить проект gitlab"]
+keywords: ["удалить проект gitlab", "как удалить репозиторий gitlab", "gitlab delete project", "gitlab удалить репозиторий", "gitlab delete repository", "как удалить проект gitlab", "как удалить проект на gitlab", "как удалить проект в gitlab", "удалить гитлаб проект на сервере", "как в гитлабе удалить проект"]
 tags: ["git", "gitlab", "beginner"]
 categories: ["git"]
 ---

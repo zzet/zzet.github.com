@@ -5,7 +5,7 @@ date: 2026-02-06
 lastmod: 2026-02-06
 draft: false
 slug: "git-vscode"
-keywords: ["git vscode", "git в visual studio code", "vs code git", "vscode git интеграция", "git source control vscode"]
+keywords: ["git vscode", "git в visual studio code", "vs code git", "vscode git интеграция", "git source control vscode", "git graph vs code как пользоваться", "gitlens commit graph community edition", "vscode show git diff", "как работать с ветками в vs code", "vscode git расширения"]
 tags: ["git", "beginner"]
 categories: ["git"]
 ---

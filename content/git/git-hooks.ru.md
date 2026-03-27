@@ -5,7 +5,7 @@ date: 2026-01-14
 lastmod: 2026-01-14
 draft: false
 slug: "git-hooks"
-keywords: ["git hooks", "git хуки", "pre-commit hook git", "pre-commit хук настройка", "как создать git хук", "git hooks примеры использования", "commit-msg hook"]
+keywords: ["git hooks", "git хуки", "pre-commit hook git", "pre-commit хук настройка", "как создать git хук", "git hooks примеры использования", "commit-msg hook", "не отключён ли запуск хуков git", "как проверить хуки git отключены", "git hooks настройки проекта"]
 tags: ["git", "intermediate", "automation"]
 categories: ["git"]
 ---

@@ -13,6 +13,9 @@ keywords:
   - git shelve idea
   - полка git
   - shelve changes jetbrains
+  - using stash vs using shelve
+  - shelve changes git что это
+  - git stash vs shelve разница
 tags:
   - git
   - intellij-idea

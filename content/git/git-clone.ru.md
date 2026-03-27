@@ -5,7 +5,7 @@ date: 2026-01-07
 lastmod: 2026-01-07
 draft: false
 slug: "git-clone"
-keywords: ["ssh git clone", "git clone что это", "как скачать репозиторий git", "скачать код с github"]
+keywords: ["ssh git clone", "git clone что это", "как скачать репозиторий git", "скачать код с github", "как клонировать репозиторий с github", "git clone github", "клонировать репозиторий git", "как клонировать репозиторий"]
 tags: ["git", "remote", "beginner"]
 categories: ["git"]
 aliases: []
@@ -51,6 +51,43 @@ mkdir my-project
 cd my-project
 git clone https://github.com/username/repository.git .
 # Точка означает "текущую папку"
+```
+
+## Как клонировать репозиторий с GitHub пошагово
+
+Если вы хотите скачать чужой или свой проект с GitHub:
+
+1. Откройте страницу репозитория на github.com
+2. Нажмите зелёную кнопку **`<> Code`** (в правой части, над списком файлов)
+3. Выберите протокол — **HTTPS** (проще) или **SSH** (если настроены ключи)
+4. Нажмите иконку копирования рядом с URL
+5. В терминале выполните:
+
+```bash
+git clone https://github.com/username/repository.git
+```
+
+```
+GitHub репозиторий
+├── [<> Code ▼]  ← нажать
+│   ├── Local
+│   │   ├── [HTTPS] https://github.com/user/repo.git  ← скопировать
+│   │   └── [SSH]   git@github.com:user/repo.git
+│   └── GitHub CLI  gh repo clone user/repo
+└── ...
+```
+
+Для приватного репозитория потребуется авторизация. При HTTPS — введите логин и Personal Access Token (не пароль). При SSH — SSH-ключ должен быть добавлен в аккаунт.
+
+## Как клонировать репозиторий с GitLab пошагово
+
+1. Откройте страницу проекта на gitlab.com
+2. Нажмите синюю кнопку **Clone** (справа вверху)
+3. Скопируйте URL из раздела **Clone with HTTPS** или **Clone with SSH**
+4. В терминале:
+
+```bash
+git clone https://gitlab.com/username/project.git
 ```
 
 ## HTTPS vs SSH: что выбрать
@@ -212,6 +249,18 @@ git clone --no-checkout https://github.com/username/repository.git
 # Создаёт .git, но не разворачивает файлы
 # Полезно для настройки sparse checkout
 ```
+
+## Частые ошибки при клонировании
+
+**`fatal: repository not found`** — репозиторий не существует или нет доступа. Проверьте URL и права доступа.
+
+**`Permission denied (publickey)`** — SSH-ключ не настроен или не добавлен в аккаунт. Переключитесь на HTTPS или настройте SSH: `ssh -T git@github.com` для проверки.
+
+**`fatal: Authentication failed`** — неверный логин/пароль при HTTPS. С 2021 года GitHub требует Personal Access Token вместо пароля. Создайте токен в Settings → Developer settings → Personal access tokens.
+
+**`error: RPC failed; curl 18 transfer closed`** — обрыв соединения при клонировании большого репозитория. Решение: `git clone --depth 1` или увеличить buffer: `git config --global http.postBuffer 524288000`.
+
+**`Cloning into '.' ...` с ошибкой** — при клонировании в текущую папку она должна быть пустой. Очистите папку или клонируйте в новую.
 
 ## Часто задаваемые вопросы
 
