@@ -1,0 +1,103 @@
+{{ if hugo.IsProduction }}
+{{ with .Site.Config.Services.GoogleAnalytics.ID }}
+<script>
+(function() {
+  // Don't show banner if consent already stored
+  try {
+    if (localStorage.getItem('ga_consent') !== null) return;
+  } catch(e) {}
+
+  function createBanner() {
+    if (document.getElementById('cookie-consent-banner')) return;
+
+    var isDark = document.documentElement.classList.contains('dark') ||
+                 document.documentElement.getAttribute('data-default-appearance') === 'dark';
+
+    var banner = document.createElement('div');
+    banner.id = 'cookie-consent-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.style.cssText = [
+      'position:fixed',
+      'bottom:0',
+      'left:0',
+      'right:0',
+      'z-index:9999',
+      'padding:16px 24px',
+      'display:flex',
+      'align-items:center',
+      'justify-content:space-between',
+      'flex-wrap:wrap',
+      'gap:12px',
+      'font-size:14px',
+      'line-height:1.5',
+      'border-top:1px solid rgba(0,0,0,0.1)',
+      'background:' + (isDark ? '#1f2937' : '#ffffff'),
+      'color:' + (isDark ? '#d1d5db' : '#374151'),
+      'box-shadow:0 -2px 12px rgba(0,0,0,0.08)'
+    ].join(';');
+
+    var text = document.createElement('span');
+    text.style.cssText = 'flex:1;min-width:200px';
+    text.innerHTML = '{{ i18n "cookie.notice" | default "Мы используем Google Analytics для анализа трафика. Данные не передаются третьим лицам." }}' +
+      ' <a href="/ru/privacy/" style="color:inherit;text-decoration:underline;white-space:nowrap">{{ i18n "cookie.more" | default "Подробнее" }}</a>';
+
+    var btnWrap = document.createElement('div');
+    btnWrap.style.cssText = 'display:flex;gap:8px;flex-shrink:0';
+
+    var btnAccept = document.createElement('button');
+    btnAccept.id = 'cookie-accept';
+    btnAccept.textContent = '{{ i18n "cookie.accept" | default "Принять" }}';
+    btnAccept.style.cssText = [
+      'padding:6px 18px',
+      'border:none',
+      'border-radius:6px',
+      'cursor:pointer',
+      'font-size:14px',
+      'font-weight:600',
+      'background:#1d64ed',
+      'color:#fff'
+    ].join(';');
+
+    var btnReject = document.createElement('button');
+    btnReject.id = 'cookie-reject';
+    btnReject.textContent = '{{ i18n "cookie.reject" | default "Отклонить" }}';
+    btnReject.style.cssText = [
+      'padding:6px 18px',
+      'border:1px solid currentColor',
+      'border-radius:6px',
+      'cursor:pointer',
+      'font-size:14px',
+      'background:transparent',
+      'color:inherit'
+    ].join(';');
+
+    btnWrap.appendChild(btnReject);
+    btnWrap.appendChild(btnAccept);
+    banner.appendChild(text);
+    banner.appendChild(btnWrap);
+    document.body.appendChild(banner);
+
+    function dismiss(consent) {
+      try { localStorage.setItem('ga_consent', consent); } catch(e) {}
+      if (consent === 'granted' && typeof gtag === 'function') {
+        gtag('consent', 'update', {'analytics_storage': 'granted'});
+      }
+      banner.style.transition = 'opacity 0.3s';
+      banner.style.opacity = '0';
+      setTimeout(function() { banner.remove(); }, 350);
+    }
+
+    btnAccept.addEventListener('click', function() { dismiss('granted'); });
+    btnReject.addEventListener('click', function() { dismiss('denied'); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', createBanner);
+  } else {
+    createBanner();
+  }
+})();
+</script>
+{{ end }}
+{{ end }}

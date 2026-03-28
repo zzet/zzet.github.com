@@ -1,0 +1,55 @@
+{{ if hugo.IsProduction }}
+  {{/* Fathom */}}
+  {{ with .Site.Params.fathomAnalytics.site }}
+    <script defer src="https://cdn.usefathom.com/script.js" data-site="{{ . }}"></script>
+  {{ end }}
+  {{/* Plausible */}}
+  {{ with site.Params.plausibleAnalytics.domain }}
+    <script
+      defer
+      data-domain="{{ . }}"
+      data-api="{{ default "https://plausible.io/api/event" site.Params.plausibleAnalytics.event }}"
+      src="{{ default "https://plausible.io/js/script.js" site.Params.plausibleAnalytics.script }}"
+    ></script>
+  {{ end }}
+  {{/* Umami */}}
+  {{ with site.Params.umamiAnalytics }}
+    {{- $defaultScript := printf "https://%s.umami.is/script.js" (default "eu" .region) }}
+    <script
+      defer
+      src="{{ default $defaultScript .script }}"
+      data-website-id="{{ .site }}"
+    ></script>
+  {{ end }}
+  {{/* Google Analytics with Consent Mode v2 */}}
+  {{ with .Site.Config.Services.GoogleAnalytics.ID }}
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Consent Mode v2: deny all by default (required for GDPR / EU)
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+
+    // Restore previously stored consent without waiting for banner
+    (function() {
+      try {
+        var stored = localStorage.getItem('ga_consent');
+        if (stored === 'granted') {
+          gtag('consent', 'update', {'analytics_storage': 'granted'});
+        }
+      } catch(e) {}
+    })();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', '{{ . }}');
+  </script>
+  {{ end }}
+{{ end }}
