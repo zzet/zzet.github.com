@@ -153,6 +153,12 @@ git remote add upstream https://...
 
 ## Интерактивные тренажёры (лучший способ начать!)
 
+### Git Tour
+
+**Ссылка:** [git-tour.zzet.org/ru](https://git-tour.zzet.org/ru)
+
+Интерактивный тур по Git на русском языке — отличная отправная точка для новичков. Доступен прямо в браузере, без установки. Есть также [английская версия](https://git-tour.zzet.org/en). Пройдите его первым, прежде чем переходить к более сложным ресурсам.
+
 ### Learn Git Branching
 
 **Ссылка:** [learngitbranching.js.org](https://learngitbranching.js.org)
@@ -343,6 +349,7 @@ git reflog
 
 Не забывайте, что на нашем блоге есть много полезных статей:
 
+- [Git Tour](https://git-tour.zzet.org/ru) — интерактивный тур по Git на русском, начните отсюда
 - {{< relref "chto-takoe-git" >}} — отличное введение в Git для полных новичков
 - {{< relref "vvedenie-v-git" >}} — полное введение в Git с примерами
 - {{< relref "learn-git-branching" >}} — подробный гайд по работе с ветками
@@ -413,6 +420,7 @@ Git — это навык, который стоит потратить врем
 Удачи в изучении Git! 🚀
 
 ## По теме
-- [Forgejo: свой git-хостинг]({{< relref "forgejo" >}})
 
+- [Git Tour — интерактивный тур на русском](https://git-tour.zzet.org/ru)
+- [Forgejo: свой git-хостинг]({{< relref "forgejo" >}})
 - [Тренажёры Git: интерактивные курсы]({{< relref "git-trenazhyor" >}})
