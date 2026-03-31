@@ -27,21 +27,39 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
 
-    // Consent Mode v2: deny all by default (required for GDPR / EU)
+    // Consent Mode v2:
+    // Step 1 — grant analytics for everyone by default (non-GDPR regions: RU, US, etc.)
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+
+    // Step 2 — override to denied for EU / EEA / UK / CH (GDPR scope)
+    // Google picks the right rule based on the visitor's IP region.
     gtag('consent', 'default', {
       'analytics_storage': 'denied',
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
-      'wait_for_update': 500
+      'wait_for_update': 500,
+      'region': [
+        'AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI',
+        'FR','GR','HR','HU','IE','IT','LT','LU','LV','MT',
+        'NL','PL','PT','RO','SE','SI','SK',
+        'GB','IS','LI','NO','CH'  // UK, EEA non-EU, Switzerland
+      ]
     });
 
-    // Restore previously stored consent without waiting for banner
+    // Restore EU visitor's previously stored choice without waiting for banner
     (function() {
       try {
         var stored = localStorage.getItem('ga_consent');
         if (stored === 'granted') {
           gtag('consent', 'update', {'analytics_storage': 'granted'});
+        } else if (stored === 'denied') {
+          gtag('consent', 'update', {'analytics_storage': 'denied'});
         }
       } catch(e) {}
     })();

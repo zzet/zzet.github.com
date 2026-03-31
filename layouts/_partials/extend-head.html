@@ -1,17 +1,24 @@
 {{ if hugo.IsProduction }}
 {{ with .Site.Config.Services.GoogleAnalytics.ID }}
+{{- $notice  := i18n "cookie.notice" -}}
+{{- $more    := i18n "cookie.more" -}}
+{{- $accept  := i18n "cookie.accept" -}}
+{{- $reject  := i18n "cookie.reject" -}}
+{{- $policyUrl := i18n "cookie.policy_url" -}}
 <script>
 (function() {
-  // Don't show banner if consent already stored
-  try {
-    if (localStorage.getItem('ga_consent') !== null) return;
-  } catch(e) {}
+  // For non-EU visitors: analytics_storage is already 'granted' by region default,
+  // so the banner is informational only — it does not gate their tracking.
+  // For EU/EEA visitors: analytics_storage defaults to 'denied'; accepting the
+  // banner calls gtag('consent','update') to grant it.
+  // Skip if consent already stored
+  try { if (localStorage.getItem('ga_consent') !== null) return; } catch(e) {}
 
   function createBanner() {
     if (document.getElementById('cookie-consent-banner')) return;
 
-    var isDark = document.documentElement.classList.contains('dark') ||
-                 document.documentElement.getAttribute('data-default-appearance') === 'dark';
+    var isDark = document.documentElement.getAttribute('data-default-appearance') === 'dark'
+              || window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     var banner = document.createElement('div');
     banner.id = 'cookie-consent-banner';
@@ -23,53 +30,55 @@
       'left:0',
       'right:0',
       'z-index:9999',
-      'padding:16px 24px',
+      'padding:14px 20px',
       'display:flex',
       'align-items:center',
       'justify-content:space-between',
       'flex-wrap:wrap',
       'gap:12px',
-      'font-size:14px',
+      'font-size:13px',
       'line-height:1.5',
-      'border-top:1px solid rgba(0,0,0,0.1)',
-      'background:' + (isDark ? '#1f2937' : '#ffffff'),
+      'border-top:1px solid rgba(128,128,128,0.2)',
+      'background:' + (isDark ? '#1f2937' : '#f9fafb'),
       'color:' + (isDark ? '#d1d5db' : '#374151'),
-      'box-shadow:0 -2px 12px rgba(0,0,0,0.08)'
+      'box-shadow:0 -2px 16px rgba(0,0,0,0.08)'
     ].join(';');
 
     var text = document.createElement('span');
-    text.style.cssText = 'flex:1;min-width:200px';
-    text.innerHTML = '{{ i18n "cookie.notice" | default "Мы используем Google Analytics для анализа трафика. Данные не передаются третьим лицам." }}' +
-      ' <a href="/ru/privacy/" style="color:inherit;text-decoration:underline;white-space:nowrap">{{ i18n "cookie.more" | default "Подробнее" }}</a>';
+    text.style.cssText = 'flex:1;min-width:220px';
+    text.innerHTML = '{{ $notice }}' +
+      ' <a href="{{ $policyUrl }}" style="color:inherit;text-decoration:underline;white-space:nowrap">{{ $more }}</a>';
 
     var btnWrap = document.createElement('div');
-    btnWrap.style.cssText = 'display:flex;gap:8px;flex-shrink:0';
+    btnWrap.style.cssText = 'display:flex;gap:8px;flex-shrink:0;align-items:center';
 
     var btnAccept = document.createElement('button');
     btnAccept.id = 'cookie-accept';
-    btnAccept.textContent = '{{ i18n "cookie.accept" | default "Принять" }}';
+    btnAccept.textContent = '{{ $accept }}';
     btnAccept.style.cssText = [
-      'padding:6px 18px',
+      'padding:6px 16px',
       'border:none',
       'border-radius:6px',
       'cursor:pointer',
-      'font-size:14px',
+      'font-size:13px',
       'font-weight:600',
-      'background:#1d64ed',
-      'color:#fff'
+      'background:#2563eb',
+      'color:#fff',
+      'white-space:nowrap'
     ].join(';');
 
     var btnReject = document.createElement('button');
     btnReject.id = 'cookie-reject';
-    btnReject.textContent = '{{ i18n "cookie.reject" | default "Отклонить" }}';
+    btnReject.textContent = '{{ $reject }}';
     btnReject.style.cssText = [
-      'padding:6px 18px',
-      'border:1px solid currentColor',
+      'padding:6px 16px',
+      'border:1px solid rgba(128,128,128,0.4)',
       'border-radius:6px',
       'cursor:pointer',
-      'font-size:14px',
+      'font-size:13px',
       'background:transparent',
-      'color:inherit'
+      'color:inherit',
+      'white-space:nowrap'
     ].join(';');
 
     btnWrap.appendChild(btnReject);
@@ -81,11 +90,11 @@
     function dismiss(consent) {
       try { localStorage.setItem('ga_consent', consent); } catch(e) {}
       if (consent === 'granted' && typeof gtag === 'function') {
-        gtag('consent', 'update', {'analytics_storage': 'granted'});
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
       }
-      banner.style.transition = 'opacity 0.3s';
+      banner.style.transition = 'opacity 0.25s';
       banner.style.opacity = '0';
-      setTimeout(function() { banner.remove(); }, 350);
+      setTimeout(function() { if (banner.parentNode) banner.remove(); }, 300);
     }
 
     btnAccept.addEventListener('click', function() { dismiss('granted'); });
