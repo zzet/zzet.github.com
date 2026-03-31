@@ -1,0 +1,6 @@
+cookie:
+  notice: "We use Google Analytics to analyse traffic. Data helps improve the site and is not shared with third parties."
+  more: "Privacy Policy"
+  accept: "Accept"
+  reject: "Decline"
+  policy_url: "/en/privacy/"
