@@ -3,4 +3,4 @@ cookie:
   more: "Privacy Policy"
   accept: "Accept"
   reject: "Decline"
-  policy_url: "/en/privacy/"
+  policy_url: "/privacy/"

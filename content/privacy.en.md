@@ -47,7 +47,7 @@ You have the right to:
 - request its deletion
 - withdraw consent for analytics
 
-To exercise these rights, contact **me@zzet.org**.
+To exercise these rights, contact **privacy@zzet.org**.
 
 ## Policy Changes
 
