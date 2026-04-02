@@ -2,7 +2,7 @@
 title: "git commit: полное руководство по фиксации изменений в Git"
 description: "Команда git commit: сообщения, параметры, лучшие практики, Conventional Commits, примеры. Полный гайд."
 date: 2026-01-08
-lastmod: 2026-01-08
+lastmod: 2026-04-02
 draft: false
 slug: "git-commit"
 keywords: ["git commit", "коммит git", "типы коммитов", "git commit -m", "что такое коммит"]
@@ -349,3 +349,10 @@ git commit -m "refactor: simplify authentication logic"
 `git commit` — сердце Git. Хорошие коммиты это не просто формальность — это документация вашего проекта в реальном времени. Инвестируйте несколько секунд в качественное сообщение коммита, и через месяц вы (и ваша команда) скажете себе спасибо.
 
 Используйте Conventional Commits для структурированных проектов, пишите осмысленные описания и коммитьте часто с небольшими изменениями. Это основа профессиональной работы с Git.
+
+## По теме
+
+- [Conventional Commits: типы feat, fix, chore и другие]({{< relref "conventional-commits" >}})
+- [git commit --amend]({{< relref "git-commit-amend" >}})
+- [Отмена последнего коммита]({{< relref "git-undo-last-commit" >}})
+- [Сообщение merge-коммита]({{< relref "git-merge-commit-message" >}})

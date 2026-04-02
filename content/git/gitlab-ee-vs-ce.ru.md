@@ -2,10 +2,10 @@
 title: "GitLab CE vs EE: отличия Community и Enterprise Edition"
 description: "Сравнение GitLab Community Edition (CE) и Enterprise Edition (EE). Что входит в бесплатную версию, что только в EE, как установить, цены."
 date: 2026-02-06
-lastmod: 2026-02-06
+lastmod: 2026-04-02
 draft: false
 slug: "gitlab-ee-vs-ce"
-keywords: ["gitlab ce vs ee", "gitlab community edition", "gitlab enterprise edition отличия", "gitlab ce установка", "gitlab community edition бесплатно", "gitlab ee цена"]
+keywords: ["gitlab ee vs ce", "gitlab ce vs ee", "gitlab-ee vs gitlab-ce", "gitlab ee vs gitlab ce", "gitlab community edition", "gitlab enterprise edition отличия", "gitlab ce установка", "gitlab community edition бесплатно", "gitlab ee цена", "отличие gitlab ce от ee"]
 tags: ["git", "gitlab", "intermediate"]
 categories: ["git"]
 ---

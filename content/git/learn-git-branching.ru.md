@@ -1,11 +1,11 @@
 ---
 title: "Learn Git Branching: интерактивный тренажёр для изучения Git"
-description: "Обзор Learn Git Branching — бесплатного интерактивного тренажёра для изучения веток Git. Как начать, основные уровни, советы по использованию."
+description: "Полное руководство по Learn Git Branching: как пройти все уровни, подсказки к сложным заданиям, порядок прохождения. Лучший тренажёр ветвления Git в браузере."
 date: 2026-02-13
-lastmod: 2026-02-13
+lastmod: 2026-04-02
 draft: false
 slug: "learn-git-branching"
-keywords: ["learn git branching прохождение", "learn git branching", "интерактивный тренажер git", "learn git branching решения", "git тренажёр онлайн", "визуализация git ветвления"]
+keywords: ["learn git branching прохождение", "learn git branching", "learngitbranching", "learngitbranching.js.org ответы", "интерактивный тренажер git", "learn git branching решения", "git тренажёр онлайн", "визуализация git ветвления", "learn git branching как пройти"]
 tags: ["git", "beginner", "learning"]
 categories: ["git"]
 ---

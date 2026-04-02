@@ -2,10 +2,10 @@
 title: "Как удалить ветку в Git: локально и удалённо"
 description: "Как удалить локальную и удалённую ветку в Git. Команды git branch -d, git push --delete, удаление через GitHub UI и восстановление случайно удалённой ветки."
 date: 2024-12-01
-lastmod: 2024-12-01
+lastmod: 2026-04-02
 draft: false
 slug: "git-udalit-vetku"
-keywords: ["git удалить ветку", "delete branch git", "как удалить локальную ветку git", "git remove branch local", "удалить ветку локально", "git удалить ветку в удаленном репозитории", "как удалить ветку гит", "git remove branch remote", "git удалить ветку локально", "как удалить все локальные ветки git", "git delete local branch", "remove local branch git"]
+keywords: ["как удалить ветку в git", "как удалить ветку git", "git удалить ветку", "delete branch git", "как удалить локальную ветку git", "git remove branch local", "удалить ветку локально", "git удалить ветку в удаленном репозитории", "как удалить ветку гит", "git remove branch remote", "git удалить ветку локально", "как удалить все локальные ветки git", "git delete local branch", "remove local branch git", "как удалить ветку в vs code"]
 tags: ["git", "branches", "intermediate"]
 categories: ["git"]
 aliases: []
@@ -404,6 +404,56 @@ git branch -dr origin/имя-ветки    # Удалить tracking ветку
 
 ```bash
 git fetch --prune
+```
+
+## Как удалить ветку в VS Code
+
+VS Code позволяет удалять ветки прямо из редактора, без терминала.
+
+### Через строку статуса
+
+1. Нажмите на имя текущей ветки в левом нижнем углу VS Code
+2. Откроется палитра команд со списком веток
+3. Выберите **Delete Branch...**
+4. Укажите имя ветки для удаления
+
+### Через палитру команд
+
+Нажмите `Ctrl+Shift+P` (или `Cmd+Shift+P` на macOS), введите **Git: Delete Branch** и выберите нужную ветку из списка.
+
+### Через Source Control (боковая панель)
+
+1. Откройте Source Control (`Ctrl+Shift+G`)
+2. Нажмите `...` (три точки) → **Branch** → **Delete Branch**
+3. Выберите ветку для удаления
+
+### Удалить удалённую ветку из VS Code
+
+Для удаления ветки на GitHub/GitLab через VS Code воспользуйтесь расширением **GitLens**:
+
+1. Откройте панель GitLens → **Branches**
+2. Найдите ветку в разделе **Remote Branches**
+3. Кликните правой кнопкой → **Delete Branch (remote)**
+
+Либо используйте встроенный терминал VS Code (`Ctrl+\``) и выполните команду:
+
+```bash
+git push origin --delete имя-ветки
+```
+
+### Удалить ветку в VS Code через терминал
+
+Самый надёжный способ — открыть встроенный терминал и использовать стандартные git команды:
+
+```bash
+# Удалить локальную ветку
+git branch -d feature/my-branch
+
+# Удалить удалённую ветку
+git push origin --delete feature/my-branch
+
+# Принудительно удалить (если не слита)
+git branch -D feature/my-branch
 ```
 
 ## Лучшие практики удаления веток

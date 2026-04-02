@@ -2,10 +2,10 @@
 title: "Conventional Commits: стандарт написания сообщений коммитов"
 description: "Полное руководство по Conventional Commits. Типы коммитов (feat, fix, docs), scope, breaking changes, автоматизация changelog и semver."
 date: 2026-01-03
-lastmod: 2026-01-03
+lastmod: 2026-04-02
 draft: false
 slug: "conventional-commits"
-keywords: ["типы коммитов", "conventional commits", "conventional commits что это", "conventional commits примеры", "conventional commits типы", "формат сообщений коммитов", "commit message правила"]
+keywords: ["типы коммитов", "conventional commits", "conventional commits что это", "conventional commits примеры", "conventional commits типы", "формат сообщений коммитов", "commit message правила", "что означает chore в коммите", "chore коммит что это", "что значит chore git", "feat fix chore docs коммит", "типы сообщений коммитов git"]
 tags: ["git", "commits", "intermediate"]
 categories: ["git"]
 ---
@@ -87,12 +87,23 @@ test(api): add integration tests for user endpoints
 test: fix flaky timeout test
 ```
 
-**chore** — обновление зависимостей, конфигурации (без изменения кода):
+**chore** — вспомогательные задачи, не влияющие на код продукта:
+
+`chore` означает «рутинная задача» — обновление зависимостей, конфигурации инструментов, генерация файлов. Изменения типа `chore` **не попадают в changelog** и не влияют на версию продукта. Это главное отличие от `fix` и `feat`.
+
+Что относится к `chore`:
+- обновление npm/pip/go зависимостей
+- изменение конфигурации линтера, prettier, eslint
+- добавление/изменение `.editorconfig`, `.gitignore`
+- настройка инструментов разработки (не CI/CD — для этого есть `ci`)
+- автоматически сгенерированные файлы
 
 ```
-chore: update npm dependencies
+chore: update npm dependencies to latest
 chore(deps): bump lodash from 4.17.20 to 4.17.21
-chore: add .editorconfig
+chore: add .editorconfig for consistent formatting
+chore: update .gitignore to exclude build artifacts
+chore(lint): configure eslint for TypeScript
 ```
 
 **ci** — изменения в CI/CD конфигурации:
@@ -305,3 +316,10 @@ git cz
 ## Заключение
 
 Conventional Commits — это соглашение, которое превращает сообщения коммитов в структурированные данные. Основа: `type(scope): description`. Типы: feat, fix, docs, style, refactor, perf, test, chore, ci. Breaking changes обозначаются `!` или BREAKING CHANGE в footer. Позволяет автоматизировать changelog через Semantic Release. Подробнее о лучших практиках написания коммитов — [лучшие практики коммитов]({{< relref "luchshie-praktiki-kommitov" >}}).
+
+## По теме
+
+- [git commit: полный гайд]({{< relref "git-commit" >}})
+- [git commit --amend: изменить последний коммит]({{< relref "git-commit-amend" >}})
+- [Сообщение merge-коммита]({{< relref "git-merge-commit-message" >}})
+- [Отмена последнего коммита]({{< relref "git-undo-last-commit" >}})

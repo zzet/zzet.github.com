@@ -1,18 +1,21 @@
 ---
 title: "Git Shelve в IntelliJ IDEA: отличие от git stash"
-description: "Git Shelve (Shelve Changes) в IntelliJ IDEA: как использовать полки, отличие от git stash, когда что выбирать."
+description: "Сравнение git stash и IDE Shelve: в чём разница, когда использовать stash, а когда shelve. Примеры команд для IntelliJ IDEA, PyCharm и других IDE JetBrains."
 date: 2025-12-03
-lastmod: 2025-12-03
+lastmod: 2026-04-02
 draft: false
 slug: git-shelve
 keywords:
   - git shelve
   - git shelf
   - git shelve vs stash
+  - using stash vs using shelve
+  - stash vs shelve git
   - shelve changes intellij idea
   - git shelve idea
   - полка git
   - shelve changes jetbrains
+  - git stash or shelve
   - using stash vs using shelve
   - shelve changes git что это
   - git stash vs shelve разница
