@@ -4,6 +4,11 @@
   weight = 10
 
 [[main]]
+  name = "Gortex"
+  pageRef = "gortex"
+  weight = 20
+
+[[main]]
   name = "Блог"
   pageRef = "posts"
   weight = 20
