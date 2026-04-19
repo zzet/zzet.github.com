@@ -176,3 +176,23 @@ gortex status
 After `gortex init`, Claude Code starts Gortex automatically via `.mcp.json`. The web UI is at `http://localhost:8765`.
 
 Source: [github.com/zzet/gortex](https://github.com/zzet/gortex). Issues and PRs welcome.
+
+---
+
+## Common questions, Gortex edition
+
+If you landed here looking for GitNexus answers, here's the Gortex equivalent for each.
+
+**Setup / how to use.** `brew install zzet/tap/gortex`, then `gortex install` once per machine and `gortex init` once per repo. The MCP config, skills, and editor integrations write themselves.
+
+**MCP server / MCP commands.** `gortex serve --index /your/repo --watch`. After `gortex init`, Claude Code and Cursor start it automatically via `.mcp.json` — you don't need to run it manually.
+
+**CLI.** `gortex --help` lists everything. Common ones: `gortex serve`, `gortex init`, `gortex skills`, `gortex status`, `gortex savings`.
+
+**Skills.** `gortex skills /your/repo` clusters the codebase into functional communities and writes a `SKILL.md` for each. Claude Code picks them up automatically — no extra config.
+
+**OpenCode.** `gortex init` detects OpenCode and writes `.opencode/config.json` automatically. Run it once and the integration is done.
+
+**Antigravity.** `gortex init` adds a knowledge item that tells Antigravity to use Gortex CLI queries instead of grep. Same one-command setup as the other editors.
+
+**"cannot get /".** If you hit a routing error on the GitNexus web UI, the Gortex equivalent is `http://localhost:8765` — it starts automatically with `gortex serve`. No separate web server to configure.

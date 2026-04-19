@@ -176,3 +176,23 @@ gortex status
 После `gortex init` Claude Code запускает Gortex автоматически через `.mcp.json`. Веб-интерфейс доступен на `http://localhost:8765`.
 
 Код: [github.com/zzet/gortex](https://github.com/zzet/gortex). Issues и PR приветствуются.
+
+---
+
+## Частые вопросы — Gortex-версия
+
+Если вы попали сюда в поисках ответов по GitNexus — вот эквиваленты для Gortex.
+
+**Установка / как использовать.** `brew install zzet/tap/gortex`, затем `gortex install` один раз на машину и `gortex init` один раз на репозиторий. MCP-конфиг, скиллы и интеграции с редакторами настраиваются автоматически.
+
+**MCP-сервер / MCP-команды.** `gortex serve --index /your/repo --watch`. После `gortex init` Claude Code и Cursor запускают его автоматически через `.mcp.json` — вручную запускать не нужно.
+
+**CLI.** `gortex --help` выводит всё. Основные команды: `gortex serve`, `gortex init`, `gortex skills`, `gortex status`, `gortex savings`.
+
+**Скиллы.** `gortex skills /your/repo` разбивает кодовую базу на функциональные сообщества и пишет `SKILL.md` для каждого. Claude Code подхватывает их автоматически — дополнительная конфигурация не нужна.
+
+**OpenCode.** `gortex init` определяет OpenCode и автоматически пишет `.opencode/config.json`. Одна команда — и интеграция готова.
+
+**Antigravity.** `gortex init` добавляет knowledge item, который указывает Antigravity использовать CLI-запросы Gortex вместо grep. Та же однокомандная настройка, что и для остальных редакторов.
+
+**"cannot get /".** Если вы получали эту ошибку в веб-интерфейсе GitNexus — у Gortex веб-интерфейс доступен на `http://localhost:8765` и запускается автоматически вместе с `gortex serve`. Отдельный веб-сервер настраивать не нужно.
