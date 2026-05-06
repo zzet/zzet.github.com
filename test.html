@@ -12,26 +12,11 @@
 
     <script>
         (async () => {
-            // Wait for the IIFE bundle to define window.SentinelSDK
-            // (script tag without async/defer makes this synchronous;
-            // if you use async, poll briefly).
             const SDK = window.SentinelSDK;
-            if (!SDK) { console.error('Sentinel SDK failed to load'); return; }
-            // Stable per-tab session id. Rotate on page close.
-            const SESSION_KEY = 'sentinel_session_id';
-            let sessionId = sessionStorage.getItem(SESSION_KEY);
-            if (!sessionId) {
-                sessionId = 's_' + crypto.randomUUID();
-                sessionStorage.setItem(SESSION_KEY, sessionId);
-            }
-            await SDK.fingerprint.init(sessionId, {
-                endpoint: 'https://sp.vio.zzet.org/api/v1/detection/fingerprint',
-                tenant: 'test',  // matches the tenant config (test.yaml in pre-prod)
-            });
-            await SDK.persistent.persistentID(
-                sessionId,
-                'https://sp.vio.zzet.org/api/v1/detection/persistent-id',
-            );
+            const sessionId = sessionStorage.getItem('s') || ('s_' + crypto.randomUUID());
+            sessionStorage.setItem('s', sessionId);
+            await SDK.fingerprint.init(sessionId, { endpoint: 'https://sp.vio.zzet.org/api/v1/detection/fingerprint', tenant: 'test', });
+            await SDK.persistent.persistentID(sessionId, 'https://sp.vio.zzet.org/api/v1/detection/persistent-id',);
         })();
     </script>
 </body>
