@@ -2,7 +2,7 @@
 title: "От GitNexus к Gortex: история создания движка анализа кода на Go"
 description: "Как я экспериментировал с GitNexus, обнаружил его ограничения и написал Gortex — движок анализа кода на Go с 48 MCP-инструментами, поддержкой 33 языков, встроенным редактированием символов, обнаружением API-контрактов, мультирепозиторным режимом и измеримым снижением токенов на 94%+."
 date: 2026-04-08
-lastmod: 2026-04-08
+lastmod: 2026-04-15
 draft: false
 slug: "from-gitnexus-to-gortex"
 keywords: ["gortex", "gitnexus альтернатива", "анализ кода mcp", "mcp сервер golang", "граф знаний кода", "ai агент контекст", "mcp инструменты кодовая база", "gortex vs gitnexus", "мультирепозиторный анализ кода", "multi repo mcp", "семантический поиск кода", "обнаружение api контрактов mcp", "редактирование символов mcp",  "gitnexus", "git nexus", "gitnexus github"]
@@ -111,11 +111,11 @@ BM25 + векторный поиск через Reciprocal Rank Fusion (RRF). В
 Gortex может индексировать несколько репозиториев в один граф. Именованные проекты определяются в `~/.config/gortex/config.yaml` — каждый проект это список путей к репозиториям. Настройки уровня репозитория — в `.gortex.yaml`.
 
 ```bash
-# Несколько репозиториев вместе
-gortex serve --track /code/api --track /code/frontend --track /code/protos
+# Отслеживать несколько репозиториев в одном графе
+gortex track /code/api /code/frontend /code/protos
 
-# Именованный проект
-gortex serve --project my-saas
+# Именованный проект (определяется в ~/.config/gortex/config.yaml)
+gortex daemon start --project my-saas
 
 # Что сейчас проиндексировано
 gortex status
@@ -156,24 +156,36 @@ GitNexus — нормальный проект. Абхигьян сделал о
 ## Попробовать
 
 ```bash
-go install github.com/zzet/gortex@latest
+# Установить (macOS/Linux, одной командой)
+curl -fsSL https://get.gortex.dev | sh
 
-# Настроить интеграцию с редакторами
-gortex init /your/repo
+# Или через Homebrew
+brew install zzet/tap/gortex
 
-# Запустить MCP-сервер
-gortex serve --index /your/repo --watch
+# Один раз на машину — устанавливает completions, хуки, заготовки для редакторов
+gortex install
 
-# Сгенерировать скиллы по сообществам
-gortex skills /your/repo
+# Запустить daemon (переживает перезапуски редактора; автозапуск при входе — опционально)
+gortex daemon start --detach
+gortex daemon install-service  # опционально: автозапуск при входе в систему
 
-# Мультирепо
-gortex serve --index /your/repo --track /code/frontend --track /code/protos
-gortex serve --project my-saas
+# Добавить репозитории
+gortex track ~/projects/myapp
+gortex track ~/projects/frontend ~/projects/protos  # несколько репо в одном графе
+
+# Настройка репозитория (опционально, но рекомендуется)
+cd /your/repo
+gortex init          # пишет .mcp.json, CLAUDE.md, конфиги редакторов, guard-правила
+gortex init --skills # также генерирует SKILL.md для каждого сообщества
+
+# MCP-сервер (автономный режим, автоматически находит запущенный daemon)
+gortex mcp --index /path/to/repo --watch
+
+# Проверить состояние
 gortex status
 ```
 
-После `gortex init` Claude Code запускает Gortex автоматически через `.mcp.json`. Веб-интерфейс доступен на `http://localhost:8765`.
+После `gortex init` Claude Code и Cursor запускают MCP-сервер автоматически через `.mcp.json` — вручную запускать `gortex mcp` не нужно. Веб-интерфейс раздаётся отдельно командой `gortex server` (порт 4747) и находится в репозитории [gortexhq/web](https://github.com/gortexhq/web).
 
 Код: [github.com/zzet/gortex](https://github.com/zzet/gortex). Issues и PR приветствуются.
 
@@ -183,16 +195,16 @@ gortex status
 
 Если вы попали сюда в поисках ответов по GitNexus — вот эквиваленты для Gortex.
 
-**Установка / как использовать.** `brew install zzet/tap/gortex`, затем `gortex install` один раз на машину и `gortex init` один раз на репозиторий. MCP-конфиг, скиллы и интеграции с редакторами настраиваются автоматически.
+**Установка / как использовать.** `curl -fsSL https://get.gortex.dev | sh` (или `brew install zzet/tap/gortex`), затем `gortex install` один раз на машину, `gortex daemon start --detach` для запуска daemon'а, и `gortex init` один раз на репозиторий. MCP-конфиг, интеграции с редакторами и guard-правила настраиваются автоматически.
 
-**MCP-сервер / MCP-команды.** `gortex serve --index /your/repo --watch`. После `gortex init` Claude Code и Cursor запускают его автоматически через `.mcp.json` — вручную запускать не нужно.
+**MCP-сервер / MCP-команды.** `gortex mcp --index /path/to/repo --watch`. После `gortex init` Claude Code и Cursor запускают его автоматически через `.mcp.json` — вручную запускать не нужно. Daemon (`gortex daemon start`) держит граф живым между сессиями; `gortex mcp` автоматически его обнаруживает.
 
-**CLI.** `gortex --help` выводит всё. Основные команды: `gortex serve`, `gortex init`, `gortex skills`, `gortex status`, `gortex savings`.
+**CLI.** `gortex --help` выводит всё. Основные команды: `gortex mcp`, `gortex init`, `gortex daemon`, `gortex track`, `gortex status`, `gortex savings`, `gortex eval`, `gortex enrich`.
 
-**Скиллы.** `gortex skills /your/repo` разбивает кодовую базу на функциональные сообщества и пишет `SKILL.md` для каждого. Claude Code подхватывает их автоматически — дополнительная конфигурация не нужна.
+**Скиллы.** `gortex init --skills` разбивает кодовую базу на функциональные сообщества и пишет `SKILL.md` для каждого. Claude Code подхватывает их автоматически — дополнительная конфигурация не нужна.
 
 **OpenCode.** `gortex init` определяет OpenCode и автоматически пишет `.opencode/config.json`. Одна команда — и интеграция готова.
 
 **Antigravity.** `gortex init` добавляет knowledge item, который указывает Antigravity использовать CLI-запросы Gortex вместо grep. Та же однокомандная настройка, что и для остальных редакторов.
 
-**"cannot get /".** Если вы получали эту ошибку в веб-интерфейсе GitNexus — у Gortex веб-интерфейс доступен на `http://localhost:8765` и запускается автоматически вместе с `gortex serve`. Отдельный веб-сервер настраивать не нужно.
+**"cannot get /".** Если вы получали эту ошибку в веб-интерфейсе GitNexus — у Gortex веб-интерфейс находится в отдельном приложении [gortexhq/web](https://github.com/gortexhq/web). Запустите API-сервер командой `gortex server --index /path/to/repo --watch` (порт 4747), затем откройте веб-интерфейс, направив его на `http://localhost:4747`.

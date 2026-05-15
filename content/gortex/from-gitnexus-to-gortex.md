@@ -2,7 +2,7 @@
 title: "From GitNexus to Gortex: Building a Go Code Intelligence Engine"
 description: "How I experimented with GitNexus, discovered its limitations, and built Gortex — a Go code intelligence engine with 48 MCP tools, 33-language support, inline symbol editing, API contract detection, multi-repo mode, and measurable 94%+ token reduction for AI agents."
 date: 2026-04-08
-lastmod: 2026-04-08
+lastmod: 2026-05-15
 draft: false
 slug: "from-gitnexus-to-gortex"
 keywords: ["gortex", "gitnexus alternative", "code intelligence mcp", "golang mcp server", "code knowledge graph", "ai coding agent context", "mcp tools codebase", "gortex vs gitnexus", "multi repo mcp", "multi repository code intelligence", "semantic search codebase", "api contract detection mcp", "edit symbol mcp", "gitnexus", "git nexus", "gitnexus github"]
@@ -111,11 +111,11 @@ Run once, every editor on the team is connected to the same 48 tools.
 Gortex can index multiple repos into one graph. You define named projects in `~/.config/gortex/config.yaml` — each project is a list of repo paths. Per-repo settings go in `.gortex.yaml`.
 
 ```bash
-# Serve multiple repos together
-gortex serve --track /code/api --track /code/frontend --track /code/protos
+# Track multiple repos into one graph
+gortex track /code/api /code/frontend /code/protos
 
-# Use a named project
-gortex serve --project my-saas
+# Use a named project (defined in ~/.config/gortex/config.yaml)
+gortex daemon start --project my-saas
 
 # Check what's indexed
 gortex status
@@ -156,24 +156,36 @@ Gortex advantage: 33 languages including functional ones, 48 tools with inline e
 ## Try it
 
 ```bash
-go install github.com/zzet/gortex@latest
+# Install (macOS/Linux one-liner)
+curl -fsSL https://get.gortex.dev | sh
 
-# Set up your editor integrations
-gortex init /your/repo
+# Homebrew alternative
+brew install zzet/tap/gortex
 
-# Start the MCP server
-gortex serve --index /your/repo --watch
+# Once per machine — installs shell completions, hooks, editor stubs
+gortex install
 
-# Generate community skill files
-gortex skills /your/repo
+# Start the daemon (survives editor restarts; auto-start at login optional)
+gortex daemon start --detach
+gortex daemon install-service  # optional: auto-start at login
 
-# Multi-repo
-gortex serve --index /your/repo --track /code/frontend --track /code/protos
-gortex serve --project my-saas
+# Track repos
+gortex track ~/projects/myapp
+gortex track ~/projects/frontend ~/projects/protos  # multi-repo in one graph
+
+# Per-repo setup (optional but recommended)
+cd /your/repo
+gortex init          # writes .mcp.json, CLAUDE.md, editor configs, guard rules
+gortex init --skills # also generates per-community SKILL.md files
+
+# MCP server (standalone mode, auto-detects running daemon)
+gortex mcp --index /path/to/repo --watch
+
+# Named project
 gortex status
 ```
 
-After `gortex init`, Claude Code starts Gortex automatically via `.mcp.json`. The web UI is at `http://localhost:8765`.
+After `gortex init`, Claude Code and Cursor start the MCP server automatically via `.mcp.json` — you don't need to run `gortex mcp` manually. The web UI is served separately by `gortex server` (port 4747) and lives at [gortexhq/web](https://github.com/gortexhq/web).
 
 Source: [github.com/zzet/gortex](https://github.com/zzet/gortex). Issues and PRs welcome.
 
@@ -183,16 +195,16 @@ Source: [github.com/zzet/gortex](https://github.com/zzet/gortex). Issues and PRs
 
 If you landed here looking for GitNexus answers, here's the Gortex equivalent for each.
 
-**Setup / how to use.** `brew install zzet/tap/gortex`, then `gortex install` once per machine and `gortex init` once per repo. The MCP config, skills, and editor integrations write themselves.
+**Setup / how to use.** `curl -fsSL https://get.gortex.dev | sh` (or `brew install zzet/tap/gortex`), then `gortex install` once per machine, `gortex daemon start --detach` to start the daemon, and `gortex init` once per repo. The MCP config, editor integrations, and guard rules write themselves.
 
-**MCP server / MCP commands.** `gortex serve --index /your/repo --watch`. After `gortex init`, Claude Code and Cursor start it automatically via `.mcp.json` — you don't need to run it manually.
+**MCP server / MCP commands.** `gortex mcp --index /path/to/repo --watch`. After `gortex init`, Claude Code and Cursor start it automatically via `.mcp.json` — you don't need to run it manually. The daemon (`gortex daemon start`) keeps the graph live across sessions; `gortex mcp` auto-detects it.
 
-**CLI.** `gortex --help` lists everything. Common ones: `gortex serve`, `gortex init`, `gortex skills`, `gortex status`, `gortex savings`.
+**CLI.** `gortex --help` lists everything. Common ones: `gortex mcp`, `gortex init`, `gortex daemon`, `gortex track`, `gortex status`, `gortex savings`, `gortex eval`, `gortex enrich`.
 
-**Skills.** `gortex skills /your/repo` clusters the codebase into functional communities and writes a `SKILL.md` for each. Claude Code picks them up automatically — no extra config.
+**Skills.** `gortex init --skills` (or `gortex init` followed by `gortex init --skills` separately) clusters the codebase into functional communities and writes a `SKILL.md` for each. Claude Code picks them up automatically — no extra config.
 
 **OpenCode.** `gortex init` detects OpenCode and writes `.opencode/config.json` automatically. Run it once and the integration is done.
 
 **Antigravity.** `gortex init` adds a knowledge item that tells Antigravity to use Gortex CLI queries instead of grep. Same one-command setup as the other editors.
 
-**"cannot get /".** If you hit a routing error on the GitNexus web UI, the Gortex equivalent is `http://localhost:8765` — it starts automatically with `gortex serve`. No separate web server to configure.
+**"cannot get /".** If you hit a routing error on the GitNexus web UI, the Gortex web UI is a separate app at [gortexhq/web](https://github.com/gortexhq/web). Start the API server with `gortex server --index /path/to/repo --watch` (port 4747), then open the web UI against `http://localhost:4747`.
