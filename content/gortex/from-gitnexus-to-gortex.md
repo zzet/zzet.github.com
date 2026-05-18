@@ -10,7 +10,7 @@ tags: ["go", "mcp", "ai-agents", "gortex", "tools"]
 categories: ["gortex"]
 ---
 > [!IMPORTANT]
-> This article is motivation about why the Gortex project started. Check the [github.com/zzet/gortex](https://github.com/zzet/gortex) and [https://get.gortex.dev](https://get.gortex.dev) for relevant features list.
+> This article is motivation about why the Gortex project started. Check the [github.com/zzet/gortex](https://github.com/zzet/gortex) and [https://gortex.dev](https://gortex.dev) for relevant features list.
 
 AI coding agents waste a lot of tokens reading files. You ask for a refactor, the agent reads the file, then the imports, then the dependencies, then the files *those* import. By the time it gets to your question it has burned through a big chunk of the context window just mapping out what should have taken two seconds.
 
