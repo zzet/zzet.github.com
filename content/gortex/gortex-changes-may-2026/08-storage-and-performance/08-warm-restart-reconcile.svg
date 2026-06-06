@@ -1,0 +1,90 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Warm-restart reconcile vs cold re-index</title>
+  <desc>A cold start re-indexes every file and takes minutes; a warm restart diffs persisted file modification times and reconciles only what changed, coming back in seconds.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <marker id="arrowEmerald" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#059669"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Restart: re-index the world, or reconcile the diff</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">Persisted file mtimes let a warm restart touch only what actually changed.</text>
+
+  <!-- COLD lane (before / problem) -->
+  <text x="32" y="112" font-size="13" font-weight="600" fill="#E11D48">Cold start</text>
+  <text x="32" y="130" font-size="11" fill="#64748B">re-index every file</text>
+
+  <rect x="150" y="92" width="700" height="44" rx="10" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+  <text x="166" y="119" font-size="12" fill="#1E293B">parse · resolve · build edges &amp; indexes — every file in the repo</text>
+  <text x="836" y="119" text-anchor="end" font-size="12" font-weight="700" fill="#E11D48">minutes</text>
+  <!-- progress sweep on the cold bar -->
+  <rect x="150" y="92" width="0" height="44" rx="10" fill="#E11D48" fill-opacity="0.16">
+    <animate attributeName="width" values="0;700;700" keyTimes="0;0.85;1" dur="3.4s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- WARM lane (after / win) -->
+  <text x="32" y="208" font-size="13" font-weight="600" fill="#059669">Warm restart</text>
+  <text x="32" y="226" font-size="11" fill="#64748B">reconcile the diff</text>
+
+  <!-- step 1: read persisted mtimes -->
+  <g filter="url(#soft)">
+    <rect x="150" y="186" width="150" height="58" rx="11" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="225" y="210" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1E293B">read mtimes</text>
+    <text x="225" y="229" text-anchor="middle" font-size="10.5" fill="#64748B" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">persisted last run</text>
+  </g>
+  <!-- step 2: diff -->
+  <g filter="url(#soft)">
+    <rect x="358" y="186" width="150" height="58" rx="11" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="433" y="210" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1E293B">diff vs disk</text>
+    <text x="433" y="229" text-anchor="middle" font-size="10.5" fill="#64748B">changed / added / gone</text>
+  </g>
+  <!-- step 3: reindex only changed -->
+  <g filter="url(#soft)">
+    <rect x="566" y="186" width="150" height="58" rx="11" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="641" y="206" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1E293B">reconcile</text>
+    <text x="641" y="224" text-anchor="middle" font-size="10.5" fill="#64748B">only changed files</text>
+    <text x="641" y="238" text-anchor="middle" font-size="10.5" fill="#64748B">+ authoritative replace</text>
+  </g>
+  <!-- ready -->
+  <g filter="url(#soft)">
+    <rect x="772" y="186" width="78" height="58" rx="11" fill="#059669" stroke="#047857" stroke-width="1.5"/>
+    <text x="811" y="212" text-anchor="middle" font-size="12.5" font-weight="700" fill="#FFFFFF">ready</text>
+    <text x="811" y="230" text-anchor="middle" font-size="10.5" fill="#D1FAE5">seconds</text>
+  </g>
+
+  <!-- animated connectors warm lane -->
+  <path id="w1" d="M300,215 L358,215" stroke="#059669" stroke-width="2.5" fill="none" stroke-dasharray="6 7" marker-end="url(#arrowEmerald)">
+    <animate attributeName="stroke-dashoffset" from="13" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <path id="w2" d="M508,215 L566,215" stroke="#059669" stroke-width="2.5" fill="none" stroke-dasharray="6 7" marker-end="url(#arrowEmerald)">
+    <animate attributeName="stroke-dashoffset" from="13" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <path id="w3" d="M716,215 L772,215" stroke="#059669" stroke-width="2.5" fill="none" stroke-dasharray="6 7" marker-end="url(#arrowEmerald)">
+    <animate attributeName="stroke-dashoffset" from="13" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <!-- traveling token along the warm lane -->
+  <circle r="4.5" fill="#0D9488">
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M300,215 L358,215 L508,215 L566,215 L716,215 L772,215"/>
+  </circle>
+
+  <!-- the clever-bit callout -->
+  <rect x="150" y="286" width="700" height="58" rx="11" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+  <text x="170" y="310" font-size="12.5" font-weight="600" fill="#D97706">The fix that made it converge</text>
+  <text x="170" y="330" font-size="11.5" fill="#1E293B">The full-index persist path now does an <tspan font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">authoritative replace</tspan> of the mtime set — so deleted files actually leave, killing phantom-deletion and never-converging reconcile loops.</text>
+
+  <!-- legend -->
+  <rect x="150" y="384" width="12" height="12" rx="3" fill="#E11D48"/>
+  <text x="168" y="394" font-size="11" fill="#64748B">cold path — re-index everything</text>
+  <rect x="420" y="384" width="12" height="12" rx="3" fill="#059669"/>
+  <text x="438" y="394" font-size="11" fill="#64748B">warm path — reconcile the diff</text>
+  <rect x="690" y="384" width="12" height="12" rx="3" fill="#D97706"/>
+  <text x="708" y="394" font-size="11" fill="#64748B">the bug-class fix</text>
+</svg>

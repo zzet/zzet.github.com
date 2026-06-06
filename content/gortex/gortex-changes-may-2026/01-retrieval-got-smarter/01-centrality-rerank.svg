@@ -1,0 +1,101 @@
+<svg viewBox="0 0 820 520" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Centrality reranking, before and after</title>
+  <desc>On the left, a keyword-only ranking puts a peripheral match on top. A graph-centrality rerank using random-walk-with-restart promotes the result that sits structurally central to the relevant subgraph, shown on the right.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="819" height="519" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Centrality reranking</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">Keyword score gets you candidates; graph centrality decides which one is actually the answer.</text>
+
+  <!-- LEFT: keyword-only ranking -->
+  <text x="56" y="108" font-size="13" font-weight="600" fill="#E11D48">Keyword-only ranking</text>
+  <g filter="url(#soft)">
+    <rect x="56" y="124" width="220" height="46" rx="10" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+    <text x="74" y="152" font-size="13" font-weight="600" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">parseTokenString</text>
+    <text x="254" y="152" text-anchor="end" font-size="12" fill="#E11D48">#1</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="56" y="180" width="220" height="46" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="74" y="208" font-size="13" font-weight="600" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">validateToken</text>
+    <text x="254" y="208" text-anchor="end" font-size="12" fill="#64748B">#2</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="56" y="236" width="220" height="46" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="74" y="264" font-size="13" font-weight="600" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">tokenTestHelper</text>
+    <text x="254" y="264" text-anchor="end" font-size="12" fill="#64748B">#3</text>
+  </g>
+  <text x="56" y="312" font-size="11" fill="#64748B">Top hit is a string util — peripheral</text>
+  <text x="56" y="328" font-size="11" fill="#64748B">to the auth subgraph, but lexically loud.</text>
+
+  <!-- subgraph illustration (centrality) -->
+  <text x="324" y="360" font-size="12" font-weight="600" fill="#0D9488">relevant subgraph</text>
+  <circle cx="360" cy="400" r="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  <circle cx="440" cy="386" r="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  <circle cx="408" cy="446" r="16" fill="#F0FDFA" stroke="#0D9488" stroke-width="2.5"/>
+  <circle cx="340" cy="456" r="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  <circle cx="476" cy="446" r="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  <line x1="360" y1="400" x2="408" y2="446" stroke="#94A3B8" stroke-width="1.4"/>
+  <line x1="440" y1="386" x2="408" y2="446" stroke="#94A3B8" stroke-width="1.4"/>
+  <line x1="340" y1="456" x2="408" y2="446" stroke="#94A3B8" stroke-width="1.4"/>
+  <line x1="476" y1="446" x2="408" y2="446" stroke="#94A3B8" stroke-width="1.4"/>
+  <text x="408" y="450" text-anchor="middle" font-size="10" font-weight="700" fill="#0D9488">central</text>
+  <text x="408" y="486" text-anchor="middle" font-size="11" fill="#64748B">validateToken is structurally central</text>
+
+  <!-- arrow between panels -->
+  <g filter="url(#soft)">
+    <rect x="300" y="180" width="64" height="46" rx="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="332" y="203" text-anchor="middle" font-size="11" font-weight="700" fill="#4F46E5">RWR</text>
+    <text x="332" y="218" text-anchor="middle" font-size="10" fill="#64748B">PPR</text>
+  </g>
+  <path d="M276,203 L300,203" stroke="#4F46E5" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M364,203 L388,203" stroke="#4F46E5" stroke-width="2.5" fill="none" stroke-dasharray="6 8" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- RIGHT: centrality-aware ranking -->
+  <text x="388" y="108" font-size="13" font-weight="600" fill="#059669">After centrality rerank</text>
+  <g filter="url(#soft)">
+    <rect x="388" y="124" width="220" height="46" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+    <text x="406" y="152" font-size="13" font-weight="600" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">validateToken</text>
+    <text x="586" y="152" text-anchor="end" font-size="12" font-weight="700" fill="#059669">#1</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="388" y="180" width="220" height="46" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="406" y="208" font-size="13" font-weight="600" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">parseTokenString</text>
+    <text x="586" y="208" text-anchor="end" font-size="12" fill="#64748B">#2</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="388" y="236" width="220" height="46" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="406" y="264" font-size="13" font-weight="600" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">tokenTestHelper</text>
+    <text x="586" y="264" text-anchor="end" font-size="12" fill="#64748B">#3</text>
+  </g>
+  <text x="388" y="312" font-size="11" fill="#64748B">The result wired into the relevant subgraph</text>
+  <text x="388" y="328" font-size="11" fill="#64748B">rises; the loud-but-peripheral hit sinks.</text>
+
+  <!-- side note on provenance -->
+  <g filter="url(#soft)">
+    <rect x="624" y="124" width="160" height="158" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="704" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#D97706">edge provenance</text>
+    <text x="640" y="172" font-size="11" fill="#64748B">synthesized &amp;</text>
+    <text x="640" y="188" font-size="11" fill="#64748B">low-confidence</text>
+    <text x="640" y="204" font-size="11" fill="#64748B">edges count for</text>
+    <text x="640" y="220" font-size="11" fill="#64748B">less in both the</text>
+    <text x="640" y="236" font-size="11" fill="#64748B">walk and the rank.</text>
+    <text x="640" y="262" font-size="11" fill="#64748B">Generated files that</text>
+    <text x="640" y="278" font-size="11" fill="#64748B">shadow real code sink.</text>
+  </g>
+
+  <!-- legend -->
+  <rect x="32" y="498" width="12" height="12" rx="3" fill="#E11D48"/>
+  <text x="50" y="508" font-size="11" fill="#64748B">before — keyword only</text>
+  <rect x="240" y="498" width="12" height="12" rx="3" fill="#059669"/>
+  <text x="258" y="508" font-size="11" fill="#64748B">after — centrality-aware</text>
+</svg>

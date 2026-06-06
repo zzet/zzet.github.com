@@ -1,0 +1,68 @@
+<svg viewBox="0 0 920 420" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Joining router mount prefixes into full contract paths</title>
+  <desc>A router mounts a sub-router under a prefix, and a handler declares a route relative to it. Gortex joins the mount prefix with the handler route to form the full contract path, and a configurable client-wrapper alias is recognized as the consumer.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="419" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Full contract paths from mount prefixes</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">A handler's route is only half the path. The mount prefix supplies the rest.</text>
+
+  <!-- mount prefix -->
+  <g filter="url(#soft)">
+    <rect x="44" y="118" width="240" height="80" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="64" y="146" font-size="12" font-weight="600" fill="#1E293B">router mount prefix</text>
+    <text x="64" y="174" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" fill="#4F46E5">/api/v2</text>
+  </g>
+
+  <!-- handler route -->
+  <g filter="url(#soft)">
+    <rect x="44" y="226" width="240" height="80" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="64" y="254" font-size="12" font-weight="600" fill="#1E293B">handler route</text>
+    <text x="64" y="282" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" fill="#0D9488">/users/:id</text>
+  </g>
+
+  <!-- join node -->
+  <g filter="url(#soft)">
+    <rect x="376" y="172" width="150" height="80" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="451" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#1E293B">join</text>
+    <text x="451" y="228" text-anchor="middle" font-size="11" fill="#64748B">prefix + route</text>
+  </g>
+
+  <path d="M284,158 C330,170 340,190 376,202" stroke="#4F46E5" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M284,266 C330,254 340,234 376,222" stroke="#0D9488" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- full path -->
+  <g filter="url(#soft)">
+    <rect x="618" y="172" width="268" height="80" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="638" y="200" font-size="12" font-weight="600" fill="#1E293B">full contract path</text>
+    <text x="638" y="228" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" fill="#059669">/api/v2/users/:id</text>
+  </g>
+
+  <path id="joinPath" d="M526,212 L618,212" stroke="#4F46E5" stroke-width="3" fill="none" stroke-dasharray="7 7" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.0s" repeatCount="indefinite"/>
+  </path>
+  <circle r="5" fill="#D97706">
+    <animateMotion dur="2s" repeatCount="indefinite"><mpath href="#joinPath"/></animateMotion>
+  </circle>
+
+  <!-- consumer side -->
+  <g filter="url(#soft)">
+    <rect x="618" y="300" width="268" height="88" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="638" y="326" font-size="12" font-weight="600" fill="#1E293B">consumer recognized by alias</text>
+    <text x="638" y="350" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#1E293B">apiClient.get("/api/v2/users/1")</text>
+    <text x="638" y="372" font-size="11" fill="#64748B">configurable client-wrapper alias &#8594; consumer edge</text>
+  </g>
+  <path d="M752,252 L752,300" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- legend -->
+  <rect x="44" y="338" width="12" height="12" rx="3" fill="#059669"/>
+  <text x="62" y="348" font-size="11" fill="#64748B">joined path = what a consumer must match to link</text>
+</svg>

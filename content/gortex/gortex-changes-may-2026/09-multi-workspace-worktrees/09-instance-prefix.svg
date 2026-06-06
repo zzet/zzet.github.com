@@ -1,0 +1,89 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Deriving a worktree instance prefix</title>
+  <desc>A path is resolved as a linked worktree, the instance decision picks a tag from the declared workspace, branch, or path hash, and the resulting derived prefix is surfaced through the CLI, daemon, and MCP.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">From a checkout to an instance prefix</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">Deterministic for a (path, declared-workspace) pair — stable across daemon restarts.</text>
+
+  <!-- Stage 1: resolve -->
+  <g filter="url(#soft)">
+    <rect x="40" y="110" width="200" height="86" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  </g>
+  <text x="140" y="138" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">ResolveWorktree</text>
+  <text x="140" y="158" text-anchor="middle" font-size="11" fill="#64748B">.git file → commondir</text>
+  <text x="140" y="176" text-anchor="middle" font-size="11" fill="#64748B">linked worktree?</text>
+  <text x="140" y="206" text-anchor="middle" font-size="10.5" fill="#64748B" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">submodule → not a worktree</text>
+
+  <!-- animated connector to decision -->
+  <path id="flow1" d="M240,153 L300,153" stroke="#4F46E5" stroke-width="2.5" fill="none"
+        stroke-dasharray="6 8" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <circle r="4.5" fill="#0D9488">
+    <animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#flow1"/></animateMotion>
+  </circle>
+
+  <!-- Stage 2: decision -->
+  <g filter="url(#soft)">
+    <rect x="304" y="104" width="232" height="200" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.6"/>
+  </g>
+  <text x="420" y="130" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">Separate instance?</text>
+  <text x="420" y="150" text-anchor="middle" font-size="11" fill="#64748B">--as-worktree, or a linked</text>
+  <text x="420" y="166" text-anchor="middle" font-size="11" fill="#64748B">worktree whose workspace</text>
+  <text x="420" y="182" text-anchor="middle" font-size="11" fill="#64748B">differs from the base prefix</text>
+
+  <text x="420" y="210" text-anchor="middle" font-size="11.5" font-weight="600" fill="#D97706">tag, in order:</text>
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">
+    <rect x="324" y="220" width="192" height="22" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1"/>
+    <text x="420" y="235" text-anchor="middle" font-size="10.5" fill="#1E293B">1 · declared workspace</text>
+    <rect x="324" y="246" width="192" height="22" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1"/>
+    <text x="420" y="261" text-anchor="middle" font-size="10.5" fill="#1E293B">2 · checked-out branch</text>
+    <rect x="324" y="272" width="192" height="22" rx="6" fill="#FFFFFF" stroke="#D97706" stroke-width="1"/>
+    <text x="420" y="287" text-anchor="middle" font-size="10.5" fill="#1E293B">3 · short path hash</text>
+  </g>
+
+  <!-- animated connector to result -->
+  <path id="flow2" d="M536,200 L600,200" stroke="#4F46E5" stroke-width="2.5" fill="none"
+        stroke-dasharray="6 8" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <circle r="4.5" fill="#0D9488">
+    <animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite"><mpath href="#flow2"/></animateMotion>
+  </circle>
+
+  <!-- Stage 3: derived prefix -->
+  <g filter="url(#soft)">
+    <rect x="604" y="158" width="276" height="86" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.6"/>
+  </g>
+  <text x="742" y="186" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">derived prefix</text>
+  <text x="742" y="214" text-anchor="middle" font-size="14" fill="#0D9488" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">&lt;base&gt;@&lt;tag&gt;</text>
+  <text x="742" y="234" text-anchor="middle" font-size="10.5" fill="#64748B">tag sanitised — never contains '/'</text>
+
+  <!-- surfaces row -->
+  <text x="40" y="350" font-size="13" font-weight="600" fill="#1E293B">Surfaced through every surface</text>
+  <line x1="742" y1="244" x2="742" y2="372" stroke="#0D9488" stroke-width="2" stroke-dasharray="4 5" marker-end="url(#arrow)"/>
+
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">
+    <rect x="40" y="376" width="270" height="60" rx="11" fill="#F1F5F9" stroke="#475569" stroke-width="1.4"/>
+    <text x="56" y="400" font-size="12.5" font-weight="600" fill="#1E293B" font-family="'Inter', system-ui, sans-serif">CLI</text>
+    <text x="56" y="422" font-size="11" fill="#475569">gortex track --as-worktree</text>
+
+    <rect x="326" y="376" width="270" height="60" rx="11" fill="#F1F5F9" stroke="#475569" stroke-width="1.4"/>
+    <text x="342" y="400" font-size="12.5" font-weight="600" fill="#1E293B" font-family="'Inter', system-ui, sans-serif">daemon</text>
+    <text x="342" y="422" font-size="11" fill="#475569">reload keyed by root path</text>
+
+    <rect x="612" y="376" width="268" height="60" rx="11" fill="#F1F5F9" stroke="#475569" stroke-width="1.4"/>
+    <text x="628" y="400" font-size="12.5" font-weight="600" fill="#1E293B" font-family="'Inter', system-ui, sans-serif">MCP</text>
+    <text x="628" y="422" font-size="11" fill="#475569">track_repository → prefix</text>
+  </g>
+</svg>

@@ -1,0 +1,104 @@
+<svg viewBox="0 0 820 520" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Images and PDFs become graph nodes</title>
+  <desc>An image file becomes a single KindImage node carrying its format, dimensions, and sha256; a PDF becomes one searchable KindDoc node per page, so the prose on each page is queryable alongside source code.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0D9488"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="819" height="519" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Binary assets are nodes too</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">An image is one node; a PDF is one searchable node per page.</text>
+
+  <!-- ===== Row 1: image -> KindImage ===== -->
+  <rect x="32" y="92" width="756" height="156" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="48" y="116" font-size="13" font-weight="700" fill="#4F46E5">image file</text>
+
+  <!-- image glyph -->
+  <g filter="url(#soft)">
+    <rect x="56" y="130" width="150" height="100" rx="10" fill="#FFFFFF" stroke="#475569" stroke-width="1.5"/>
+    <rect x="70" y="146" width="122" height="56" rx="6" fill="#EEF2FF" stroke="#4F46E5" stroke-opacity="0.4"/>
+    <circle cx="92" cy="166" r="8" fill="#D97706"/>
+    <path d="M74,196 L108,168 L132,190 L154,172 L188,198 Z" fill="#0D9488" fill-opacity="0.5"/>
+    <text x="131" y="222" text-anchor="middle" font-size="11" fill="#64748B" font-family="ui-monospace, Menlo, monospace">diagram.png</text>
+  </g>
+
+  <path id="imgEdge" d="M206,180 C300,180 320,180 408,180" stroke="#4F46E5" stroke-width="2.5"
+        fill="none" stroke-dasharray="6 8" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <circle r="5" fill="#4F46E5">
+    <animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#imgEdge"/></animateMotion>
+  </circle>
+
+  <!-- KindImage node -->
+  <g filter="url(#soft)">
+    <rect x="408" y="128" width="356" height="104" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <rect x="424" y="120" width="98" height="20" rx="9" fill="#FFFFFF" stroke="#4F46E5"/>
+    <text x="473" y="134" text-anchor="middle" font-size="11" font-weight="700" fill="#4F46E5" font-family="ui-monospace, Menlo, monospace">KindImage</text>
+    <text x="424" y="166" font-size="12" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">format:  png</text>
+    <text x="424" y="186" font-size="12" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">dims:    1280 × 720</text>
+    <text x="424" y="206" font-size="12" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">sha256:  9f2c…e41b</text>
+    <text x="424" y="224" font-size="10" fill="#64748B">one node per image · content-addressed</text>
+  </g>
+
+  <!-- ===== Row 2: PDF -> per-page KindDoc ===== -->
+  <rect x="32" y="268" width="756" height="222" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-opacity="0.4"/>
+  <text x="48" y="292" font-size="13" font-weight="700" fill="#0D9488">PDF document</text>
+
+  <!-- PDF glyph -->
+  <g filter="url(#soft)">
+    <rect x="56" y="312" width="120" height="146" rx="8" fill="#FFFFFF" stroke="#475569" stroke-width="1.5"/>
+    <path d="M150,312 L176,338 L150,338 Z" fill="#E2E8F0"/>
+    <line x1="74" y1="356" x2="158" y2="356" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="74" y1="372" x2="158" y2="372" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="74" y1="388" x2="140" y2="388" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="74" y1="412" x2="158" y2="412" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="74" y1="428" x2="130" y2="428" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="116" y="335" text-anchor="middle" font-size="11" font-weight="700" fill="#E11D48" font-family="ui-monospace, Menlo, monospace">PDF</text>
+    <text x="116" y="476" text-anchor="middle" font-size="11" fill="#64748B" font-family="ui-monospace, Menlo, monospace">spec.pdf</text>
+  </g>
+
+  <!-- splitting fan-out, animated -->
+  <g fill="none" stroke="#0D9488" stroke-width="2.5" stroke-dasharray="6 8" marker-end="url(#arrowTeal)">
+    <path d="M176,360 C260,360 280,340 360,340">
+      <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M176,385 C260,385 280,400 360,400">
+      <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.0s" repeatCount="indefinite"/>
+    </path>
+    <path d="M176,410 C260,410 280,460 360,460">
+      <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- per-page KindDoc nodes -->
+  <g font-family="ui-monospace, Menlo, monospace">
+    <g filter="url(#soft)">
+      <rect x="360" y="318" width="404" height="44" rx="10" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.5"/>
+      <text x="376" y="345" font-size="12" font-weight="700" fill="#0D9488">KindDoc</text>
+      <text x="452" y="345" font-size="11" fill="#1E293B">page 1 — searchable prose</text>
+      <text x="752" y="345" text-anchor="end" font-size="10" fill="#64748B">page 1/N</text>
+    </g>
+    <g filter="url(#soft)">
+      <rect x="360" y="378" width="404" height="44" rx="10" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.5"/>
+      <text x="376" y="405" font-size="12" font-weight="700" fill="#0D9488">KindDoc</text>
+      <text x="452" y="405" font-size="11" fill="#1E293B">page 2 — searchable prose</text>
+      <text x="752" y="405" text-anchor="end" font-size="10" fill="#64748B">page 2/N</text>
+    </g>
+    <g filter="url(#soft)">
+      <rect x="360" y="438" width="404" height="44" rx="10" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.5"/>
+      <text x="376" y="465" font-size="12" font-weight="700" fill="#0D9488">KindDoc</text>
+      <text x="452" y="465" font-size="11" fill="#1E293B">page 3 — searchable prose</text>
+      <text x="752" y="465" text-anchor="end" font-size="10" fill="#64748B">page 3/N</text>
+    </g>
+  </g>
+</svg>

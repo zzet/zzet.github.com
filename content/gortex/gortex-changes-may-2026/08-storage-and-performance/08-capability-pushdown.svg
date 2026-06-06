@@ -1,0 +1,93 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Pushing graph walks into indexed Store capabilities</title>
+  <desc>Before, analyses like dead-code candidacy or implements inference scanned the entire graph in Go. After, they call typed, indexed Store capabilities that run backend-native, touching only the rows they need.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowE" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#059669"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Capability pushdown: stop scanning the whole graph in Go</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">The same query, computed by an indexed backend operation instead of a global walk.</text>
+
+  <!-- shared list of analyses -->
+  <rect x="32" y="92" width="856" height="40" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="48" y="117" font-size="12" fill="#475569">queries: <tspan fill="#1E293B" font-weight="600">dead-code candidacy</tspan>  ·  <tspan fill="#1E293B" font-weight="600">implements / overrides inference</tspan>  ·  <tspan fill="#1E293B" font-weight="600">centrality &amp; adjacency snapshots</tspan>  ·  <tspan fill="#1E293B" font-weight="600">fan-in / fan-out · degree</tspan></text>
+
+  <!-- BEFORE column -->
+  <text x="32" y="172" font-size="14" font-weight="700" fill="#E11D48">Before — global walk in Go</text>
+
+  <g filter="url(#soft)">
+    <rect x="32" y="186" width="410" height="220" rx="12" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+  </g>
+  <text x="56" y="214" font-size="12" fill="#1E293B">load every node + edge into Go, then loop</text>
+
+  <!-- scattered nodes to imply full scan -->
+  <g fill="#FECDD3" stroke="#E11D48" stroke-width="1">
+    <rect x="60" y="232" width="26" height="20" rx="4"/>
+    <rect x="98" y="252" width="26" height="20" rx="4"/>
+    <rect x="140" y="230" width="26" height="20" rx="4"/>
+    <rect x="186" y="256" width="26" height="20" rx="4"/>
+    <rect x="228" y="234" width="26" height="20" rx="4"/>
+    <rect x="270" y="258" width="26" height="20" rx="4"/>
+    <rect x="312" y="232" width="26" height="20" rx="4"/>
+    <rect x="356" y="256" width="26" height="20" rx="4"/>
+    <rect x="76" y="290" width="26" height="20" rx="4"/>
+    <rect x="120" y="308" width="26" height="20" rx="4"/>
+    <rect x="170" y="292" width="26" height="20" rx="4"/>
+    <rect x="216" y="312" width="26" height="20" rx="4"/>
+    <rect x="266" y="294" width="26" height="20" rx="4"/>
+    <rect x="312" y="312" width="26" height="20" rx="4"/>
+    <rect x="356" y="292" width="26" height="20" rx="4"/>
+  </g>
+  <text x="237" y="360" text-anchor="middle" font-size="12" font-weight="600" fill="#E11D48">touches every node — O(graph)</text>
+  <text x="237" y="386" text-anchor="middle" font-size="11" fill="#64748B">cost grows with repo size, paid on every call</text>
+
+  <!-- AFTER column -->
+  <text x="486" y="172" font-size="14" font-weight="700" fill="#059669">After — indexed Store capability</text>
+
+  <g filter="url(#soft)">
+    <rect x="486" y="186" width="402" height="220" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  </g>
+
+  <!-- analyzer node -->
+  <g filter="url(#soft)">
+    <rect x="510" y="216" width="150" height="56" rx="11" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="585" y="240" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1E293B">analyzer</text>
+    <text x="585" y="259" text-anchor="middle" font-size="10.5" fill="#64748B">asks one question</text>
+  </g>
+
+  <!-- store capability node -->
+  <g filter="url(#soft)">
+    <rect x="712" y="216" width="152" height="56" rx="11" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="788" y="240" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1E293B">Store capability</text>
+    <text x="788" y="259" text-anchor="middle" font-size="10.5" fill="#64748B">indexed lookup</text>
+  </g>
+
+  <!-- animated connector analyzer -> store -->
+  <path d="M660,244 L712,244" stroke="#059669" stroke-width="2.5" fill="none" stroke-dasharray="6 7" marker-end="url(#arrowE)">
+    <animate attributeName="stroke-dashoffset" from="13" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- only the relevant rows light up -->
+  <g>
+    <rect x="528" y="300" width="40" height="20" rx="4" fill="#A7F3D0" stroke="#059669"/>
+    <rect x="582" y="300" width="40" height="20" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="636" y="300" width="40" height="20" rx="4" fill="#A7F3D0" stroke="#059669"/>
+    <rect x="690" y="300" width="40" height="20" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="744" y="300" width="40" height="20" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="798" y="300" width="40" height="20" rx="4" fill="#A7F3D0" stroke="#059669">
+      <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <text x="685" y="360" text-anchor="middle" font-size="12" font-weight="600" fill="#059669">returns only matching rows — backend-native</text>
+  <text x="685" y="386" text-anchor="middle" font-size="11" fill="#64748B">covered by conformance tests across backends · big wins on large repos</text>
+</svg>

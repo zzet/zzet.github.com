@@ -1,0 +1,81 @@
+<svg viewBox="0 0 920 440" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Delta context packing</title>
+  <desc>A first smart_context call returns the whole working set; a follow-up call with delta_from returns only the symbols that changed since the prior pack, instead of re-sending everything.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="439" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Delta context packing</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">After a few edits, ask only for what moved — pass delta_from instead of re-sending the whole pack.</text>
+
+  <!-- first call -->
+  <text x="32" y="104" font-size="13" font-weight="600" fill="#1E293B">1 · first call</text>
+  <text x="32" y="122" font-size="11" font-family="ui-monospace, Menlo, monospace" fill="#64748B">smart_context task:"…"</text>
+
+  <g filter="url(#soft)">
+    <rect x="32" y="134" width="250" height="244" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+  </g>
+  <text x="48" y="156" font-size="11" fill="#64748B">full working set · returns an etag</text>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="11">
+    <rect x="48" y="166" width="218" height="22" rx="5" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+    <text x="58" y="181" fill="#1E293B">Resolve()</text>
+    <rect x="48" y="194" width="218" height="22" rx="5" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+    <text x="58" y="209" fill="#1E293B">Edge.Match()</text>
+    <rect x="48" y="222" width="218" height="22" rx="5" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+    <text x="58" y="237" fill="#1E293B">Store.OutEdges()</text>
+    <rect x="48" y="250" width="218" height="22" rx="5" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+    <text x="58" y="265" fill="#1E293B">Path.split()</text>
+    <rect x="48" y="278" width="218" height="22" rx="5" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+    <text x="58" y="293" fill="#1E293B">Node.id()</text>
+    <rect x="48" y="306" width="218" height="22" rx="5" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+    <text x="58" y="321" fill="#1E293B">parseScheme()</text>
+  </g>
+  <text x="48" y="352" font-size="12" font-weight="600" fill="#4F46E5">6 symbols · full cost</text>
+  <text x="48" y="370" font-size="11" font-family="ui-monospace, Menlo, monospace" fill="#64748B">etag: a1b2…</text>
+
+  <!-- edit step -->
+  <g transform="translate(304,210)">
+    <rect x="0" y="0" width="120" height="64" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="1.4"/>
+    <text x="60" y="26" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">you edit</text>
+    <text x="60" y="44" text-anchor="middle" font-size="11" fill="#64748B">2 symbols</text>
+  </g>
+  <path d="M282,256 L304,242" stroke="#4F46E5" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path id="deltaFlow" d="M424,242 C470,242 488,242 520,242" stroke="#4F46E5" stroke-width="2.5" fill="none"
+        stroke-dasharray="6 7" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="26" to="0" dur="1.0s" repeatCount="indefinite"/>
+  </path>
+  <circle r="5" fill="#059669">
+    <animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#deltaFlow"/></animateMotion>
+  </circle>
+
+  <!-- second call (delta) -->
+  <text x="540" y="104" font-size="13" font-weight="600" fill="#1E293B">2 · follow-up call</text>
+  <text x="540" y="122" font-size="11" font-family="ui-monospace, Menlo, monospace" fill="#64748B">smart_context delta_from:"a1b2…"</text>
+
+  <g filter="url(#soft)">
+    <rect x="540" y="134" width="348" height="244" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+  </g>
+  <text x="556" y="156" font-size="11" fill="#059669">delta only · what changed since the prior pack</text>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="11">
+    <rect x="556" y="194" width="316" height="22" rx="5" fill="#FFFFFF" stroke="#059669" stroke-width="1.2"/>
+    <text x="566" y="209" fill="#1E293B">Edge.Match()</text>
+    <text x="862" y="209" text-anchor="end" font-size="10" fill="#059669">changed</text>
+    <rect x="556" y="222" width="316" height="22" rx="5" fill="#FFFFFF" stroke="#059669" stroke-width="1.2"/>
+    <text x="566" y="237" fill="#1E293B">parseScheme()</text>
+    <text x="862" y="237" text-anchor="end" font-size="10" fill="#059669">changed</text>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#94A3B8">
+    <text x="566" y="280">Resolve()        · unchanged, not re-sent</text>
+    <text x="566" y="300">Store.OutEdges() · unchanged, not re-sent</text>
+    <text x="566" y="320">Path.split()     · unchanged, not re-sent</text>
+    <text x="566" y="340">Node.id()        · unchanged, not re-sent</text>
+  </g>
+  <text x="556" y="370" font-size="12" font-weight="600" fill="#059669">2 symbols on the wire — the other 4 stay in the agent's context</text>
+</svg>

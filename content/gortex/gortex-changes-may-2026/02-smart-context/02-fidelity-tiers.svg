@@ -1,0 +1,99 @@
+<svg viewBox="0 0 920 500" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Fidelity tiers: one working set, four densities</title>
+  <desc>The same set of symbols rendered four ways — full bodies, compressed signatures, a skeletonized symbol family, and omitted — with a token-budget bar showing how much each representation costs.</desc>
+  <defs>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="499" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Fidelity tiers: one working set, four densities</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">Per-symbol fidelity is chosen to fit the token budget — relevance is preserved, boilerplate is dropped.</text>
+
+  <!-- Tier 1: full -->
+  <g filter="url(#soft)">
+    <rect x="32" y="92" width="200" height="170" rx="12" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+  </g>
+  <text x="48" y="116" font-size="14" font-weight="600" fill="#1E293B">full body</text>
+  <text x="48" y="134" font-size="11" fill="#64748B">verbatim source</text>
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="#475569">
+    <text x="48" y="156">func Resolve(p Path) {</text>
+    <text x="56" y="170">  for _, e := range g {</text>
+    <text x="56" y="184">    if e.Match(p) {</text>
+    <text x="56" y="198">      acc = append(...)</text>
+    <text x="56" y="212">    }</text>
+    <text x="56" y="226">  }</text>
+    <text x="48" y="240">  return acc</text>
+    <text x="48" y="254">}</text>
+  </g>
+
+  <!-- Tier 2: compress -->
+  <g filter="url(#soft)">
+    <rect x="248" y="92" width="200" height="170" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+  </g>
+  <text x="264" y="116" font-size="14" font-weight="600" fill="#1E293B">compress_bodies</text>
+  <text x="264" y="134" font-size="11" fill="#64748B">signature + doc, body → stub</text>
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="#475569">
+    <text x="264" y="160">// Resolve maps a path to</text>
+    <text x="264" y="174">// its matching edges.</text>
+    <text x="264" y="192">func Resolve(p Path) {</text>
+    <text x="272" y="206">  ... // 6 lines</text>
+    <text x="264" y="220">}</text>
+  </g>
+
+  <!-- Tier 3: skeleton -->
+  <g filter="url(#soft)">
+    <rect x="464" y="92" width="200" height="170" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+  </g>
+  <text x="480" y="116" font-size="14" font-weight="600" fill="#1E293B">skeletonized family</text>
+  <text x="480" y="134" font-size="11" fill="#64748B">1 representative full, rest = sig</text>
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="#475569">
+    <text x="480" y="158">resolveGo(...)   // full</text>
+    <text x="480" y="176">resolvePy(p)     // sig</text>
+    <text x="480" y="190">resolveRb(p)     // sig</text>
+    <text x="480" y="204">resolveTs(p)     // sig</text>
+    <text x="480" y="218">resolveRust(p)   // sig</text>
+  </g>
+
+  <!-- Tier 4: omit -->
+  <g filter="url(#soft)">
+    <rect x="680" y="92" width="200" height="170" rx="12" fill="#F1F5F9" stroke="#475569" stroke-width="1.5"/>
+  </g>
+  <text x="696" y="116" font-size="14" font-weight="600" fill="#1E293B">omitted</text>
+  <text x="696" y="134" font-size="11" fill="#64748B">below the budget cutoff</text>
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="#94A3B8">
+    <text x="696" y="162">log/format.go    —</text>
+    <text x="696" y="180">testdata/...     —</text>
+    <text x="696" y="198">vendor/...       —</text>
+  </g>
+
+  <!-- token cost bar -->
+  <text x="32" y="312" font-size="13" font-weight="600" fill="#1E293B">Token cost per representation</text>
+  <rect x="32" y="328" width="848" height="34" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+
+  <!-- full = 100% reference -->
+  <rect x="40" y="334" width="200" height="22" rx="5" fill="#E11D48" opacity="0.9"/>
+  <text x="140" y="349" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">full ~100%</text>
+
+  <!-- compress = 30-40% (animated fill) -->
+  <rect x="256" y="334" width="78" height="22" rx="5" fill="#D97706" opacity="0.9">
+    <animate attributeName="width" values="0;78" dur="1.4s" begin="0s" fill="freeze"/>
+  </rect>
+  <text x="295" y="349" text-anchor="middle" font-size="10.5" font-weight="600" fill="#FFFFFF">30–40%</text>
+
+  <!-- skeleton: one representative full, rest = signatures -->
+  <rect x="350" y="334" width="44" height="22" rx="5" fill="#0D9488" opacity="0.9"/>
+  <text x="372" y="349" text-anchor="middle" font-size="9.5" font-weight="600" fill="#FFFFFF">skeleton</text>
+
+  <!-- omit ~0 -->
+  <rect x="410" y="334" width="10" height="22" rx="5" fill="#475569" opacity="0.7"/>
+  <text x="436" y="349" font-size="10.5" fill="#64748B">omitted — off the wire</text>
+
+  <!-- legend / takeaway -->
+  <rect x="32" y="392" width="848" height="76" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="1.2"/>
+  <text x="50" y="418" font-size="13" font-weight="600" fill="#059669">Net effect</text>
+  <text x="50" y="440" font-size="12" fill="#1E293B">compress_bodies keeps signatures, doc-comments, and structure across 14 languages — roughly 30–40% of the</text>
+  <text x="50" y="458" font-size="12" fill="#1E293B">original tokens. The agent still sees what each symbol <tspan font-style="italic">is</tspan> and <tspan font-style="italic">does</tspan>; it just stops paying for boilerplate it won't read.</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Provider construction and graceful fallback</title>
+  <desc>At startup the daemon tries to construct the configured provider from config and environment. On success the ask tool registers; on failure it logs a warning, leaves ask unregistered, and the direct graph tools keep working.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <marker id="arrowE" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#059669"/>
+    </marker>
+    <marker id="arrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#E11D48"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">A missing key never breaks the daemon</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">Provider construction is best-effort: if it can't build, ask just stays unregistered — direct tools are untouched.</text>
+
+  <!-- config -->
+  <g filter="url(#soft)">
+    <rect x="40" y="160" width="190" height="92" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="135" y="186" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">resolve config</text>
+    <text x="135" y="206" text-anchor="middle" font-size="10.5" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" fill="#64748B">.gortex.yaml</text>
+    <text x="135" y="222" text-anchor="middle" font-size="10.5" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" fill="#64748B">~/.config/gortex</text>
+    <text x="135" y="240" text-anchor="middle" font-size="10.5" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" fill="#D97706">GORTEX_LLM_* env</text>
+  </g>
+
+  <!-- construct -->
+  <g filter="url(#soft)">
+    <rect x="300" y="166" width="200" height="80" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="400" y="196" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">provider.New(cfg)</text>
+    <text x="400" y="216" text-anchor="middle" font-size="11" fill="#64748B">model? key? binary?</text>
+    <text x="400" y="234" text-anchor="middle" font-size="11" fill="#64748B">llama build present?</text>
+  </g>
+  <line x1="230" y1="206" x2="298" y2="206" stroke="#4F46E5" stroke-width="2.2" marker-end="url(#arrow)"/>
+
+  <!-- success path -->
+  <path d="M500,188 C560,188 572,128 632,128" stroke="#059669" stroke-width="2.4" fill="none" marker-end="url(#arrowE)"/>
+  <text x="556" y="150" font-size="11" font-weight="700" fill="#059669">ok</text>
+  <g filter="url(#soft)">
+    <rect x="634" y="98" width="246" height="62" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.6"/>
+    <text x="757" y="124" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">ask registered</text>
+    <text x="757" y="143" text-anchor="middle" font-size="10.5" fill="#64748B">assisted search + research agent live</text>
+  </g>
+
+  <!-- failure path -->
+  <path d="M500,224 C560,224 572,300 632,300" stroke="#E11D48" stroke-width="2.4" fill="none" marker-end="url(#arrowR)"/>
+  <text x="552" y="276" font-size="11" font-weight="700" fill="#E11D48">can't build</text>
+  <g filter="url(#soft)">
+    <rect x="634" y="270" width="246" height="62" rx="12" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.6"/>
+    <text x="757" y="296" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">warn + skip ask</text>
+    <text x="757" y="315" text-anchor="middle" font-size="10.5" fill="#64748B">no crash, no error to callers</text>
+  </g>
+
+  <!-- direct tools always -->
+  <g filter="url(#soft)">
+    <rect x="634" y="356" width="246" height="58" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="757" y="380" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">direct graph tools</text>
+    <text x="757" y="399" text-anchor="middle" font-size="10.5" fill="#64748B">search_symbols, find_usages, ... always work</text>
+  </g>
+  <path d="M757,332 L757,354" stroke="#0D9488" stroke-width="2" fill="none" marker-end="url(#arrow)"
+        stroke-dasharray="4 5" opacity="0.8">
+    <animate attributeName="stroke-dashoffset" from="9" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- legend -->
+  <rect x="40" y="418" width="12" height="12" rx="3" fill="#059669"/>
+  <text x="58" y="428" font-size="11" fill="#64748B">constructs</text>
+  <rect x="170" y="418" width="12" height="12" rx="3" fill="#E11D48"/>
+  <text x="188" y="428" font-size="11" fill="#64748B">degrades gracefully</text>
+  <rect x="360" y="418" width="12" height="12" rx="3" fill="#0D9488"/>
+  <text x="378" y="428" font-size="11" fill="#64748B">graph tools unaffected either way</text>
+</svg>

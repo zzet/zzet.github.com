@@ -1,0 +1,111 @@
+<svg viewBox="0 0 920 560" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>One provider interface, many backends</title>
+  <desc>The ask agent and assisted search call a single provider abstraction, which fans out to nine interchangeable LLM backends: local llama.cpp, anthropic, openai, ollama, gemini, bedrock, deepseek, and the claude and codex CLI subprocesses.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="559" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">One interface, whatever model you already pay for</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">The ask agent and assisted search call a single provider abstraction; the backend is config, not code.</text>
+
+  <!-- callers -->
+  <g filter="url(#soft)">
+    <rect x="40" y="120" width="190" height="56" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="135" y="146" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">ask agent</text>
+    <text x="135" y="164" text-anchor="middle" font-size="11" fill="#64748B">graph-navigating research</text>
+
+    <rect x="40" y="196" width="190" height="56" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="135" y="222" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">search_symbols</text>
+    <text x="135" y="240" text-anchor="middle" font-size="11" fill="#64748B">assist: auto / on / deep</text>
+  </g>
+
+  <!-- abstraction -->
+  <g filter="url(#soft)">
+    <rect x="320" y="148" width="200" height="76" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="420" y="180" text-anchor="middle" font-size="15" font-weight="600" fill="#1E293B">llm.Provider</text>
+    <text x="420" y="200" text-anchor="middle" font-size="11" fill="#64748B">provider.New(cfg)</text>
+    <text x="420" y="216" text-anchor="middle" font-size="11" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" fill="#0D9488">Complete()</text>
+  </g>
+
+  <line x1="230" y1="148" x2="318" y2="178" stroke="#4F46E5" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="230" y1="224" x2="318" y2="194" stroke="#4F46E5" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- selector badge -->
+  <rect x="320" y="240" width="200" height="26" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.2"/>
+  <text x="420" y="258" text-anchor="middle" font-size="11" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" fill="#D97706">llm.provider: &lt;name&gt;</text>
+
+  <!-- fan-out backends -->
+  <!-- column header -->
+  <text x="610" y="106" font-size="12" font-weight="600" fill="#64748B">Interchangeable backends</text>
+
+  <!-- in-process -->
+  <g filter="url(#soft)">
+    <rect x="600" y="120" width="290" height="48" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="616" y="142" font-size="13" font-weight="600" fill="#1E293B">local</text>
+    <text x="616" y="159" font-size="10.5" fill="#64748B">in-process llama.cpp · needs -tags llama + .gguf</text>
+  </g>
+
+  <!-- HTTP providers -->
+  <g filter="url(#soft)">
+    <rect x="600" y="176" width="140" height="44" rx="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.3"/>
+    <text x="670" y="198" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">anthropic</text>
+    <text x="670" y="213" text-anchor="middle" font-size="10" fill="#64748B">Messages API</text>
+
+    <rect x="750" y="176" width="140" height="44" rx="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.3"/>
+    <text x="820" y="198" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">openai</text>
+    <text x="820" y="213" text-anchor="middle" font-size="10" fill="#64748B">Chat Completions</text>
+
+    <rect x="600" y="228" width="140" height="44" rx="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.3"/>
+    <text x="670" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">gemini</text>
+    <text x="670" y="265" text-anchor="middle" font-size="10" fill="#64748B">generateContent</text>
+
+    <rect x="750" y="228" width="140" height="44" rx="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.3"/>
+    <text x="820" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">bedrock</text>
+    <text x="820" y="265" text-anchor="middle" font-size="10" fill="#64748B">Converse · SigV4</text>
+
+    <rect x="600" y="280" width="140" height="44" rx="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.3"/>
+    <text x="670" y="302" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">deepseek</text>
+    <text x="670" y="317" text-anchor="middle" font-size="10" fill="#64748B">OpenAI-compatible</text>
+
+    <rect x="750" y="280" width="140" height="44" rx="10" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.3"/>
+    <text x="820" y="302" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">ollama</text>
+    <text x="820" y="317" text-anchor="middle" font-size="10" fill="#64748B">local daemon</text>
+  </g>
+
+  <!-- subprocess CLI providers -->
+  <g filter="url(#soft)">
+    <rect x="600" y="340" width="140" height="48" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+    <text x="670" y="362" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">claudecli</text>
+    <text x="670" y="378" text-anchor="middle" font-size="10" fill="#64748B">claude CLI subprocess</text>
+
+    <rect x="750" y="340" width="140" height="48" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="1.4"/>
+    <text x="820" y="362" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">codex</text>
+    <text x="820" y="378" text-anchor="middle" font-size="10" fill="#64748B">codex exec sandbox</text>
+  </g>
+
+  <!-- selector to fan-out connectors (animated dashed) -->
+  <path d="M520,186 C556,150 566,144 598,144" stroke="#D97706" stroke-width="2" fill="none" stroke-dasharray="5 6" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="11" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <path d="M520,200 C556,200 566,198 598,198" stroke="#4F46E5" stroke-width="1.6" fill="none" opacity="0.55"/>
+  <path d="M520,206 C556,236 566,250 598,250" stroke="#4F46E5" stroke-width="1.6" fill="none" opacity="0.45"/>
+  <path d="M520,212 C556,290 566,302 598,302" stroke="#4F46E5" stroke-width="1.6" fill="none" opacity="0.4"/>
+  <path d="M520,218 C556,348 566,364 598,364" stroke="#059669" stroke-width="1.6" fill="none" opacity="0.5"/>
+
+  <!-- legend -->
+  <rect x="40" y="500" width="12" height="12" rx="3" fill="#D97706"/>
+  <text x="58" y="510" font-size="11" fill="#64748B">in-process (needs -tags llama)</text>
+  <rect x="280" y="500" width="12" height="12" rx="3" fill="#4F46E5"/>
+  <text x="298" y="510" font-size="11" fill="#64748B">pure-Go HTTP — no llama build</text>
+  <rect x="540" y="500" width="12" height="12" rx="3" fill="#059669"/>
+  <text x="558" y="510" font-size="11" fill="#64748B">subprocess CLI — reuses your sign-in</text>
+
+  <text x="40" y="538" font-size="11" fill="#64748B">Can't construct (missing key / model / binary)? The daemon logs a warning, leaves ask unregistered, and direct graph tools keep working.</text>
+</svg>

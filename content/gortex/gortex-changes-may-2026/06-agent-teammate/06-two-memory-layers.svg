@@ -1,0 +1,93 @@
+<svg viewBox="0 0 920 520" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Two memory layers: session notes vs. development memories</title>
+  <desc>A timeline showing per-session notes that survive a context compaction within one session, and cross-session development memories that are anchored to a symbol and surfaced proactively when that symbol enters a later agent's working set.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0D9488"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="519" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Two layers of agent memory</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">Session notes survive compaction; development memories survive everything and surface proactively.</text>
+
+  <!-- ===== Lane 1: session memory ===== -->
+  <rect x="32" y="92" width="856" height="168" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="48" y="116" font-size="14" font-weight="700" fill="#4F46E5">Session memory</text>
+  <text x="48" y="134" font-size="11" fill="#64748B" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">save_note · query_notes · distill_session</text>
+  <text x="48" y="151" font-size="11" fill="#64748B">scope: one session — &#8220;remember this for the next 30 minutes&#8221;</text>
+
+  <!-- session timeline -->
+  <line x1="120" y1="210" x2="840" y2="210" stroke="#CBD5E1" stroke-width="2"/>
+  <!-- save_note -->
+  <circle cx="190" cy="210" r="7" fill="#4F46E5"/>
+  <text x="190" y="192" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">save_note</text>
+  <text x="190" y="236" text-anchor="middle" font-size="10" fill="#64748B" font-family="ui-monospace, Menlo, monospace">&#8220;chose X over Y&#8221;</text>
+
+  <!-- compaction barrier -->
+  <line x1="470" y1="178" x2="470" y2="242" stroke="#D97706" stroke-width="2" stroke-dasharray="4 4"/>
+  <rect x="412" y="160" width="116" height="20" rx="6" fill="#FFFBEB" stroke="#D97706"/>
+  <text x="470" y="174" text-anchor="middle" font-size="10" font-weight="600" fill="#D97706">context compaction</text>
+  <!-- note survives the barrier -->
+  <path d="M197,210 L450,210" stroke="#4F46E5" stroke-width="2.5" fill="none" stroke-dasharray="6 8" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M490,210 L760,210" stroke="#4F46E5" stroke-width="2.5" fill="none" stroke-dasharray="6 8" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- distill_session -->
+  <circle cx="790" cy="210" r="7" fill="#4F46E5"/>
+  <text x="790" y="192" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">distill_session</text>
+  <text x="790" y="236" text-anchor="middle" font-size="10" fill="#64748B">top symbols + pinned notes re-seed the agent</text>
+
+  <!-- ===== Lane 2: development memories ===== -->
+  <rect x="32" y="280" width="856" height="208" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-opacity="0.4"/>
+  <text x="48" y="304" font-size="14" font-weight="700" fill="#0D9488">Development memories</text>
+  <text x="48" y="322" font-size="11" fill="#64748B" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">store_memory · query_memories · surface_memories</text>
+  <text x="48" y="339" font-size="11" fill="#64748B">scope: workspace, cross-session — &#8220;every future agent touching this symbol should know this&#8221;</text>
+
+  <!-- the stored memory card -->
+  <g filter="url(#soft)">
+    <rect x="60" y="360" width="246" height="108" rx="12" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="76" y="382" font-size="12" font-weight="700" fill="#1E293B">memory</text>
+    <rect x="158" y="370" width="64" height="18" rx="9" fill="#FFFBEB" stroke="#D97706"/>
+    <text x="190" y="383" text-anchor="middle" font-size="10" font-weight="600" fill="#D97706">invariant</text>
+    <rect x="228" y="370" width="62" height="18" rx="9" fill="#EEF2FF" stroke="#4F46E5"/>
+    <text x="259" y="383" text-anchor="middle" font-size="10" font-weight="600" fill="#4F46E5">imp. 5</text>
+    <text x="76" y="406" font-size="11" fill="#475569">&#8220;Bar must hold the lock before</text>
+    <text x="76" y="421" font-size="11" fill="#475569"> mutating the buffer pool.&#8221;</text>
+    <text x="76" y="446" font-size="10" fill="#64748B" font-family="ui-monospace, Menlo, monospace">anchor: pkg/foo.go::Bar</text>
+    <text x="76" y="460" font-size="10" fill="#64748B">confidence 0.9 · survives restarts</text>
+  </g>
+
+  <!-- the later agent / working set -->
+  <g filter="url(#soft)">
+    <rect x="654" y="360" width="208" height="108" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="758" y="384" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">a later agent's working set</text>
+    <rect x="676" y="398" width="164" height="26" rx="7" fill="#FFFFFF" stroke="#4F46E5">
+      <animate attributeName="stroke-width" values="1;2.4;1" dur="2.6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="758" y="415" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">pkg/foo.go::Bar</text>
+    <text x="758" y="444" text-anchor="middle" font-size="10" fill="#64748B">symbol enters the set →</text>
+    <text x="758" y="458" text-anchor="middle" font-size="10" fill="#64748B">match_reasons explain the hit</text>
+  </g>
+
+  <!-- proactive surfacing connector: anchor overlap lights up the memory -->
+  <path id="surfacePath" d="M654,414 C520,414 440,414 306,414" stroke="#0D9488" stroke-width="2.5"
+        fill="none" stroke-dasharray="6 8" marker-end="url(#arrowTeal)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <text x="480" y="404" text-anchor="middle" font-size="11" font-weight="600" fill="#0D9488">surface_memories: anchor-symbol overlap</text>
+  <!-- traveling token -->
+  <circle r="5" fill="#0D9488">
+    <animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#surfacePath"/></animateMotion>
+  </circle>
+</svg>

@@ -1,0 +1,68 @@
+<svg viewBox="0 0 920 480" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Transitive loop depth compounds across call boundaries</title>
+  <desc>A call chain from buildReport to enrichRow to fetchTags. Each function looks shallow on its own, but a loop in each one nests inside the caller's loop, so the effective loop depth accumulates from one to three across the calls, producing a hidden cubic hot path that per-function metrics miss.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="479" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">The hot path hides between functions</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">Each function loops once; nested across the call chain that is O(n&#179;)</text>
+
+  <!-- A -->
+  <g filter="url(#soft)">
+    <rect x="40" y="120" width="250" height="210" rx="12" fill="#F8FAFC" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="60" y="146" font-size="14" font-weight="700" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">buildReport()</text>
+    <text x="60" y="164" font-size="11" fill="#64748B">per-function loop_depth = 1</text>
+    <rect x="60" y="178" width="210" height="138" rx="8" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+    <text x="74" y="200" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#1E293B">for row := range rows {</text>
+    <text x="92" y="246" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#4F46E5">enrichRow(row)</text>
+    <text x="74" y="304" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#1E293B">}</text>
+    <text x="180" y="226" font-size="11" fill="#64748B">depth 1</text>
+  </g>
+
+  <!-- B -->
+  <g filter="url(#soft)">
+    <rect x="335" y="150" width="250" height="210" rx="12" fill="#F8FAFC" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="355" y="176" font-size="14" font-weight="700" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">enrichRow()</text>
+    <text x="355" y="194" font-size="11" fill="#64748B">per-function loop_depth = 1</text>
+    <rect x="355" y="208" width="210" height="138" rx="8" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+    <text x="369" y="230" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#1E293B">for c := range cols {</text>
+    <text x="387" y="276" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#4F46E5">fetchTags(c)</text>
+    <text x="369" y="334" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#1E293B">}</text>
+    <text x="475" y="256" font-size="11" fill="#64748B">depth 2</text>
+  </g>
+
+  <!-- C -->
+  <g filter="url(#soft)">
+    <rect x="630" y="180" width="250" height="210" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="650" y="206" font-size="14" font-weight="700" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">fetchTags()</text>
+    <text x="650" y="224" font-size="11" fill="#64748B">per-function loop_depth = 1</text>
+    <rect x="650" y="238" width="210" height="138" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1"/>
+    <text x="664" y="260" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#1E293B">for t := range tags {</text>
+    <text x="682" y="306" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#1E293B">scan(t)</text>
+    <text x="664" y="364" font-size="12" font-family="ui-monospace, Menlo, monospace" fill="#1E293B">}</text>
+    <text x="770" y="286" font-size="11" font-weight="700" fill="#D97706">depth 3</text>
+  </g>
+
+  <!-- call edges -->
+  <line x1="290" y1="246" x2="335" y2="276" stroke="#4F46E5" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="585" y1="276" x2="630" y2="306" stroke="#4F46E5" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- accumulating depth meter -->
+  <text x="32" y="430" font-size="13" font-weight="600" fill="#1E293B">transitive_loop_depth accumulates across the call boundary &#8594;</text>
+  <rect x="540" y="416" width="50" height="22" rx="6" fill="#ECFDF5" stroke="#059669" stroke-width="1"/>
+  <text x="565" y="431" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">1</text>
+  <rect x="600" y="416" width="50" height="22" rx="6" fill="#FFFBEB" stroke="#D97706" stroke-width="1"/>
+  <text x="625" y="431" text-anchor="middle" font-size="12" font-weight="700" fill="#D97706">2</text>
+  <rect x="660" y="416" width="50" height="22" rx="6" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+  <text x="685" y="431" text-anchor="middle" font-size="12" font-weight="700" fill="#E11D48">3</text>
+  <rect x="724" y="412" width="156" height="30" rx="8" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+  <text x="802" y="431" text-anchor="middle" font-size="12.5" font-weight="700" fill="#E11D48" font-family="ui-monospace, Menlo, monospace">hidden O(n&#179;)</text>
+</svg>
