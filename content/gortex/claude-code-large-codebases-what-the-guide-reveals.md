@@ -12,7 +12,7 @@ categories: ["gortex"]
 
 After reading [How Claude Code works in large codebases: Best practices and where to start](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start), Anthropic's new "Claude Code at scale" series opener, I felt a half-told story. The guide is worth reading — the observation that the harness matters as much as the model is correct, the LSP recommendation is the right call, and the skills/progressive-disclosure framing is exactly right.
 
-<lead>It's also, inadvertently, a detailed description of what Gortex ships out of the box.</lead>
+{{< lead >}}It's also, inadvertently, a detailed description of what Gortex ships out of the box.{{< /lead >}}
 
 This isn't a gotcha. The guide describes a real problem and real solutions. The challenge is that it presents those solutions as things engineering teams must build, staff, and maintain — a dedicated DRI, quarterly configuration reviews, per-language LSP setups, custom MCP servers. What it doesn't mention is that a large fraction of that infrastructure already exists. And after spending years in multi-team environments where preferences and standards drift constantly, I've learned that documentation describing what the harness should look like is much less useful than a harness that already works.
 
