@@ -1,0 +1,55 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Before and after: a debugging afternoon</title>
+  <desc>Top row shows the old grep-and-guess loop; bottom row shows asking the graph for a precise answer.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-family="'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#1E293B">A debugging afternoon: before and after</text>
+  <text x="32" y="66" font-family="'Inter', system-ui, sans-serif" font-size="13" fill="#64748B">Same question — "who actually calls this?" — two very different afternoons.</text>
+
+  <!-- BEFORE row -->
+  <rect x="32" y="92" width="856" height="150" rx="14" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+  <text x="52" y="120" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="700" fill="#E11D48">BEFORE — grep &amp; guess</text>
+
+  <rect x="52" y="138" width="150" height="76" rx="10" fill="#FFFFFF" stroke="#FCA5B5" stroke-width="1.5"/>
+  <text x="127" y="172" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" fill="#1E293B">grep the name</text>
+  <text x="127" y="192" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">200 hits</text>
+
+  <line x1="206" y1="176" x2="246" y2="176" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="250" y="138" width="150" height="76" rx="10" fill="#FFFFFF" stroke="#FCA5B5" stroke-width="1.5"/>
+  <text x="325" y="172" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#1E293B">open files</text>
+  <text x="325" y="192" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">most are false hits</text>
+
+  <line x1="404" y1="176" x2="444" y2="176" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="448" y="138" width="150" height="76" rx="10" fill="#FFFFFF" stroke="#FCA5B5" stroke-width="1.5"/>
+  <text x="523" y="172" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#1E293B">miss runtime calls</text>
+  <text x="523" y="192" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">frameworks, other langs</text>
+
+  <line x1="602" y1="176" x2="642" y2="176" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="646" y="138" width="220" height="76" rx="10" fill="#FFFFFF" stroke="#FCA5B5" stroke-width="1.5"/>
+  <text x="756" y="172" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="600" fill="#E11D48">still unsure — guess</text>
+  <text x="756" y="192" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">an hour gone</text>
+
+  <!-- AFTER row -->
+  <rect x="32" y="262" width="856" height="150" rx="14" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  <text x="52" y="290" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="700" fill="#059669">AFTER — ask the graph</text>
+
+  <rect x="52" y="308" width="220" height="76" rx="10" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="162" y="342" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" fill="#1E293B">get_callers(symbol)</text>
+  <text x="162" y="362" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">one call</text>
+
+  <line x1="276" y1="346" x2="316" y2="346" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="320" y="308" width="260" height="76" rx="10" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="450" y="342" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="13" fill="#1E293B">exact callers — incl. cross-</text>
+  <text x="450" y="362" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">language &amp; framework ones</text>
+
+  <line x1="584" y1="346" x2="624" y2="346" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="628" y="308" width="238" height="76" rx="10" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="747" y="342" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="600" fill="#059669">fix with confidence</text>
+  <text x="747" y="362" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">minutes, not hours</text>
+
+  <text x="460" y="440" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#94A3B8">Zero false positives, and it catches callers grep can never see.</text>
+</svg>

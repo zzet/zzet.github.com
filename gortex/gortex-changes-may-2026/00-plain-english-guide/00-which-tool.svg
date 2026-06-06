@@ -1,0 +1,53 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Which tool for which question</title>
+  <desc>A cheat sheet mapping a plain-English question on the left to the exact Gortex tool or command on the right.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-family="'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#1E293B">Which tool for which question</text>
+  <text x="32" y="66" font-family="'Inter', system-ui, sans-serif" font-size="13" fill="#64748B">Ask your agent in plain English; it reaches for the tool on the right.</text>
+
+  <!-- column headers -->
+  <text x="50" y="100" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" fill="#94A3B8">YOU ASK</text>
+  <text x="560" y="100" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" fill="#94A3B8">GORTEX REACHES FOR</text>
+
+  <!-- Row 1 -->
+  <rect x="40" y="112" width="430" height="56" rx="10" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  <text x="60" y="146" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#1E293B">"Who calls this function?"</text>
+  <line x1="474" y1="140" x2="546" y2="140" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="550" y="112" width="330" height="56" rx="10" fill="#F8FAFC" stroke="#475569" stroke-width="1.5"/>
+  <text x="568" y="146" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#1E293B">get_callers / find_usages</text>
+
+  <!-- Row 2 -->
+  <rect x="40" y="180" width="430" height="56" rx="10" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+  <text x="60" y="214" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#1E293B">"What reads $AWS_SECRET?"</text>
+  <line x1="474" y1="208" x2="546" y2="208" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="550" y="180" width="330" height="56" rx="10" fill="#F8FAFC" stroke="#475569" stroke-width="1.5"/>
+  <text x="568" y="207" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#1E293B">capability edges via</text>
+  <text x="568" y="224" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#1E293B">walk_graph (reads_env)</text>
+
+  <!-- Row 3 -->
+  <rect x="40" y="248" width="430" height="56" rx="10" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+  <text x="60" y="282" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#1E293B">"Smallest context for this task?"</text>
+  <line x1="474" y1="276" x2="546" y2="276" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="550" y="248" width="330" height="56" rx="10" fill="#F8FAFC" stroke="#475569" stroke-width="1.5"/>
+  <text x="568" y="275" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#1E293B">smart_context</text>
+  <text x="568" y="292" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" fill="#64748B">(+ compress_bodies:true)</text>
+
+  <!-- Row 4 -->
+  <rect x="40" y="316" width="430" height="56" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+  <text x="60" y="350" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#1E293B">"Is this a hidden hot path?"</text>
+  <line x1="474" y1="344" x2="546" y2="344" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="550" y="316" width="330" height="56" rx="10" fill="#F8FAFC" stroke="#475569" stroke-width="1.5"/>
+  <text x="568" y="350" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#1E293B">analyze kind=bottlenecks</text>
+
+  <!-- Row 5 -->
+  <rect x="40" y="384" width="430" height="56" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  <text x="60" y="418" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#1E293B">"Run this on my own model?"</text>
+  <line x1="474" y1="412" x2="546" y2="412" stroke="#64748B" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="550" y="384" width="330" height="56" rx="10" fill="#F8FAFC" stroke="#475569" stroke-width="1.5"/>
+  <text x="568" y="418" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#1E293B">set llm.provider</text>
+</svg>

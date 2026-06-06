@@ -1,0 +1,68 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Nine improvements at a glance</title>
+  <desc>A three by three grid of the nine May to June 2026 Gortex updates, each a chip with a one-line plain benefit.</desc>
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-family="'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#1E293B">What got better, at a glance</text>
+  <text x="32" y="66" font-family="'Inter', system-ui, sans-serif" font-size="13" fill="#64748B">Nine updates, one line each. The rest of the guide explains what to do about them.</text>
+
+  <!-- row helper geometry: 3 cols, 3 rows -->
+  <!-- Row 1 -->
+  <g>
+    <rect x="32" y="92" width="276" height="104" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="50" y="124" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">1 · More relevant search</text>
+    <text x="50" y="150" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Ranked by how central code is</text>
+    <text x="50" y="168" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">to your question, not keywords.</text>
+  </g>
+  <g>
+    <rect x="322" y="92" width="276" height="104" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="340" y="124" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">2 · Fewer wasted tokens</text>
+    <text x="340" y="150" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">smart_context hands over the</text>
+    <text x="340" y="168" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">smallest correct slice.</text>
+  </g>
+  <g>
+    <rect x="612" y="92" width="276" height="104" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="630" y="124" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">3 · Understands your infra</text>
+    <text x="630" y="150" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Terraform, Helm, .NET, DBs,</text>
+    <text x="630" y="168" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">PDFs — and cross-language calls.</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g>
+    <rect x="32" y="212" width="276" height="104" rx="12" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+    <text x="50" y="244" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">4 · Security in one hop</text>
+    <text x="50" y="270" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Who reads a secret? Who shells</text>
+    <text x="50" y="288" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">out? One graph question.</text>
+  </g>
+  <g>
+    <rect x="322" y="212" width="276" height="104" rx="12" fill="#F1F5F9" stroke="#475569" stroke-width="1.5"/>
+    <text x="340" y="244" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">5 · Remembers sessions</text>
+    <text x="340" y="270" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Notes survive compaction;</text>
+    <text x="340" y="288" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">memories reach the next agent.</text>
+  </g>
+  <g>
+    <rect x="612" y="212" width="276" height="104" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="630" y="244" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">6 · Safe edits</text>
+    <text x="630" y="270" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Preview the diff, batch many</text>
+    <text x="630" y="288" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">edits, lint after they land.</text>
+  </g>
+
+  <!-- Row 3 -->
+  <g>
+    <rect x="32" y="332" width="276" height="104" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="50" y="364" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">7 · Any LLM you like</text>
+    <text x="50" y="390" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Local, Anthropic, OpenAI,</text>
+    <text x="50" y="408" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Ollama, Gemini, Bedrock…</text>
+  </g>
+  <g>
+    <rect x="322" y="332" width="276" height="104" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="340" y="364" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">8 · Faster restarts</text>
+    <text x="340" y="390" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Pure-Go SQLite store, no CGO;</text>
+    <text x="340" y="408" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">warm restart in seconds.</text>
+  </g>
+  <g>
+    <rect x="612" y="332" width="276" height="104" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="630" y="364" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">9 · Worktrees stay apart</text>
+    <text x="630" y="390" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">Each worktree is its own graph;</text>
+    <text x="630" y="408" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">no bleed between branches.</text>
+  </g>
+</svg>
