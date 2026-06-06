@@ -1,0 +1,67 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>The Gortex mental model: you ask, the graph answers</title>
+  <desc>You and your AI agent send a question into Gortex, a code knowledge graph that acts like a well-read librarian, and a precise answer flows back.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-family="'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#1E293B">The mental model: ask a question, get a precise answer</text>
+  <text x="32" y="66" font-family="'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#64748B">Gortex is a well-read librarian for your codebase — it answers instead of making you grep.</text>
+
+  <!-- Left: you + agent -->
+  <rect x="40" y="150" width="190" height="70" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  <text x="135" y="183" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">You</text>
+  <text x="135" y="203" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">a developer with a question</text>
+
+  <rect x="40" y="250" width="190" height="70" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+  <text x="135" y="283" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">Your AI agent</text>
+  <text x="135" y="303" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">talks to Gortex over MCP</text>
+
+  <!-- Center: graph -->
+  <rect x="355" y="120" width="210" height="230" rx="16" fill="#F8FAFC" stroke="#475569" stroke-width="1.5"/>
+  <text x="460" y="150" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="15" font-weight="700" fill="#1E293B">Gortex</text>
+  <text x="460" y="169" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="11" fill="#64748B">your code as a graph</text>
+  <!-- mini node-edge graph -->
+  <line x1="410" y1="220" x2="470" y2="200" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="470" y1="200" x2="515" y2="245" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="410" y1="220" x2="445" y2="290" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="470" y1="200" x2="445" y2="290" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="515" y1="245" x2="490" y2="305" stroke="#94A3B8" stroke-width="1.5"/>
+  <circle cx="410" cy="220" r="11" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+  <circle cx="470" cy="200" r="11" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+  <circle cx="515" cy="245" r="11" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+  <circle cx="445" cy="290" r="11" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  <circle cx="490" cy="305" r="11" fill="#F1F5F9" stroke="#475569" stroke-width="1.5"/>
+  <text x="460" y="335" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="10" fill="#64748B">symbols + calls + imports</text>
+
+  <!-- Right: answer -->
+  <rect x="690" y="195" width="190" height="80" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  <text x="785" y="228" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="600" fill="#1E293B">Precise answer</text>
+  <text x="785" y="248" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">exact callers, context,</text>
+  <text x="785" y="264" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#64748B">who reads a secret…</text>
+
+  <!-- connectors -->
+  <path id="qpath" d="M230 270 C 290 270, 300 235, 350 235" fill="none" stroke="#64748B" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path id="apath" d="M565 235 C 620 235, 630 235, 685 235" fill="none" stroke="#64748B" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <text x="262" y="258" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="#4F46E5">question</text>
+  <text x="600" y="222" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" fill="#059669">answer</text>
+
+  <!-- animated tokens -->
+  <circle r="6" fill="#4F46E5">
+    <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#qpath"/>
+    </animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="6" fill="#059669">
+    <animateMotion dur="3s" begin="1.2s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#apath"/>
+    </animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="3s" begin="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <text x="460" y="420" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" fill="#94A3B8">You and your agent ask. Gortex answers from the graph — not from a fuzzy text search.</text>
+</svg>

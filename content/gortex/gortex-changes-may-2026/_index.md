@@ -8,6 +8,8 @@ tags: ["Gortex", "Release Notes"]
 keywords: ["Gortex", "code intelligence engine", "code graph", "MCP server", "Model Context Protocol", "AI coding agents", "release notes", "changelog"]
 ---
 
+> **New to these changes?** Start with the **[plain-English guide](00-plain-english-guide)** — what each update means and exactly what to do about it, no graph theory required. The deep dives below go a level deeper.
+
 ## It's been a busy month
 
 We went quiet on the blog for a few weeks — not because nothing happened, but because *a lot* did. Since our last post (Gortex v0.19, early May) we've shipped twenty releases and around eight hundred commits. This post is the catch-up: the themes that matter, grouped so you can skim to what you care about.
