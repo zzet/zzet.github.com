@@ -1,0 +1,106 @@
+<svg viewBox="0 0 920 500" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Graph-aware model routing for the ask agent</title>
+  <desc>An ask request is scored by graph-derived complexity signals into a simple or complex class; a simple task routes to the cheaper simple_model, a complex one to the more capable complex_model, and the chosen model and complexity ride back on the response. An animated token travels the complex branch.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <marker id="arrowE" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#059669"/>
+    </marker>
+    <marker id="arrowT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0D9488"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="499" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Route by task complexity, not a flat default</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">llm.routing scores the graph work a request implies, then picks the cheaper or the more capable model.</text>
+
+  <!-- request -->
+  <g filter="url(#soft)">
+    <rect x="40" y="200" width="150" height="64" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="115" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">ask request</text>
+    <text x="115" y="247" text-anchor="middle" font-size="11" fill="#64748B">question + scope</text>
+  </g>
+
+  <!-- classifier -->
+  <g filter="url(#soft)">
+    <rect x="250" y="170" width="220" height="124" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="360" y="196" text-anchor="middle" font-size="14" font-weight="600" fill="#1E293B">Classify</text>
+    <text x="360" y="214" text-anchor="middle" font-size="11" fill="#64748B">graph-derived signals</text>
+    <text x="268" y="238" font-size="11" fill="#1E293B">• chain-trace mode</text>
+    <text x="268" y="256" font-size="11" fill="#1E293B">• multi-hop intent in query</text>
+    <text x="268" y="274" font-size="11" fill="#1E293B">• cross-repo graph breadth</text>
+  </g>
+
+  <line x1="190" y1="232" x2="248" y2="232" stroke="#4F46E5" stroke-width="2.2" marker-end="url(#arrow)"/>
+
+  <!-- branch decision node -->
+  <g filter="url(#soft)">
+    <rect x="520" y="196" width="120" height="72" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="580" y="226" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">complexity</text>
+    <text x="580" y="246" text-anchor="middle" font-size="11" fill="#64748B">class</text>
+  </g>
+  <line x1="470" y1="232" x2="518" y2="232" stroke="#D97706" stroke-width="2.2" marker-end="url(#arrow)"/>
+
+  <!-- simple branch -->
+  <path id="simpleBranch" d="M640,214 C690,214 700,140 748,140" stroke="#475569" stroke-width="2"
+        fill="none" stroke-dasharray="6 7" marker-end="url(#arrow)" opacity="0.85">
+    <animate attributeName="stroke-dashoffset" from="13" to="0" dur="1.4s" repeatCount="indefinite"/>
+  </path>
+  <text x="676" y="158" font-size="10.5" font-weight="600" fill="#475569" transform="rotate(-30 676 158)">simple</text>
+
+  <g filter="url(#soft)">
+    <rect x="750" y="110" width="150" height="60" rx="12" fill="#F1F5F9" stroke="#475569" stroke-width="1.5"/>
+    <text x="825" y="135" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">simple_model</text>
+    <text x="825" y="154" text-anchor="middle" font-size="10.5" fill="#64748B">cheaper · single-hop</text>
+  </g>
+
+  <!-- complex branch (the highlighted, animated one) -->
+  <path id="complexBranch" d="M640,250 C690,250 700,330 748,330" stroke="#059669" stroke-width="2.6"
+        fill="none" marker-end="url(#arrowE)"/>
+  <text x="676" y="312" font-size="10.5" font-weight="700" fill="#059669" transform="rotate(30 676 312)">complex</text>
+
+  <g filter="url(#soft)">
+    <rect x="750" y="300" width="150" height="60" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.8"/>
+    <text x="825" y="325" text-anchor="middle" font-size="13" font-weight="600" fill="#1E293B">complex_model</text>
+    <text x="825" y="344" text-anchor="middle" font-size="10.5" fill="#64748B">more capable · multi-hop</text>
+  </g>
+
+  <!-- traveling token down the complex branch -->
+  <circle r="6" fill="#059669">
+    <animateMotion dur="2.4s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#complexBranch"/>
+    </animateMotion>
+  </circle>
+
+  <!-- response with chosen model + complexity riding back -->
+  <g filter="url(#soft)">
+    <rect x="250" y="378" width="420" height="74" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text x="270" y="404" font-size="13" font-weight="600" fill="#1E293B">ask response</text>
+    <text x="270" y="424" font-size="11" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" fill="#0D9488">{ answer, model: "...", complexity: "complex" }</text>
+    <text x="270" y="442" font-size="11" fill="#64748B">the routed pick and its class ride along on every response</text>
+  </g>
+  <path d="M825,362 C825,420 700,418 672,416" stroke="#0D9488" stroke-width="2" fill="none"
+        stroke-dasharray="5 6" marker-end="url(#arrowT)">
+    <animate attributeName="stroke-dashoffset" from="11" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- routing off note -->
+  <text x="40" y="300" font-size="10.5" fill="#64748B" transform="rotate(0)">Routing is off by</text>
+  <text x="40" y="316" font-size="10.5" fill="#64748B">default: one model</text>
+  <text x="40" y="332" font-size="10.5" fill="#64748B">until you enable it.</text>
+
+  <!-- legend -->
+  <rect x="40" y="466" width="12" height="12" rx="3" fill="#475569"/>
+  <text x="58" y="476" font-size="11" fill="#64748B">cheaper path</text>
+  <rect x="180" y="466" width="12" height="12" rx="3" fill="#059669"/>
+  <text x="198" y="476" font-size="11" fill="#64748B">capable path</text>
+  <rect x="320" y="466" width="12" height="12" rx="3" fill="#0D9488"/>
+  <text x="338" y="476" font-size="11" fill="#64748B">chosen model returned on response</text>
+</svg>

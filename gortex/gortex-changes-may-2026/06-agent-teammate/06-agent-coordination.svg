@@ -1,0 +1,95 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Multi-agent coordination registry</title>
+  <desc>Multiple coding agents register as KindAgent nodes in the graph via agent_registry; a UserPromptSubmit hook injects relevant context before each turn; subagents inherit the right MCP tools.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0D9488"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Agents that can see each other</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">A registry in the graph, pre-turn context injection, and subagents that inherit the right tools.</text>
+
+  <!-- The graph / registry hub -->
+  <g filter="url(#soft)">
+    <rect x="350" y="170" width="220" height="120" rx="14" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="460" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#0D9488">Gortex graph</text>
+    <text x="460" y="220" text-anchor="middle" font-size="11" fill="#64748B" font-family="ui-monospace, Menlo, monospace">agent_registry</text>
+    <rect x="372" y="232" width="176" height="22" rx="7" fill="#FFFFFF" stroke="#0D9488"/>
+    <text x="460" y="247" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B" font-family="ui-monospace, Menlo, monospace">KindAgent nodes</text>
+    <text x="460" y="274" text-anchor="middle" font-size="10" fill="#64748B">each agent registers + is discoverable</text>
+  </g>
+
+  <!-- three agents -->
+  <g filter="url(#soft)">
+    <rect x="60" y="120" width="170" height="56" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="145" y="146" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">agent A</text>
+    <text x="145" y="164" text-anchor="middle" font-size="10" fill="#64748B">main loop</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="60" y="200" width="170" height="56" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="145" y="226" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">agent B</text>
+    <text x="145" y="244" text-anchor="middle" font-size="10" fill="#64748B">parallel worker</text>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="60" y="280" width="170" height="56" rx="12" fill="#F1F5F9" stroke="#475569" stroke-width="1.5"/>
+    <text x="145" y="306" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">subagent of A</text>
+    <text x="145" y="324" text-anchor="middle" font-size="10" fill="#64748B">inherits MCP tools</text>
+  </g>
+
+  <!-- register edges (animated) -->
+  <path d="M230,148 C300,150 320,200 350,210" stroke="#0D9488" stroke-width="2.2" fill="none" stroke-dasharray="6 8" marker-end="url(#arrowTeal)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.3s" repeatCount="indefinite"/>
+  </path>
+  <path d="M230,228 L350,228" stroke="#0D9488" stroke-width="2.2" fill="none" stroke-dasharray="6 8" marker-end="url(#arrowTeal)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.3s" repeatCount="indefinite"/>
+  </path>
+  <path d="M230,308 C300,300 320,260 350,250" stroke="#475569" stroke-width="2" fill="none" stroke-dasharray="5 7" marker-end="url(#arrowTeal)">
+    <animate attributeName="stroke-dashoffset" from="12" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <text x="150" y="190" font-size="10" fill="#0D9488" font-weight="600" transform="rotate(0)">register</text>
+
+  <!-- subagent inheritance edge -->
+  <path d="M145,256 L145,280" stroke="#4F46E5" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="184" y="272" font-size="10" fill="#64748B">spawns</text>
+
+  <!-- UserPromptSubmit injection -->
+  <g filter="url(#soft)">
+    <rect x="690" y="150" width="190" height="86" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="785" y="178" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">UserPromptSubmit</text>
+    <text x="785" y="197" text-anchor="middle" font-size="11" fill="#64748B">pre-turn context injection</text>
+    <text x="785" y="217" text-anchor="middle" font-size="10" fill="#D97706">seeds each turn with relevant context</text>
+  </g>
+  <!-- injection edge from graph to the turn -->
+  <path id="injectPath" d="M570,222 C620,222 640,194 690,194" stroke="#D97706" stroke-width="2.5" fill="none" stroke-dasharray="6 8" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <circle r="5" fill="#D97706">
+    <animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#injectPath"/></animateMotion>
+  </circle>
+
+  <!-- the next turn -->
+  <g filter="url(#soft)">
+    <rect x="690" y="276" width="190" height="86" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="785" y="304" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">agent's next turn</text>
+    <text x="785" y="323" text-anchor="middle" font-size="11" fill="#64748B">starts already oriented</text>
+    <text x="785" y="343" text-anchor="middle" font-size="10" fill="#64748B">no cold-start re-exploration</text>
+  </g>
+  <path d="M785,236 L785,276" stroke="#059669" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- legend -->
+  <rect x="32" y="416" width="12" height="12" rx="3" fill="#0D9488"/>
+  <text x="50" y="426" font-size="11" fill="#64748B">registration</text>
+  <rect x="160" y="416" width="12" height="12" rx="3" fill="#D97706"/>
+  <text x="178" y="426" font-size="11" fill="#64748B">context injection</text>
+  <rect x="318" y="416" width="12" height="12" rx="3" fill="#4F46E5"/>
+  <text x="336" y="426" font-size="11" fill="#64748B">subagent tool inheritance</text>
+</svg>

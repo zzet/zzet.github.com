@@ -1,0 +1,90 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Two ways to index a language Gortex does not ship a grammar for</title>
+  <desc>A grammar-less file is routed by extension to one of two config-declared paths: a declarative regex fallback-chunker, or a subprocess extractor-plugin that runs an external program. Both emit nodes plus an EdgeDefines from the file, with no fork required.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#D97706"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">Teach Gortex a new format from config</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">A grammar-less file routes to one of two SPIs declared in .gortex.yaml — no fork.</text>
+
+  <!-- input file -->
+  <g filter="url(#soft)">
+    <rect x="40" y="180" width="148" height="92" rx="12" fill="#F1F5F9" stroke="#475569" stroke-width="1.5"/>
+    <text x="114" y="216" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">unknown file</text>
+    <text x="114" y="238" text-anchor="middle" font-size="11" fill="#64748B" font-family="ui-monospace, Menlo, monospace">.foo / .bar</text>
+    <text x="114" y="256" text-anchor="middle" font-size="10" fill="#64748B">no built-in grammar</text>
+  </g>
+
+  <!-- router by extension -->
+  <g filter="url(#soft)">
+    <rect x="232" y="192" width="120" height="68" rx="10" fill="#FFFFFF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="292" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">match by</text>
+    <text x="292" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">extension</text>
+  </g>
+  <path d="M188,226 L232,226" stroke="#4F46E5" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- ===== Path A: fallback-chunker ===== -->
+  <text x="400" y="116" font-size="13" font-weight="700" fill="#4F46E5">A · declarative fallback-chunker</text>
+  <text x="400" y="134" font-size="11" fill="#64748B" font-family="ui-monospace, Menlo, monospace">index.fallback_chunkers</text>
+  <g filter="url(#soft)">
+    <rect x="400" y="146" width="216" height="64" rx="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.5"/>
+    <text x="416" y="172" font-size="12" font-weight="700" fill="#1E293B">regex patterns</text>
+    <text x="416" y="192" font-size="11" fill="#475569">each match → one node of a fixed</text>
+    <text x="416" y="204" font-size="11" fill="#475569">kind, named by a capture group</text>
+  </g>
+  <path id="pathA" d="M352,210 C376,200 384,180 400,172" stroke="#4F46E5" stroke-width="2.5"
+        fill="none" stroke-dasharray="6 8" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <circle r="4.5" fill="#4F46E5">
+    <animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pathA"/></animateMotion>
+  </circle>
+
+  <!-- ===== Path B: extractor-plugin ===== -->
+  <text x="400" y="252" font-size="13" font-weight="700" fill="#D97706">B · subprocess extractor-plugin</text>
+  <text x="400" y="270" font-size="11" fill="#64748B" font-family="ui-monospace, Menlo, monospace">index.extractor_plugins</text>
+  <g filter="url(#soft)">
+    <rect x="400" y="282" width="216" height="78" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="416" y="308" font-size="12" font-weight="700" fill="#1E293B">external program</text>
+    <text x="416" y="326" font-size="10" fill="#475569" font-family="ui-monospace, Menlo, monospace">stdin = file · $GORTEX_FILE_PATH</text>
+    <text x="416" y="342" font-size="10" fill="#475569">emits JSON nodes; bounded by timeout</text>
+    <text x="416" y="355" font-size="10" fill="#64748B">bad exit / JSON / timeout → file node only</text>
+  </g>
+  <path id="pathB" d="M352,240 C376,260 384,300 400,312" stroke="#D97706" stroke-width="2.5"
+        fill="none" stroke-dasharray="6 8" marker-end="url(#arrowAmber)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.1s" repeatCount="indefinite"/>
+  </path>
+  <circle r="4.5" fill="#D97706">
+    <animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#pathB"/></animateMotion>
+  </circle>
+
+  <!-- ===== merge: nodes + EdgeDefines into graph ===== -->
+  <g filter="url(#soft)">
+    <rect x="700" y="180" width="180" height="100" rx="12" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="790" y="210" text-anchor="middle" font-size="13" font-weight="700" fill="#0D9488">knowledge graph</text>
+    <text x="790" y="232" text-anchor="middle" font-size="11" fill="#475569">new nodes +</text>
+    <text x="790" y="248" text-anchor="middle" font-size="11" fill="#475569" font-family="ui-monospace, Menlo, monospace">EdgeDefines</text>
+    <text x="790" y="266" text-anchor="middle" font-size="10" fill="#64748B">from the file node</text>
+  </g>
+  <path d="M616,178 C660,170 668,196 700,206" stroke="#0D9488" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M616,320 C660,330 668,266 700,254" stroke="#0D9488" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- guardrail note -->
+  <rect x="40" y="316" width="148" height="92" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="56" y="340" font-size="11" font-weight="700" fill="#64748B">guardrail</text>
+  <text x="56" y="360" font-size="10" fill="#475569">a built-in extractor</text>
+  <text x="56" y="374" font-size="10" fill="#475569">always wins; a name or</text>
+  <text x="56" y="388" font-size="10" fill="#475569">extension collision with</text>
+  <text x="56" y="402" font-size="10" fill="#475569">a built-in is skipped.</text>
+</svg>

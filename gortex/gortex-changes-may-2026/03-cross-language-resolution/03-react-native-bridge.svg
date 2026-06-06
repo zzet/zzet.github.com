@@ -1,0 +1,70 @@
+<svg viewBox="0 0 920 460" width="100%" preserveAspectRatio="xMidYMid meet"
+     role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>A React Native call crossing into native code</title>
+  <desc>A JavaScript call site invokes a native module method by name; the React Native synthesizer pass recovers the bridge edge and lands the call on the concrete native implementation. A pulse travels from JS to native to show the edge being synthesized.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4F46E5"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1E293B" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="919" height="459" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="32" y="44" font-size="21" font-weight="700" fill="#1E293B">JS &#8594; native, made traversable</text>
+  <text x="32" y="66" font-size="12" fill="#64748B">Static parsing sees a string-named call that goes nowhere. The bridge pass lands it on the real method.</text>
+
+  <!-- JS lane -->
+  <rect x="32" y="100" width="400" height="320" rx="14" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="2 4"/>
+  <text x="52" y="126" font-size="13" font-weight="700" fill="#0D9488">JavaScript island</text>
+
+  <g filter="url(#soft)">
+    <rect x="60" y="150" width="344" height="92" rx="12" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="80" y="178" font-size="12" font-weight="600" fill="#1E293B">component call site</text>
+    <text x="80" y="204" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#1E293B">NativeModules.Camera</text>
+    <text x="80" y="226" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#1E293B">  .takePhoto(opts)</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="60" y="300" width="344" height="84" rx="12" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.5"/>
+    <text x="80" y="328" font-size="12" font-weight="600" fill="#1E293B">before: dangles as unresolved</text>
+    <text x="80" y="352" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#E11D48">unresolved::takePhoto</text>
+    <text x="80" y="372" font-size="11" fill="#64748B">native impl looks "unused"</text>
+  </g>
+
+  <!-- native lane -->
+  <rect x="488" y="100" width="400" height="320" rx="14" fill="#FFFBEB" stroke="#D97706" stroke-width="1.2" stroke-dasharray="2 4"/>
+  <text x="508" y="126" font-size="13" font-weight="700" fill="#D97706">Native island (Swift / Kotlin)</text>
+
+  <g filter="url(#soft)">
+    <rect x="516" y="150" width="344" height="92" rx="12" fill="#FFFFFF" stroke="#D97706" stroke-width="1.5"/>
+    <text x="536" y="178" font-size="12" font-weight="600" fill="#1E293B">exported native method</text>
+    <text x="536" y="204" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#1E293B">@objc func takePhoto(</text>
+    <text x="536" y="226" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#1E293B">  _ opts: NSDictionary)</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="516" y="300" width="344" height="84" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="536" y="328" font-size="12" font-weight="600" fill="#1E293B">after: real caller in the graph</text>
+    <text x="536" y="352" font-size="11.5" fill="#64748B">get_callers(takePhoto) returns the JS site;</text>
+    <text x="536" y="372" font-size="11.5" fill="#64748B">find_usages spans the stack.</text>
+  </g>
+
+  <!-- synthesized bridge edge with traveling pulse -->
+  <path id="bridgePath" d="M404,196 L516,196" stroke="#4F46E5" stroke-width="3" fill="none" stroke-dasharray="7 7" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dashoffset" from="14" to="0" dur="1.0s" repeatCount="indefinite"/>
+  </path>
+  <text x="460" y="180" text-anchor="middle" font-size="11" font-weight="600" fill="#4F46E5">react-native</text>
+  <circle r="5.5" fill="#4F46E5">
+    <animateMotion dur="2.2s" repeatCount="indefinite" rotate="auto"><mpath href="#bridgePath"/></animateMotion>
+  </circle>
+
+  <!-- legend -->
+  <rect x="32" y="432" width="12" height="12" rx="3" fill="#E11D48"/>
+  <text x="50" y="442" font-size="11" fill="#64748B">before</text>
+  <rect x="120" y="432" width="12" height="12" rx="3" fill="#059669"/>
+  <text x="138" y="442" font-size="11" fill="#64748B">after</text>
+  <rect x="196" y="432" width="12" height="12" rx="3" fill="#4F46E5"/>
+  <text x="214" y="442" font-size="11" fill="#64748B">synthesized bridge edge (provenance-tagged)</text>
+</svg>
