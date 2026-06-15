@@ -1,11 +1,11 @@
 ---
-title: "bash: git: command not found — причины и решение"
-description: "Ошибка bash: git: command not found означает что Git не установлен или не добавлен в PATH. Решение для Windows, macOS, Linux и WSL."
+title: "git: command not found — решение для Windows, macOS и Linux"
+description: "Как исправить ошибку git command not found. Установка и настройка PATH на Windows (CMD, PowerShell), macOS (Homebrew, Apple Silicon), Linux, WSL и Docker."
 date: 2026-01-08
-lastmod: 2026-01-08
+lastmod: 2026-05-15
 draft: false
 slug: "git-command-not-found"
-keywords: ["bash git command not found", "git command not found", "git не найден", "git не установлен", "git path не найден", "zsh git command not found"]
+keywords: ["git command not found", "bash git command not found", "git не найден", "git не установлен", "git path не найден", "zsh git command not found", "git не является внутренней или внешней командой", "git is not recognized", "git not found in path", "не установлена утилита git", "git команда не найдена"]
 tags: ["git", "beginner", "troubleshooting"]
 categories: ["git"]
 ---

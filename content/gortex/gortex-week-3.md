@@ -1,8 +1,8 @@
 ---
 title: "Gortex: Week 3 — Temporal intelligence, PR review, overlay sessions, daemon-first, and 100+ tools"
 description: "Ten days of shipping since v0.39.0: Temporal workflow graph (Go + Java cross-language), gortex review PR system, live overlay sessions with speculative execution, daemon-first architecture, LSP Java via jdtls, index freshness provenance, LLM provider registry, and the tool surface crossing 100."
-date: 2026-06-16
-lastmod: 2026-06-16
+date: 2026-06-15
+lastmod: 2026-06-15
 draft: false
 slug: "gortex-week-3"
 keywords: ["gortex", "mcp", "code intelligence", "temporal workflow mcp", "pr review mcp", "overlay sessions mcp", "speculative execution mcp", "gortex daemon", "jdtls mcp", "lsp java mcp", "100 mcp tools", "change_contract mcp", "index freshness mcp", "llm provider registry", "git worktrees mcp"]
