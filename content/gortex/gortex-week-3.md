@@ -138,5 +138,6 @@ Source: [github.com/zzet/gortex](https://github.com/zzet/gortex)
 curl -fsSL https://get.gortex.dev | sh
 gortex install
 gortex daemon start --detach
-gortex init
+gortex track ~/projects/myapp
+cd ~/projects/myapp && gortex init
 ```
